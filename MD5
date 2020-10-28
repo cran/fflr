@@ -1,6 +1,6 @@
-723b1f277b92dfa2dad2b37715ecf21c *DESCRIPTION
+b871ee22ba9018f7edc3c3a1de630a4f *DESCRIPTION
 08653f2293a9429976a691356b1de40f *NAMESPACE
-9ce8f9a08f573248266bb94dd8b71197 *NEWS.md
+1ac8b21b2ad5831f74ec24d338f6c570 *NEWS.md
 4d620bf38d4edaf2bf6f8ebce61c32e2 *R/all-players.R
 b5302667d2c84cce988570d6269fbc22 *R/best-roster.R
 2c4bc958855dad5a5d3333c78ad76e32 *R/data.R
@@ -38,7 +38,7 @@ fc15341775ad6f3ad60e3540db760d38 *data/gaa_teams.rda
 94a7a8e9c7af03d55f06175d1d247194 *inst/WORDLIST
 508f6ca8534ab1c62d6fab58143dec65 *inst/doc/fantasy-football.R
 22a858e9ee1e1300df586414982d35a3 *inst/doc/fantasy-football.Rmd
-5817035189e68d96b9cf6b779df9d137 *inst/doc/fantasy-football.html
+e00722adce16e51a6ad3efc65c935659 *inst/doc/fantasy-football.html
 fd862b8dd11c0a5b80f66c70718d04a8 *man/all_players.Rd
 1bdfbbbb0bdc7464674bed1a49b4ece5 *man/best_roster.Rd
 c4172ca6334a67e7dd314002ce403a6d *man/draft_picks.Rd
@@ -96,15 +96,15 @@ a3f1ece3003a91c3e6ea7df47d41b04c *tests/testthat.R
 a2f26383d38ac9f31a300ad729f5e882 *tests/testthat/test-correct.R
 a321e8260dd5253345e89c23677b58ef *tests/testthat/test-draft.R
 773d7e14b7fdf9fc6e5862a3adb19f75 *tests/testthat/test-info.R
-487abe8deb61c6ee7ff353ace0cc7a75 *tests/testthat/test-live.R
+97b4a2382d51d5d4168d4136e3b25448 *tests/testthat/test-live.R
 e35b5d3045e474dc16adbece1bced06a *tests/testthat/test-matchups.R
 ef1638929639c31c278073986d0e522a *tests/testthat/test-members.R
 6cd488820029550f6b8cdb1bff84c172 *tests/testthat/test-merge.R
 b93c8eccf44b118393fd510b447f8071 *tests/testthat/test-messages.R
 c7a7c6d8bf43fd71029c47183d6ac743 *tests/testthat/test-moves.R
-2ba7f66be056fc51b77a2f21f38c1523 *tests/testthat/test-news.R
+24b018a5a099bbbbee547553d0991556 *tests/testthat/test-news.R
 6f2749af3398d64d9c0201649c42cf3f *tests/testthat/test-opponents.R
-462ab52f65a8569d41068b4b98b4ae4e *tests/testthat/test-outlooks.R
+1ba921acc9e709249a77fdb69b2f1a9d *tests/testthat/test-outlooks.R
 4d8645673112386352fb6ae3f269cc96 *tests/testthat/test-player.R
 3ac6ed8e3c26b2bb5aabbb8668292601 *tests/testthat/test-players.R
 9bc551dd871d15ccf10dec67413d0648 *tests/testthat/test-roster.R
