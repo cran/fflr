@@ -1,11 +1,11 @@
-b871ee22ba9018f7edc3c3a1de630a4f *DESCRIPTION
+9b8c7c48db3b69b955b8b0af739db8a2 *DESCRIPTION
 08653f2293a9429976a691356b1de40f *NAMESPACE
-1ac8b21b2ad5831f74ec24d338f6c570 *NEWS.md
+c7eeb5171f550889e15f96d8979ac6ff *NEWS.md
 4d620bf38d4edaf2bf6f8ebce61c32e2 *R/all-players.R
 b5302667d2c84cce988570d6269fbc22 *R/best-roster.R
 2c4bc958855dad5a5d3333c78ad76e32 *R/data.R
 ec20c302ba47d57256f9d1e8f1ad83ae *R/draft-picks.R
-60d366410b89618f68f2b2f6f8f1d3d5 *R/ffl-api.R
+0b9bcb8be7b74c04f0702e270365492c *R/ffl-api.R
 457179fe281555a386cc2762248a6f88 *R/ffl-info.R
 fbf96d164e31592ee7a66ff928799383 *R/ffl-merge.R
 432c9309b79ebb549757f649549e4dbf *R/fflr-package.R
@@ -30,7 +30,7 @@ c793dba0a10e323361b239a7421e45c0 *R/scores-summary.R
 625b14bbcab8e29f89fe7cafce7af78e *R/team-roster.R
 268b3655474ad8c2c57ae49a93d82a6b *R/week-scores.R
 2bf99fb4c60a75bf18d111b06f54bab8 *README.md
-e9ca107751a8296c82cb5ca6cd1e743f *build/vignette.rds
+a8133de130976bfad54618eea2f6d625 *build/vignette.rds
 fc15341775ad6f3ad60e3540db760d38 *data/gaa_teams.rda
 258645e6cde377ec0f67298c0e2326be *data/nfl_players.rda
 916aae31fcf91ad322ccc94fe8bbad35 *data/nfl_schedule.rda
@@ -38,7 +38,7 @@ fc15341775ad6f3ad60e3540db760d38 *data/gaa_teams.rda
 94a7a8e9c7af03d55f06175d1d247194 *inst/WORDLIST
 508f6ca8534ab1c62d6fab58143dec65 *inst/doc/fantasy-football.R
 22a858e9ee1e1300df586414982d35a3 *inst/doc/fantasy-football.Rmd
-e00722adce16e51a6ad3efc65c935659 *inst/doc/fantasy-football.html
+adf35134b8ea1edbd5a46a0d0a2cdec5 *inst/doc/fantasy-football.html
 fd862b8dd11c0a5b80f66c70718d04a8 *man/all_players.Rd
 1bdfbbbb0bdc7464674bed1a49b4ece5 *man/best_roster.Rd
 c4172ca6334a67e7dd314002ce403a6d *man/draft_picks.Rd

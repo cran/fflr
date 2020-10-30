@@ -1,3 +1,7 @@
+# fflr 0.3.10
+
+* `ffl_api()` now uses `tryCatch()` with `Sys.sleep()` on failures.
+
 # fflr 0.3.9
 
 * Improve package tests and failures.
