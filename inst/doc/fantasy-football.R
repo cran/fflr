@@ -65,7 +65,7 @@ nrow(outlooks)
 cat(paste(">", outlooks$outlook[1]))
 
 ## ----team_roster---------------------------------------------------------------------------------
-rosters <- team_roster()
+rosters <- team_roster(week = 3)
 
 ## ----my_roster-----------------------------------------------------------------------------------
 rosters$KIER

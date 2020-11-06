@@ -381,7 +381,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(fflr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co">#&gt; [1] &#39;0.3.10&#39;</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co">#&gt; [1] &#39;0.3.12&#39;</span></span></code></pre></div>
 <p>The fflr package helps easily access data from the ESPN fantasy football v3 API. Both current and historical data can be</p>
 <div id="games" class="section level2">
 <h2>Games</h2>
@@ -399,7 +399,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 17 x 6</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">#&gt;    game   year  week pro_league start_date          end_date           </span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;dttm&gt;              &lt;dttm&gt;             </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="co">#&gt;  1 FFL    2020     8 NFL        2020-03-09 03:00:00 2022-03-09 02:00:00</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="co">#&gt;  1 FFL    2020     9 NFL        2020-03-09 03:00:00 2022-03-09 02:00:00</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="co">#&gt;  2 FFL    2019    18 NFL        2019-02-06 03:00:00 2020-03-09 03:00:00</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="co">#&gt;  3 FFL    2018    18 NFL        2018-01-01 03:00:00 2019-02-06 03:00:00</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="co">#&gt;  4 FFL    2017    18 NFL        2017-01-01 03:00:00 2019-01-01 03:00:00</span></span>
@@ -422,18 +422,18 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="co">#&gt;  $ game      : chr &quot;FFL&quot;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">#&gt;  $ active    : logi TRUE</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co">#&gt;  $ year      : int 2020</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="co">#&gt;  $ week      : int 8</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="co">#&gt;  $ week      : int 9</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="co">#&gt;  $ start_date: POSIXct[1:1], format: &quot;2020-03-09 03:00:00&quot;</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="co">#&gt;  $ end_date  : POSIXct[1:1], format: &quot;2022-03-09 02:00:00&quot;</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">ffl_year</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="co">#&gt; [1] 2020</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">ffl_week</span>()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co">#&gt; [1] 9</span></span></code></pre></div>
 <p>To easily refer to past or future years and weeks, simply add an offset integer.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">ffl_year</span>(<span class="dt">offset =</span> <span class="dv">-2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="co">#&gt; [1] 2018</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">ffl_week</span>(<span class="dt">offset =</span>  <span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co">#&gt; [1] 9</span></span></code></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div>
 </div>
 <div id="leagues" class="section level2">
 <h2>Leagues</h2>
@@ -551,16 +551,16 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 1,072 x 19</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="co">#&gt;     year  week     id first last  pro   pos   status start  rost change   prk  fpts   aav   adp</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;dbl&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     8 3.05e6 Alvin Kama… NO    RB    A      0.978 1.00  -0.006     1 124.   56.9  3.12</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     8 1.58e4 Trav… Kelce KC    TE    A      0.994 1.00  -0.003     1  78.1  38.1 16.7 </span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     8 3.05e6 Ezek… Elli… Dal   RB    A      0.973 1.00  -0.016     8  96.8  49.0  9.84</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     8 3.04e6 Derr… Henry Ten   RB    A      0.987 0.999 -0.006     2 116.   57.6  4.32</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     8 1.68e4 Dava… Adams GB    WR    A      0.973 0.999 -0.004    16  68.9  46.4 10.5 </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     8 3.14e6 Patr… Maho… KC    QB    A      0.965 0.999 -0.009     3 170.   26.3 18.3 </span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     8 3.12e6 Tyre… Hill  KC    WR    A      0.983 0.999 -0.012     5  85.3  20.0 30.5 </span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     8 3.04e6 Geor… Kitt… SF    TE    A      0.981 0.999 -0.009     2  57.2  37.0 18.2 </span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     8 3.12e6 Dalv… Cook  Min   RB    Q      0.825 0.999  0.03      5 101.   45.8 10.8 </span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     8 1.58e4 DeAn… Hopk… Ari   WR    A      0.214 0.999 -0.021     4  86.4  46.1 11.2 </span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     9 3.05e6 Alvin Kama… NO    RB    A      0.985 1.00   0         2 141.   56.9  2.85</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     9 1.58e4 Trav… Kelce KC    TE    A      0.996 1.00   0         1  95    38.0 15.6 </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     9 1.68e4 Dava… Adams GB    WR    A      0.978 1.00  -0.002     5  92.2  46.8  9.43</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     9 3.12e6 Dalv… Cook  Min   RB    A      0.941 1.00   0.023     1 148.   50.8  7.85</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     9 3.04e6 Derr… Henry Ten   RB    A      0.988 1.00  -0.005     3 134.   55.0  4.22</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     9 3.14e6 Patr… Maho… KC    QB    A      0.968 1.00   0.001     1 207.   26.0 16.7 </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     9 1.58e4 DeAn… Hopk… Ari   WR    A      0.765 0.999  0.001     9  86.4  46.2 10.6 </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     9 3.12e6 Tyre… Hill  KC    WR    A      0.984 0.999 -0.003     2 107.   19.5 28.0 </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     9 3.05e6 Ezek… Elli… Dal   RB    Q      0.921 0.999 -0.014     7 104.   46.0 11.6 </span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     9 1.40e4 Julio Jones Atl   WR    A      0.961 0.999  0.002    20  70.4  31.8 19.8 </span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a><span class="co">#&gt; # … with 1,062 more rows, and 4 more variables: next_wk &lt;dbl&gt;, last_wk &lt;dbl&gt;, last_szn &lt;dbl&gt;,</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a><span class="co">#&gt; #   this_szn &lt;dbl&gt;</span></span></code></pre></div>
 <p>Each player is identified by their unique ID. Sometimes, only those player IDs are given. Team positions like defenses have negative IDs, but information on individual players can be retrieved from the generic ESPN (non-fantasy) API.</p>
@@ -587,27 +587,28 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a><span class="co">#&gt; # … with 1,052 more rows</span></span></code></pre></div>
 <p>News on an individual player can also be helpful.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">player_news</span>(<span class="dt">id =</span> <span class="dv">15847</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 14 x 6</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 15 x 6</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="co">#&gt;       id published           type   premium headline                     body                      </span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;lgl&gt;   &lt;chr&gt;                        &lt;chr&gt;                     </span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a><span class="co">#&gt;  1 15847 2020-10-26 01:57:11 Rotow… FALSE   Kelce caught all three of h… &quot;The five-time Pro Bowler…</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a><span class="co">#&gt;  2 15847 2020-10-20 00:31:47 Rotow… FALSE   Kelce caught five of seven … &quot;Kelce got Kansas City on…</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a><span class="co">#&gt;  3 15847 2020-10-11 21:34:23 Rotow… FALSE   Kelce brought in eight of 1… &quot;The All-Pro tight end le…</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a><span class="co">#&gt;  4 15847 2020-10-06 02:42:22 Rotow… FALSE   Kelce caught three of six t… &quot;Kelce again led Kansas C…</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a><span class="co">#&gt;  5 15847 2020-09-29 04:45:45 Rotow… FALSE   Kelce caught six of seven t… &quot;Kelce led the Chiefs in …</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a><span class="co">#&gt;  6 15847 2020-09-21 02:08:04 Rotow… FALSE   Kelce caught nine of 14 tar… &quot;Kelce led the team in ta…</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a><span class="co">#&gt;  7 15847 2020-09-11 04:24:20 Rotow… FALSE   Kelce brought in all six of… &quot;The big tight end was pa…</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a><span class="co">#&gt;  8 15847 2020-09-08 20:58:01 Rotow… FALSE   Kelce (knee) was a full par… &quot;After being listed as a …</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a><span class="co">#&gt;  9 15847 2020-09-08 10:32:10 Story  TRUE    Predicting 2020 NFL season … &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a><span class="co">#&gt; 10 15847 2020-09-07 23:10:05 Rotow… FALSE   Kelce (knee) was limited in… &quot;Kelce has dealt with the…</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a><span class="co">#&gt; 11 15847 2020-08-17 15:31:14 Story  FALSE   Inventing 32 props for the … &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a><span class="co">#&gt; 12 15847 2020-08-13 19:13:15 Rotow… FALSE   The Chiefs and Kelce agreed… &quot;The exact parameters of …</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true"></a><span class="co">#&gt; 13 15847 2020-08-13 18:33:26 Rotow… FALSE   The Chiefs and Kelce are cl… &quot;Parameters of the new co…</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true"></a><span class="co">#&gt; 14 15847 2020-02-03 04:23:02 Rotow… FALSE   Kelce brought in all six of… &quot;Kelce&#39;s reception tally …</span></span></code></pre></div>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a><span class="co">#&gt;  1 15847 2020-11-01 22:16:49 Rotow… FALSE   Kelce caught eight of 12 ta… &quot;Kelce&#39;s three-yard touch…</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a><span class="co">#&gt;  2 15847 2020-10-26 01:57:11 Rotow… FALSE   Kelce caught all three of h… &quot;The five-time Pro Bowler…</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a><span class="co">#&gt;  3 15847 2020-10-20 00:31:47 Rotow… FALSE   Kelce caught five of seven … &quot;Kelce got Kansas City on…</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a><span class="co">#&gt;  4 15847 2020-10-11 21:34:23 Rotow… FALSE   Kelce brought in eight of 1… &quot;The All-Pro tight end le…</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a><span class="co">#&gt;  5 15847 2020-10-06 02:42:22 Rotow… FALSE   Kelce caught three of six t… &quot;Kelce again led Kansas C…</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a><span class="co">#&gt;  6 15847 2020-09-29 04:45:45 Rotow… FALSE   Kelce caught six of seven t… &quot;Kelce led the Chiefs in …</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a><span class="co">#&gt;  7 15847 2020-09-21 02:08:04 Rotow… FALSE   Kelce caught nine of 14 tar… &quot;Kelce led the team in ta…</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a><span class="co">#&gt;  8 15847 2020-09-11 04:24:20 Rotow… FALSE   Kelce brought in all six of… &quot;The big tight end was pa…</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a><span class="co">#&gt;  9 15847 2020-09-08 20:58:01 Rotow… FALSE   Kelce (knee) was a full par… &quot;After being listed as a …</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a><span class="co">#&gt; 10 15847 2020-09-08 10:32:10 Story  TRUE    Predicting 2020 NFL season … &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a><span class="co">#&gt; 11 15847 2020-09-07 23:10:05 Rotow… FALSE   Kelce (knee) was limited in… &quot;Kelce has dealt with the…</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a><span class="co">#&gt; 12 15847 2020-08-17 15:31:14 Story  FALSE   Inventing 32 props for the … &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true"></a><span class="co">#&gt; 13 15847 2020-08-13 19:13:15 Rotow… FALSE   The Chiefs and Kelce agreed… &quot;The exact parameters of …</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true"></a><span class="co">#&gt; 14 15847 2020-08-13 18:33:26 Rotow… FALSE   The Chiefs and Kelce are cl… &quot;Parameters of the new co…</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true"></a><span class="co">#&gt; 15 15847 2020-02-03 04:23:02 Rotow… FALSE   Kelce brought in all six of… &quot;Kelce&#39;s reception tally …</span></span></code></pre></div>
 <p>ESPN analysts publish weekly and preseason outlooks on most players.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>outlooks &lt;-<span class="st"> </span><span class="kw">player_outlook</span>()</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="kw">nrow</span>(outlooks)</span></code></pre></div>
-<p><a href="https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public">1</a> 3670</p>
+<p><a href="https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public">1</a> 3978</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&quot;&gt;&quot;</span>, outlooks<span class="op">$</span>outlook[<span class="dv">1</span>]))</span></code></pre></div>
 <blockquote>
 <p>Kamara is coming off an up-and-down 2019 campaign, but the 24-year-old remains the main man in the New Orleans’ backfield. Kamara missed a pair of games but otherwise played a similar role to 2018, handling 12.2 carries and 7.0 targets per game. Kamara ended the season with a YPC above 4.5 and exactly 81 catches for the third consecutive season. A lack of usage near the goal line (7.1 OTD, 6 TDs) limited his fantasy production, though he did finish strongly with four of those scores coming during Weeks 16-17. Kamara should have little trouble pushing for 20 touches per game in the Saints’ Drew Brees-led, high-scoring offense. He remains a solid RB1.</p>
@@ -616,145 +617,152 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <div id="rosters" class="section level2">
 <h2>Rosters</h2>
 <p>For the team rosters in your league, a list of data frames can be returned.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>rosters &lt;-<span class="st"> </span><span class="kw">team_roster</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>rosters &lt;-<span class="st"> </span><span class="kw">team_roster</span>(<span class="dt">week =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>The elements of this list are named for their team abbreviation.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>rosters<span class="op">$</span>KIER</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 16 x 15</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a><span class="co">#&gt;     year  week team  slot       id first  last   pro   pos   status  proj score start  rost  change</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     8 KIER  QB      14876 Ryan   Tanne… Ten   QB    A      18.1   NA   42.6   72.7   5.20 </span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     8 KIER  RB    3054850 Alvin  Kamara NO    RB    A      15.8   NA   97.8  100.   -0.006</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     8 KIER  RB    3025433 Mike   Davis  Car   RB    A      13.6    7.7 94.2   97.8  -0.236</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     8 KIER  WR    2977187 Cooper Kupp   LAR   WR    A       8.94  NA   70.4   95.9  -0.887</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     8 KIER  WR    3139522 Travis Fulgh… Phi   WR    A       9.45  NA   63.8   81.2  14.6  </span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     8 KIER  TE      15847 Travis Kelce  KC    TE    A      10.3   NA   99.4  100.   -0.003</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     8 KIER  FX    3886818 Myles  Gaskin Mia   RB    A      12.0   NA   68.4   90.6   2.62 </span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     8 KIER  DS     -16014 Rams   D/ST   LAR   DS    A       5.65  NA   75.8   85.1   5.19 </span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     8 KIER  PK    3124084 Joey   Slye   Car   PK    A       9.53   5   51.0   55.0  34.7  </span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     8 KIER  BE      15795 DeAnd… Hopki… Ari   WR    A       0     NA   21.4   99.9  -0.021</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a><span class="co">#&gt; 11  2020     8 KIER  BE      16733 Odell  Beckh… Cle   WR    I       0     NA   21.4   48.4 -49.8  </span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a><span class="co">#&gt; 12  2020     8 KIER  BE    2508176 David  Johns… Hou   RB    A       0     NA   18.2   95.8  -0.78 </span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a><span class="co">#&gt; 13  2020     8 KIER  BE    4242335 Jonat… Taylor Ind   RB    A      12.4   NA   71.4   96.9  -0.305</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a><span class="co">#&gt; 14  2020     8 KIER  BE    4035538 David  Montg… Chi   RB    A      12.2   NA   68.2   93.9   0.297</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a><span class="co">#&gt; 15  2020     8 KIER  BE    3912550 Ronald Jones… TB    RB    A      11.0   NA   69.1   93.8   0.243</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a><span class="co">#&gt; 16  2020     8 KIER  BE    4038524 Gardn… Minsh… Jax   QB    Q       0     NA    3.40  35.9 -16.5</span></span></code></pre></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     3 KIER  QB    4038524 Gardn… Minsh… Jax   QB    O      19.9    9.2  1.74  24.6 -18.3  </span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     3 KIER  RB    3054850 Alvin  Kamara NO    RB    A      17.1   31.7 98.5  100.    0    </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     3 KIER  RB    4242335 Jonat… Taylor Ind   RB    A      15.3   12.2 56.4   96.3  -0.942</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     3 KIER  WR      15795 DeAnd… Hopki… Ari   WR    A      11.8   13.7 76.5   99.9   0.001</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     3 KIER  WR      16733 Odell  Beckh… Cle   WR    I       8.82   5.9 15.1   39.0 -26.3  </span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     3 KIER  TE      15847 Travis Kelce  KC    TE    A      10.1    8.7 99.6  100.    0    </span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     3 KIER  FX    2508176 David  Johns… Hou   RB    A      11.6   10.6 65.5   96.6  -0.119</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     3 KIER  DS     -16023 Steel… D/ST   Pit   DS    A       7.50   7.5 89.8   99.2   2.02 </span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     3 KIER  PK      14993 Greg   Zuerl… Dal   PK    A       7.91   9   46.1   51.2  -9.48 </span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     3 KIER  BE       2580 Drew   Brees  NO    QB    Q      17.9   23.5 29.6   76.0  -0.382</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true"></a><span class="co">#&gt; 11  2020     3 KIER  BE    2977187 Cooper Kupp   LAR   WR    A       8.37  16.7 28.2   96.0  -0.362</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true"></a><span class="co">#&gt; 12  2020     3 KIER  BE    4035538 David  Montg… Chi   RB    A       9.32   5.4 73.6   95.0   0.091</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true"></a><span class="co">#&gt; 13  2020     3 KIER  BE    3912550 Ronald Jones… TB    RB    A       7.69   7.3 59.3   93.5  -1.67 </span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true"></a><span class="co">#&gt; 14  2020     3 KIER  BE      15072 Marvin Jones… Det   WR    A       8.90   5.1 42.0   79.0  22.3  </span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true"></a><span class="co">#&gt; 15  2020     3 KIER  BE    3025433 Mike   Davis  Car   RB    A       9.32  15.1 28.9   81.5 -16.8  </span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true"></a><span class="co">#&gt; 16  2020     3 KIER  IR    3126486 Deebo  Samuel SF    WR    O       0      0    2.42  61.8 -10.5</span></span></code></pre></div>
 <p>We can easily identify the current starting roster, dropping bench players and those on injury reserve.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">start_roster</span>(rosters<span class="op">$</span>KIER)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 9 x 15</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="co">#&gt;    year  week team  slot       id first  last     pro   pos   status  proj score start  rost change</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     8 KIER  QB      14876 Ryan   Tannehi… Ten   QB    A      18.1   NA    42.6  72.7  5.20 </span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     8 KIER  RB    3054850 Alvin  Kamara   NO    RB    A      15.8   NA    97.8 100.  -0.006</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     8 KIER  RB    3025433 Mike   Davis    Car   RB    A      13.6    7.7  94.2  97.8 -0.236</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     8 KIER  WR    2977187 Cooper Kupp     LAR   WR    A       8.94  NA    70.4  95.9 -0.887</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     8 KIER  WR    3139522 Travis Fulgham  Phi   WR    A       9.45  NA    63.8  81.2 14.6  </span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     8 KIER  TE      15847 Travis Kelce    KC    TE    A      10.3   NA    99.4 100.  -0.003</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     8 KIER  FX    3886818 Myles  Gaskin   Mia   RB    A      12.0   NA    68.4  90.6  2.62 </span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     8 KIER  DS     -16014 Rams   D/ST     LAR   DS    A       5.65  NA    75.8  85.1  5.19 </span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a><span class="co">#&gt; 9  2020     8 KIER  PK    3124084 Joey   Slye     Car   PK    A       9.53   5    51.0  55.0 34.7</span></span></code></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="co">#&gt;    year  week team  slot       id first  last    pro   pos   status  proj score start  rost  change</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     3 KIER  QB    4038524 Gardn… Minshe… Jax   QB    O      19.9    9.2  1.74  24.6 -18.3  </span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     3 KIER  RB    3054850 Alvin  Kamara  NO    RB    A      17.1   31.7 98.5  100.    0    </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     3 KIER  RB    4242335 Jonat… Taylor  Ind   RB    A      15.3   12.2 56.4   96.3  -0.942</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     3 KIER  WR      15795 DeAnd… Hopkins Ari   WR    A      11.8   13.7 76.5   99.9   0.001</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     3 KIER  WR      16733 Odell  Beckha… Cle   WR    I       8.82   5.9 15.1   39.0 -26.3  </span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     3 KIER  TE      15847 Travis Kelce   KC    TE    A      10.1    8.7 99.6  100.    0    </span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     3 KIER  FX    2508176 David  Johnson Hou   RB    A      11.6   10.6 65.5   96.6  -0.119</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     3 KIER  DS     -16023 Steel… D/ST    Pit   DS    A       7.50   7.5 89.8   99.2   2.02 </span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a><span class="co">#&gt; 9  2020     3 KIER  PK      14993 Greg   Zuerle… Dal   PK    A       7.91   9   46.1   51.2  -9.48</span></span></code></pre></div>
 <p>We can also easily filter for the starting roster that has the highest projected or past score. The score total for that roster can also be easily summed.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>(best &lt;-<span class="st"> </span><span class="kw">best_roster</span>(rosters<span class="op">$</span>KIER))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 9 x 14</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a><span class="co">#&gt;    year  week team  slot       id first    last      pro   pos   status score start  rost change</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     8 KIER  QB      14876 Ryan     Tannehill Ten   QB    A      18.1   42.6  72.7  5.20 </span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     8 KIER  RB    3054850 Alvin    Kamara    NO    RB    A      15.8   97.8 100.  -0.006</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     8 KIER  RB    3025433 Mike     Davis     Car   RB    A      13.6   94.2  97.8 -0.236</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     8 KIER  WR    3139522 Travis   Fulgham   Phi   WR    A       9.45  63.8  81.2 14.6  </span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     8 KIER  WR    2977187 Cooper   Kupp      LAR   WR    A       8.94  70.4  95.9 -0.887</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     8 KIER  TE      15847 Travis   Kelce     KC    TE    A      10.3   99.4 100.  -0.003</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     8 KIER  FX    4242335 Jonathan Taylor    Ind   RB    A      12.4   71.4  96.9 -0.305</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     8 KIER  DS     -16014 Rams     D/ST      LAR   DS    A       5.65  75.8  85.1  5.19 </span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a><span class="co">#&gt; 9  2020     8 KIER  PK    3124084 Joey     Slye      Car   PK    A       9.53  51.0  55.0 34.7</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 9 x 15</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a><span class="co">#&gt;    year  week team  slot       id first   last   pro   pos   status  proj score start  rost  change</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     3 KIER  QB       2580 Drew    Brees  NO    QB    Q      17.9   23.5  29.6  76.0  -0.382</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     3 KIER  RB    3054850 Alvin   Kamara NO    RB    A      17.1   31.7  98.5 100.    0    </span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     3 KIER  RB    3025433 Mike    Davis  Car   RB    A       9.32  15.1  28.9  81.5 -16.8  </span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     3 KIER  WR    2977187 Cooper  Kupp   LAR   WR    A       8.37  16.7  28.2  96.0  -0.362</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     3 KIER  WR      15795 DeAndre Hopki… Ari   WR    A      11.8   13.7  76.5  99.9   0.001</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     3 KIER  TE      15847 Travis  Kelce  KC    TE    A      10.1    8.7  99.6 100.    0    </span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     3 KIER  FX    4242335 Jonath… Taylor Ind   RB    A      15.3   12.2  56.4  96.3  -0.942</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     3 KIER  DS     -16023 Steele… D/ST   Pit   DS    A       7.50   7.5  89.8  99.2   2.02 </span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a><span class="co">#&gt; 9  2020     3 KIER  PK      14993 Greg    Zuerl… Dal   PK    A       7.91   9    46.1  51.2  -9.48</span></span>
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true"></a><span class="kw">roster_score</span>(best)</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a><span class="co">#&gt; [1] 103.7296</span></span></code></pre></div>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true"></a><span class="co">#&gt; [1] 138.12</span></span></code></pre></div>
 <p>Players on a roster can also be compared against their professional schedule.</p>
 <p>The 2020 NFL schedule is saved as the <code>nfl_schedule</code> table. This table might be out of date due to rescheduled games. The current schedule can be returned by <code>pro_schedule()</code>. The table also indicates if the games have started yet.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>(sched &lt;-<span class="st"> </span><span class="kw">ffl_merge</span>(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a>  <span class="dt">x =</span> rosters<span class="op">$</span>KIER[, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>], </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>  <span class="dt">y =</span> <span class="kw">pro_schedule</span>()</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a>))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 13 x 13</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 16 x 13</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true"></a><span class="co">#&gt;     year  week team  slot       id first  last   pro   pos   opp   home  kickoff             future</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; &lt;lgl&gt; &lt;dttm&gt;              &lt;lgl&gt; </span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a><span class="co">#&gt;  1  2020     8 KIER  QB      14876 Ryan   Tanne… Ten   QB    Cin   FALSE 2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a><span class="co">#&gt;  2  2020     8 KIER  RB    3054850 Alvin  Kamara NO    RB    Chi   FALSE 2020-11-01 16:25:00 TRUE  </span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a><span class="co">#&gt;  3  2020     8 KIER  RB    3025433 Mike   Davis  Car   RB    Atl   TRUE  2020-10-29 20:20:00 FALSE </span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a><span class="co">#&gt;  4  2020     8 KIER  PK    3124084 Joey   Slye   Car   PK    Atl   TRUE  2020-10-29 20:20:00 FALSE </span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a><span class="co">#&gt;  5  2020     8 KIER  WR    2977187 Cooper Kupp   LAR   WR    Mia   FALSE 2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a><span class="co">#&gt;  6  2020     8 KIER  DS     -16014 Rams   D/ST   LAR   DS    Mia   FALSE 2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true"></a><span class="co">#&gt;  7  2020     8 KIER  WR    3139522 Travis Fulgh… Phi   WR    Dal   TRUE  2020-11-01 20:20:00 TRUE  </span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true"></a><span class="co">#&gt;  8  2020     8 KIER  TE      15847 Travis Kelce  KC    TE    NYJ   TRUE  2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true"></a><span class="co">#&gt;  9  2020     8 KIER  FX    3886818 Myles  Gaskin Mia   RB    LAR   TRUE  2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true"></a><span class="co">#&gt; 10  2020     8 KIER  BE      16733 Odell  Beckh… Cle   WR    LV    TRUE  2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true"></a><span class="co">#&gt; 11  2020     8 KIER  BE    4242335 Jonat… Taylor Ind   RB    Det   FALSE 2020-11-01 13:00:00 TRUE  </span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true"></a><span class="co">#&gt; 12  2020     8 KIER  BE    4035538 David  Montg… Chi   RB    NO    TRUE  2020-11-01 16:25:00 TRUE  </span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true"></a><span class="co">#&gt; 13  2020     8 KIER  BE    3912550 Ronald Jones… TB    RB    NYG   FALSE 2020-11-02 20:15:00 TRUE</span></span></code></pre></div>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true"></a><span class="co">#&gt;  1  2020     3 KIER  QB    4038524 Gardn… Minsh… Jax   QB    Mia   TRUE  2020-09-24 20:20:00 FALSE </span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true"></a><span class="co">#&gt;  2  2020     3 KIER  RB    3054850 Alvin  Kamara NO    RB    GB    TRUE  2020-09-27 20:20:00 FALSE </span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true"></a><span class="co">#&gt;  3  2020     3 KIER  BE       2580 Drew   Brees  NO    QB    GB    TRUE  2020-09-27 20:20:00 FALSE </span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true"></a><span class="co">#&gt;  4  2020     3 KIER  RB    4242335 Jonat… Taylor Ind   RB    NYJ   TRUE  2020-09-27 16:05:00 FALSE </span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true"></a><span class="co">#&gt;  5  2020     3 KIER  WR      15795 DeAnd… Hopki… Ari   WR    Det   TRUE  2020-09-27 16:25:00 FALSE </span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true"></a><span class="co">#&gt;  6  2020     3 KIER  WR      16733 Odell  Beckh… Cle   WR    Wsh   TRUE  2020-09-27 13:00:00 FALSE </span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true"></a><span class="co">#&gt;  7  2020     3 KIER  TE      15847 Travis Kelce  KC    TE    Bal   FALSE 2020-09-28 20:15:00 FALSE </span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true"></a><span class="co">#&gt;  8  2020     3 KIER  FX    2508176 David  Johns… Hou   RB    Pit   FALSE 2020-09-27 13:00:00 FALSE </span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true"></a><span class="co">#&gt;  9  2020     3 KIER  DS     -16023 Steel… D/ST   Pit   DS    Hou   TRUE  2020-09-27 13:00:00 FALSE </span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true"></a><span class="co">#&gt; 10  2020     3 KIER  PK      14993 Greg   Zuerl… Dal   PK    Sea   FALSE 2020-09-27 16:25:00 FALSE </span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true"></a><span class="co">#&gt; 11  2020     3 KIER  BE    2977187 Cooper Kupp   LAR   WR    Buf   FALSE 2020-09-27 13:00:00 FALSE </span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true"></a><span class="co">#&gt; 12  2020     3 KIER  BE    4035538 David  Montg… Chi   RB    Atl   FALSE 2020-09-27 13:00:00 FALSE </span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true"></a><span class="co">#&gt; 13  2020     3 KIER  BE    3912550 Ronald Jones… TB    RB    Den   FALSE 2020-09-27 16:25:00 FALSE </span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true"></a><span class="co">#&gt; 14  2020     3 KIER  BE      15072 Marvin Jones… Det   WR    Ari   FALSE 2020-09-27 16:25:00 FALSE </span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true"></a><span class="co">#&gt; 15  2020     3 KIER  BE    3025433 Mike   Davis  Car   RB    LAC   FALSE 2020-09-27 16:05:00 FALSE </span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true"></a><span class="co">#&gt; 16  2020     3 KIER  IR    3126486 Deebo  Samuel SF    WR    NYG   FALSE 2020-09-27 13:00:00 FALSE</span></span></code></pre></div>
 <p>The opponent teams for each player are ranked by the average points scored against them by each position. The lower the rank, the more points that position scores against the opponent team.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="kw">ffl_merge</span>(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>  <span class="dt">x =</span> sched[, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>], </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a>  <span class="dt">y =</span> <span class="kw">opponent_ranks</span>(), </span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;pos&quot;</span>, <span class="st">&quot;opp&quot;</span> =<span class="st"> &quot;pro&quot;</span>)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 12 x 7</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a><span class="co">#&gt;    first    last        pro   pos   opp    rank   avg</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a><span class="co">#&gt;  1 Ryan     Tannehill   Ten   QB    Cin      14 19.6 </span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a><span class="co">#&gt;  2 Alvin    Kamara      NO    RB    Chi      25 15.7 </span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a><span class="co">#&gt;  3 Mike     Davis       Car   RB    Atl       5 23.9 </span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true"></a><span class="co">#&gt;  4 Cooper   Kupp        LAR   WR    Mia      31 16.1 </span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a><span class="co">#&gt;  5 Rams     D/ST        LAR   DS    Mia      18  1.14</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a><span class="co">#&gt;  6 Travis   Fulgham     Phi   WR    Dal      12 25.6 </span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a><span class="co">#&gt;  7 Travis   Kelce       KC    TE    NYJ      20  7.6 </span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a><span class="co">#&gt;  8 Myles    Gaskin      Mia   RB    LAR       8 22.6 </span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true"></a><span class="co">#&gt;  9 Odell    Beckham Jr. Cle   WR    LV        3 32.4 </span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true"></a><span class="co">#&gt; 10 Jonathan Taylor      Ind   RB    Det      27 14.9 </span></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true"></a><span class="co">#&gt; 11 David    Montgomery  Chi   RB    NO       20 17.2 </span></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true"></a><span class="co">#&gt; 12 Ronald   Jones II    TB    RB    NYG      28 14.8</span></span></code></pre></div>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 15 x 7</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a><span class="co">#&gt;    first    last        pro   pos   opp    rank    avg</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; &lt;int&gt;  &lt;dbl&gt;</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a><span class="co">#&gt;  1 Gardner  Minshew II  Jax   QB    Mia       3 22.4  </span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a><span class="co">#&gt;  2 Alvin    Kamara      NO    RB    GB       29 15.0  </span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a><span class="co">#&gt;  3 Drew     Brees       NO    QB    GB        5 21.8  </span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true"></a><span class="co">#&gt;  4 Jonathan Taylor      Ind   RB    NYJ      30 14.3  </span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a><span class="co">#&gt;  5 DeAndre  Hopkins     Ari   WR    Det      20 23.4  </span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a><span class="co">#&gt;  6 Odell    Beckham Jr. Cle   WR    Wsh       3 29.6  </span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a><span class="co">#&gt;  7 Travis   Kelce       KC    TE    Bal      23  6.44 </span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a><span class="co">#&gt;  8 David    Johnson     Hou   RB    Pit       3 26.3  </span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true"></a><span class="co">#&gt;  9 Steelers D/ST        Pit   DS    Hou      24  0.429</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true"></a><span class="co">#&gt; 10 Cooper   Kupp        LAR   WR    Buf      31 16.2  </span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true"></a><span class="co">#&gt; 11 David    Montgomery  Chi   RB    Atl      19 17.5  </span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true"></a><span class="co">#&gt; 12 Ronald   Jones II    TB    RB    Den      25 15.8  </span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true"></a><span class="co">#&gt; 13 Marvin   Jones Jr.   Det   WR    Ari      14 24.7  </span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true"></a><span class="co">#&gt; 14 Mike     Davis       Car   RB    LAC       5 23.1  </span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true"></a><span class="co">#&gt; 15 Deebo    Samuel      SF    WR    NYG      23 21.7</span></span></code></pre></div>
 </div>
 <div id="transactions" class="section level2">
 <h2>Transactions</h2>
 <p>If you’re interested in how the players on a roster were acquired you look at either the acquisition history, draft picks, or league roster moves.</p>
 <p>Every roster identifies players by acquisition method.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="kw">player_acquire</span>()[[<span class="dv">5</span>]]</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 16 x 11</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="co">#&gt;     year  week team  slot       id first    last        pro   pos   method date               </span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;       &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dttm&gt;             </span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     8 KIER  QB      14876 Ryan     Tannehill   Ten   QB    ADD    2020-10-21 12:00:34</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     8 KIER  RB    3054850 Alvin    Kamara      NO    RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     8 KIER  RB    3025433 Mike     Davis       Car   RB    ADD    2020-09-23 11:00:09</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     8 KIER  WR    2977187 Cooper   Kupp        LAR   WR    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     8 KIER  WR    3139522 Travis   Fulgham     Phi   WR    ADD    2020-10-21 12:00:34</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     8 KIER  TE      15847 Travis   Kelce       KC    TE    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     8 KIER  FX    3886818 Myles    Gaskin      Mia   RB    ADD    2020-09-30 11:01:14</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     8 KIER  DS     -16014 Rams     D/ST        LAR   DS    ADD    2020-10-29 12:00:05</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     8 KIER  PK    3124084 Joey     Slye        Car   PK    ADD    2020-10-28 12:00:26</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     8 KIER  BE      15795 DeAndre  Hopkins     Ari   WR    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a><span class="co">#&gt; 11  2020     8 KIER  BE      16733 Odell    Beckham Jr. Cle   WR    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a><span class="co">#&gt; 12  2020     8 KIER  BE    2508176 David    Johnson     Hou   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a><span class="co">#&gt; 13  2020     8 KIER  BE    4242335 Jonathan Taylor      Ind   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a><span class="co">#&gt; 14  2020     8 KIER  BE    4035538 David    Montgomery  Chi   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a><span class="co">#&gt; 15  2020     8 KIER  BE    3912550 Ronald   Jones II    TB    RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a><span class="co">#&gt; 16  2020     8 KIER  BE    4038524 Gardner  Minshew II  Jax   QB    ADD    2020-09-23 11:00:09</span></span></code></pre></div>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 17 x 11</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="co">#&gt;     year  week team  slot       id first      last       pro   pos   method date               </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dttm&gt;             </span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     9 KIER  QB      14876 Ryan       Tannehill  Ten   QB    ADD    2020-10-21 12:00:34</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="co">#&gt;  2  2020     9 KIER  RB    3054850 Alvin      Kamara     NO    RB    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a><span class="co">#&gt;  3  2020     9 KIER  RB    2508176 David      Johnson    Hou   RB    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a><span class="co">#&gt;  4  2020     9 KIER  WR      15795 DeAndre    Hopkins    Ari   WR    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a><span class="co">#&gt;  5  2020     9 KIER  WR    3042778 Corey      Davis      Ten   WR    ADD    2020-11-05 12:00:09</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a><span class="co">#&gt;  6  2020     9 KIER  TE      15847 Travis     Kelce      KC    TE    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a><span class="co">#&gt;  7  2020     9 KIER  FX    4035538 David      Montgomery Chi   RB    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     9 KIER  DS     -16028 Washington D/ST       Wsh   DS    ADD    2020-11-04 12:00:08</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     9 KIER  PK    3124084 Joey       Slye       Car   PK    ADD    2020-10-28 12:00:26</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     9 KIER  BE    2977187 Cooper     Kupp       LAR   WR    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a><span class="co">#&gt; 11  2020     9 KIER  BE    4242335 Jonathan   Taylor     Ind   RB    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a><span class="co">#&gt; 12  2020     9 KIER  BE    3912550 Ronald     Jones II   TB    RB    DRAFT  2020-09-06 22:17:42</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a><span class="co">#&gt; 13  2020     9 KIER  BE    4038524 Gardner    Minshew II Jax   QB    ADD    2020-09-23 11:00:09</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a><span class="co">#&gt; 14  2020     9 KIER  BE    3025433 Mike       Davis      Car   RB    ADD    2020-09-23 11:00:09</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a><span class="co">#&gt; 15  2020     9 KIER  BE    3139522 Travis     Fulgham    Phi   WR    ADD    2020-10-21 12:00:34</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a><span class="co">#&gt; 16  2020     9 KIER  BE      13983 A.J.       Green      Cin   WR    ADD    2020-11-01 12:00:09</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true"></a><span class="co">#&gt; 17  2020     9 KIER  IR    3886818 Myles      Gaskin     Mia   RB    ADD    2020-09-30 11:01:14</span></span></code></pre></div>
 <p>Roster moves are any waiver add, lineup change, or trade. Roster moves only identify players by their ID, so we will merge with the players table. The <code>ffl_merge()</code> function uses <code>merge()</code> to return a tibble of combined columns and rows in their same order.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="kw">ffl_merge</span>(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>  <span class="dt">x =</span> <span class="kw">roster_moves</span>()[, <span class="dv">7</span><span class="op">:</span><span class="dv">14</span>], </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a>  <span class="dt">y =</span> nfl_players[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 85 x 10</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a><span class="co">#&gt;    date                 team from_slot from_team      id to_slot to_team move   first    last   </span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a><span class="co">#&gt;    &lt;dttm&gt;              &lt;int&gt; &lt;fct&gt;         &lt;int&gt;   &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  </span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a><span class="co">#&gt;  1 2020-10-28 12:00:26     1 &lt;NA&gt;             NA 3119195 &lt;NA&gt;          1 ADD    Chase    Edmonds</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a><span class="co">#&gt;  2 2020-10-28 12:00:26     4 &lt;NA&gt;             NA 3119195 &lt;NA&gt;          4 ADD    Chase    Edmonds</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a><span class="co">#&gt;  3 2020-10-28 12:00:26     3 &lt;NA&gt;             NA 3119195 &lt;NA&gt;          3 ADD    Chase    Edmonds</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a><span class="co">#&gt;  4 2020-10-28 12:00:26     1 &lt;NA&gt;              1   15920 &lt;NA&gt;         NA DROP   Latavius Murray </span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a><span class="co">#&gt;  5 2020-10-28 12:00:26     6 &lt;NA&gt;             NA 3124084 &lt;NA&gt;          6 ADD    Joey     Slye   </span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a><span class="co">#&gt;  6 2020-10-28 19:20:40     6 BE               NA 3124084 PK           NA LINEUP Joey     Slye   </span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a><span class="co">#&gt;  7 2020-10-28 12:00:26     6 &lt;NA&gt;              6   12460 &lt;NA&gt;         NA DROP   Graham   Gano   </span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a><span class="co">#&gt;  8 2020-10-28 16:51:03     1 BE               NA  -16012 DS           NA LINEUP Chiefs   D/ST   </span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a><span class="co">#&gt;  9 2020-10-28 12:00:26     1 &lt;NA&gt;             NA  -16012 &lt;NA&gt;          1 ADD    Chiefs   D/ST   </span></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a><span class="co">#&gt; 10 2020-10-28 12:00:26     6 &lt;NA&gt;             NA  -16012 &lt;NA&gt;          6 ADD    Chiefs   D/ST   </span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true"></a><span class="co">#&gt; # … with 75 more rows</span></span></code></pre></div>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 77 x 10</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a><span class="co">#&gt;    date                 team from_slot from_team      id to_slot to_team move   first   last    </span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true"></a><span class="co">#&gt;    &lt;dttm&gt;              &lt;int&gt; &lt;fct&gt;         &lt;int&gt;   &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   </span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true"></a><span class="co">#&gt;  1 2020-11-03 14:20:11     6 RB               NA 3025433 BE           NA LINEUP Mike    Davis   </span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true"></a><span class="co">#&gt;  2 2020-11-03 14:20:11     6 BE               NA 2508176 RB           NA LINEUP David   Johnson </span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true"></a><span class="co">#&gt;  3 2020-11-03 13:40:01     6 BE               NA   15795 WR           NA LINEUP DeAndre Hopkins </span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true"></a><span class="co">#&gt;  4 2020-11-03 13:40:01     6 WR               NA 3139522 BE           NA LINEUP Travis  Fulgham </span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true"></a><span class="co">#&gt;  5 2020-11-05 12:02:46     6 BE               NA 3042778 WR           NA LINEUP Corey   Davis   </span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a><span class="co">#&gt;  6 2020-11-05 12:00:09     6 &lt;NA&gt;             NA 3042778 &lt;NA&gt;          6 ADD    Corey   Davis   </span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a><span class="co">#&gt;  7 2020-11-03 09:28:14     4 BE               NA 4052042 RB           NA LINEUP James   Robinson</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a><span class="co">#&gt;  8 2020-11-03 09:28:14     4 RB               NA 3928925 BE           NA LINEUP JaMycal Hasty   </span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true"></a><span class="co">#&gt;  9 2020-11-03 09:28:14     4 BE               NA 3119195 FX           NA LINEUP Chase   Edmonds </span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true"></a><span class="co">#&gt; 10 2020-11-04 09:09:41     4 BE               NA 3932905 WR           NA LINEUP Diontae Johnson </span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true"></a><span class="co">#&gt; # … with 67 more rows</span></span></code></pre></div>
 <p>We can also get the entire history of the draft, either snake or auction.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">ffl_merge</span>(</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a>  <span class="dt">x =</span> <span class="kw">draft_picks</span>(), </span>
@@ -779,20 +787,20 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 8 x 11</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a><span class="co">#&gt;    year  week  team abbrev waiver spent acquisitions drops activated reserved trades</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;int&gt;     &lt;int&gt;    &lt;int&gt;  &lt;int&gt;</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     8     1 AGUS        3    46           13    13        34        0      0</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     8     3 PEPE        6    34            9     8        34        2      0</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     8     4 BILL        2    90           14    13        46        4      0</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     8     5 CART        8    44            9     9        31        0      0</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     8     6 KIER        5    64           14    14        33        1      0</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     8     8 CORE        1    42           14    13        46        1      0</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     8    10 NICK        4    38           16    16        33        2      0</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     8    11 KYLE        7    57           11    10        34        1      0</span></span></code></pre></div>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     9     1 AGUS        3    46           13    13        39        0      0</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     9     3 PEPE        1    34            9     8        38        2      0</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     9     4 BILL        4    91           15    14        52        4      0</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     9     5 CART        6    48           11    11        34        0      0</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     9     6 KIER        7    70           17    16        40        2      0</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     9     8 CORE        8    43           15    15        51        1      0</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     9    10 NICK        5    44           18    17        40        3      0</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     9    11 KYLE        2    57           11    10        42        1      0</span></span></code></pre></div>
 </div>
 <div id="scores" class="section level2">
 <h2>Scores</h2>
 <p>Past team scores are found in the tidy tibble by matchup period.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">match_scores</span>()</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 56 x 9</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 64 x 9</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a><span class="co">#&gt;     year match week   team abbrev home  score winner power</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;int&gt; &lt;fct&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     1 1         3 PEPE   TRUE  103.  TRUE       4</span></span>
@@ -805,7 +813,7 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     4 1         6 KIER   FALSE  99.7 FALSE      3</span></span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     5 2         1 AGUS   TRUE  144.  TRUE       7</span></span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     5 2         4 BILL   FALSE 110.  FALSE      2</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a><span class="co">#&gt; # … with 46 more rows</span></span></code></pre></div>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true"></a><span class="co">#&gt; # … with 54 more rows</span></span></code></pre></div>
 <p>These scores are only for matches played. We can also determine future matches.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a><span class="kw">match_schedule</span>()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 96 x 6</span></span>
@@ -824,17 +832,17 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true"></a><span class="co">#&gt; # … with 86 more rows</span></span></code></pre></div>
 <p>If a matchup period is currently ongoing, the live score and projection can also be found.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="kw">live_scoring</span>()</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 8 x 5</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="co">#&gt;    week match team  score  proj</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a><span class="co">#&gt; 1     8    29 AGUS    4.2 102. </span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a><span class="co">#&gt; 2     8    29 PEPE   13    97.0</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a><span class="co">#&gt; 3     8    30 BILL    5.5  97.0</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a><span class="co">#&gt; 4     8    30 NICK   24.3 114. </span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a><span class="co">#&gt; 5     8    31 KYLE    0    99.3</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a><span class="co">#&gt; 6     8    31 CART    4.8 100. </span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a><span class="co">#&gt; 7     8    32 KIER   12.7  92.9</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true"></a><span class="co">#&gt; 8     8    32 CORE    0    95.6</span></span></code></pre></div>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 8 x 6</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="co">#&gt;    week match team  score  proj    line</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a><span class="co">#&gt; * &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a><span class="co">#&gt; 1     9    33 BILL    0   116.   13.8  </span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a><span class="co">#&gt; 2     9    33 AGUS    7.9 102.  -13.8  </span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a><span class="co">#&gt; 3     9    34 PEPE    0.5  90.8 -14.0  </span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a><span class="co">#&gt; 4     9    34 KYLE    0   105.   14.0  </span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a><span class="co">#&gt; 5     9    35 NICK    0   102.   -0.224</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a><span class="co">#&gt; 6     9    35 KIER    0   102.    0.224</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a><span class="co">#&gt; 7     9    36 CART   28   107.   11.0  </span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true"></a><span class="co">#&gt; 8     9    36 CORE    0    96.0 -11.0</span></span></code></pre></div>
 <p>It’s worth noting that matchups and weeks are different units of time. For this league, for example, regular season matchups last one week and playoff matches last two.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="kw">schedule_settings</span>()</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a><span class="co">#&gt; $year</span></span>
@@ -886,7 +894,7 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb32-48"><a href="#cb32-48" aria-hidden="true"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
 <p>If you want to return scores by <em>week</em>, use a different function. These functions also return “power wins” which are the total number of wins a team would get if they played every other team in the league; the lowest score gets zero power wins and the highest gets one less than the number of teams.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="kw">week_scores</span>()</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 56 x 8</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 64 x 8</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a><span class="co">#&gt;     year match  week  team abbrev home  score power</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a><span class="co">#&gt;  1  2020     1     1     3 PEPE   TRUE  103.      4</span></span>
@@ -899,20 +907,20 @@ https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true"></a><span class="co">#&gt;  8  2020     4     1     6 KIER   FALSE  99.7     3</span></span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true"></a><span class="co">#&gt;  9  2020     5     2     1 AGUS   TRUE  144.      7</span></span>
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true"></a><span class="co">#&gt; 10  2020     5     2     4 BILL   FALSE 110.      2</span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true"></a><span class="co">#&gt; # … with 46 more rows</span></span></code></pre></div>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true"></a><span class="co">#&gt; # … with 54 more rows</span></span></code></pre></div>
 <p>A summary of scores and wins is also available.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="kw">score_summary</span>()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 8 x 16</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a><span class="co">#&gt;    year  week  team abbrev draft current  seed final  back losses  ties  wins percentage against</span></span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     8     1 AGUS       1       1     2    NA     0      2     0     5      0.714    707.</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     8     3 PEPE       7       6     4    NA     1      3     0     4      0.571    646.</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     8     4 BILL       8       3     1    NA     0      2     0     5      0.714    688.</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     8     5 CART       5       2     3    NA     1      3     0     4      0.571    690.</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     8     6 KIER       4       8     7    NA     3      5     0     2      0.286    759.</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     8     8 CORE       6       7     8    NA     3      5     0     2      0.286    818.</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     8    10 NICK       3       4     5    NA     2      4     0     3      0.429    701.</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     8    11 KYLE       2       5     6    NA     2      4     0     3      0.429    771.</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a><span class="co">#&gt; 1  2020     9     1 AGUS       1       2     2    NA     0      2     0     6      0.75     781.</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a><span class="co">#&gt; 2  2020     9     3 PEPE       7       7     5    NA     2      4     0     4      0.5      725.</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true"></a><span class="co">#&gt; 3  2020     9     4 BILL       8       1     1    NA     0      2     0     6      0.75     793.</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true"></a><span class="co">#&gt; 4  2020     9     5 CART       5       3     3    NA     2      4     0     4      0.5      790.</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true"></a><span class="co">#&gt; 5  2020     9     6 KIER       4       6     7    NA     3      5     0     3      0.375    844.</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true"></a><span class="co">#&gt; 6  2020     9     8 CORE       6       8     8    NA     4      6     0     2      0.25     913.</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true"></a><span class="co">#&gt; 7  2020     9    10 NICK       3       5     6    NA     3      5     0     3      0.375    837.</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true"></a><span class="co">#&gt; 8  2020     9    11 KYLE       2       4     4    NA     2      4     0     4      0.5      870.</span></span>
 <span id="cb34-13"><a href="#cb34-13" aria-hidden="true"></a><span class="co">#&gt; # … with 2 more variables: points &lt;dbl&gt;, streak &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="historical" class="section level2">

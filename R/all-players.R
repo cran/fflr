@@ -6,9 +6,11 @@
 #' @param week The scoring period to return, defaults to [ffl_week()].
 #' @return A tibble of players.
 #' @examples
+#' \dontrun{
 #' all_players()
+#' }
 #' @importFrom tibble as_tibble
-#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom jsonlite toJSON
 #' @importFrom httr GET add_headers accept_json content
 #' @export
 all_players <- function(lid = getOption("lid"), week = ffl_week()) {
@@ -41,7 +43,7 @@ all_players <- function(lid = getOption("lid"), week = ffl_week()) {
       "/seasons/2020/segments/0/leagues/", lid
     )
   )
-  p <- jsonlite::fromJSON(httr::content(g, "text"))
+  p <- try_api(httr::content(g, "text"))
   if (length(p) == 2) {
     p <- p$players
   }
@@ -65,13 +67,13 @@ all_players <- function(lid = getOption("lid"), week = ffl_week()) {
     }
     w <- max(s$w)
     w_last <- which(s$source == 0 & s$split == 1 & s$w == w - 1)
-    if (length(w_last) != 0) {
+    if (length(w_last) == 1) {
       z$last_wk[i] <- s$stat[w_last]
     } else {
       z$last_wk[i] <- NA
     }
     w_next <- which(s$source == 1 & s$split == 1 & s$w == w)
-    if (length(w_next) != 0) {
+    if (length(w_next) == 1) {
       z$next_wk[i] <- s$stat[w_next]
     } else {
       z$next_wk[i] <- NA
