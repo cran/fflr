@@ -47,20 +47,20 @@ team_abbrev(id = 6, teams)
 roster_settings()
 score_settings()
 
-## ----all_players---------------------------------------------------------------------------------
-all_players()
-
-## ----player_info---------------------------------------------------------------------------------
-player_info(id = 3054850, row = TRUE)
+## ----all_players, eval=FALSE---------------------------------------------------------------------
+#  all_players(limit = 5)
 
 ## ----nfl_players---------------------------------------------------------------------------------
 nfl_players
+
+## ----player_info---------------------------------------------------------------------------------
+player_info(id = 3054850, row = TRUE)
 
 ## ----player_news---------------------------------------------------------------------------------
 player_news(id = 15847)
 
 ## ----player_outlook, results='asis'--------------------------------------------------------------
-outlooks <- player_outlook()
+outlooks <- player_outlook(limit = 1)
 nrow(outlooks)
 cat(paste(">", outlooks$outlook[1]))
 
