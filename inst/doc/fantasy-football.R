@@ -95,7 +95,7 @@ player_acquire()[[5]]
 
 ## ----roster_moves--------------------------------------------------------------------------------
 ffl_merge(
-  x = roster_moves()[, 7:14], 
+  x = roster_moves(week = 5)[, 7:14], 
   y = nfl_players[, 1:3]
 )
 
