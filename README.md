@@ -6,10 +6,10 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/fflr)](https://CRAN.R-project.org/package=fflr)
-![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/usa)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/fflr)
 [![Codecov test
 coverage](https://codecov.io/gh/kiernann/fflr/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/fflr?branch=master)
 [![R build
@@ -17,23 +17,16 @@ status](https://github.com/kiernann/fflr/workflows/R-CMD-check/badge.svg)](https
 <!-- badges: end -->
 
 The fflr package is used to query the [ESPN Fantasy Football
-API](https://fantasy.espn.com/apis/v3/games/ffl/) for both the current
-and prior seasons. Get data on fantasy league members, teams, and
-individual athletes.
+API](https://fantasy.espn.com/apis/v3/games/ffl/). Get data on fantasy
+football league members, teams, and individual athletes.
 
-This package was designed and tested for a standard 10-team league. Most
-functions should for other leagues, but contributions are welcome.
+This package has been tested with a narrow subset of possible league
+settings. If a function doesn’t work as intended, please file an [issue
+on GitHub](https://github.com/kiernann/fflr/issues).
 
 ## Installation
 
-You can install the released version of fflr from
-[CRAN](https://cran.r-project.org/package=fflr):
-
-``` r
-install.packages("fflr")
-```
-
-The development version can be installed from
+You can install the development version of fflr from
 [GitHub](https://github.com/kiernann/fflr):
 
 ``` r
@@ -45,156 +38,98 @@ remotes::install_github("kiernann/fflr")
 
 ``` r
 library(fflr)
-library(ffplot)
-library(tidyverse)
+packageVersion("fflr")
+#> [1] '1.9.2'
 ```
 
-Here we see how to scrape teams, rosters, scores, and waiver pickups,
-etc.
-
-Most data can only be scraped from *public* leagues. [This ESPN help
+Data is only available for public leagues. See [this help
 page](https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public)
-has instructions for making a league viewable.
+on how to make a private league public
 
-For convenience, you can define a league ID as `lid` with `options()`.
+Functions require a unique `leagueId`, which can be found in any ESPN
+page URL.
 
-<pre>
-https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
-</pre>
+<pre>https://fantasy.espn.com/football/league?leagueId=<b>42654852</b></pre>
 
-``` r
-options(lid = 252353)
-getOption("lid")
-#> [1] 252353
-```
-
-Then data can be scraped and automatically formatted into data frames.
+Use `ffl_id()` to set a default `fflr.leagueId` option. Your `.Rprofile`
+file can [set this option on
+startup](https://support.rstudio.com/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf).
 
 ``` r
-rosters <- team_roster(week = ffl_week(-1))
-my_roster <- rosters[[5]]
+ffl_id(leagueId = "42654852")
+#> Temporarily set `fflr.leagueId` option to 42654852
+#> [1] "42654852"
 ```
 
-    #> # A tibble: 16 x 13
-    #>     week team  slot  first    last       pro   pos   status  proj score start  rost  change
-    #>    <int> <fct> <fct> <chr>    <chr>      <fct> <fct> <chr>  <dbl> <dbl> <dbl> <dbl>   <dbl>
-    #>  1     8 KIER  QB    Ryan     Tannehill  Ten   QB    A      17.0   17.3 27.1   69.1  -3.65 
-    #>  2     8 KIER  RB    Alvin    Kamara     NO    RB    A      16.1   16.3 98.6  100.    0.002
-    #>  3     8 KIER  RB    Mike     Davis      Car   RB    A      13.6    7.7 15.2   75.1 -22.8  
-    #>  4     8 KIER  WR    Cooper   Kupp       LAR   WR    A       8.94  11   16.0   95.6  -0.266
-    #>  5     8 KIER  WR    Travis   Fulgham    Phi   WR    A       9.43  13.8  3.28  83.0   1.77 
-    #>  6     8 KIER  TE    Travis   Kelce      KC    TE    A      10.3   16.9 99.6  100.    0.001
-    #>  7     8 KIER  FX    Jonathan Taylor     Ind   RB    A      12.4    3.1 53.2   95.8  -1.10 
-    #>  8     8 KIER  DS    Rams     D/ST       LAR   DS    A       5.48   3.5 11.0   58.0 -27.2  
-    #>  9     8 KIER  PK    Joey     Slye       Car   PK    A       9.53   5   40.4   45.2  -9.85 
-    #> 10     8 KIER  BE    DeAndre  Hopkins    Ari   WR    A       0     NA   90.6   99.9   0.015
-    #> 11     8 KIER  BE    David    Johnson    Hou   RB    A       0     NA   78.6   96.7   0.959
-    #> 12     8 KIER  BE    David    Montgomery Chi   RB    A      12.2   10.5 74.1   94.7   0.753
-    #> 13     8 KIER  BE    Ronald   Jones II   TB    RB    A      11.0    2.6 53.5   92.5  -1.31 
-    #> 14     8 KIER  BE    Gardner  Minshew II Jax   QB    O       0     NA    1.55  21.1 -14.8  
-    #> 15     8 KIER  BE    Myles    Gaskin     Mia   RB    I      12.2   10.3  6.47  79.6 -11.0  
-    #> 16     8 KIER  BE    A.J.     Green      Cin   WR    A       8.05   1.9  7.90  72.4  -7.84
-
-Some functions help calculate statistics like the optimal roster score.
+The `leagueId` argument defaults to `ffl_id()` and can be omitted once
+set.
 
 ``` r
-my_best <- best_roster(my_roster)
-roster_score(my_roster)
-#> [1] 94.62
-roster_score(my_best)
-#> [1] 104.62
+league_info()
+#> # A tibble: 1 × 6
+#>         id seasonId name             isPublic  size finalScoringPeriod
+#>      <int>    <int> <chr>            <lgl>    <int>              <int>
+#> 1 42654852     2021 FFLR Test League TRUE         4                 17
+league_teams()
+#> # A tibble: 4 × 5
+#>   abbrev    id location nickname   owners   
+#>   <fct>  <int> <chr>    <chr>      <list>   
+#> 1 AUS        1 Austin   Astronauts <chr [1]>
+#> 2 BOS        2 Boston   Buzzards   <chr [1]>
+#> 3 CHI        3 Chicago  Crowns     <chr [1]>
+#> 4 DEN        4 Denver   Devils     <chr [1]>
 ```
 
-Matchups return as a [tidy](https://en.wikipedia.org/wiki/Tidy_data)
-tibble of weekly scores by team.
+The `scoringPeriodId` argument can be used to get data from past weeks.
 
 ``` r
-(scores <- match_scores())
-#> # A tibble: 64 x 9
-#>     year match week   team abbrev home  score winner power
-#>    <int> <int> <fct> <int> <fct>  <lgl> <dbl> <lgl>  <dbl>
-#>  1  2020     1 1         3 PEPE   TRUE  103.  TRUE       4
-#>  2  2020     1 1         1 AGUS   FALSE  68.5 FALSE      0
-#>  3  2020     2 1        10 NICK   TRUE   86.0 FALSE      1
-#>  4  2020     2 1         4 BILL   FALSE 134.  TRUE       6
-#>  5  2020     3 1         5 CART   TRUE  149.  TRUE       7
-#>  6  2020     3 1        11 KYLE   FALSE  94.7 FALSE      2
-#>  7  2020     4 1         8 CORE   TRUE  119.  TRUE       5
-#>  8  2020     4 1         6 KIER   FALSE  99.7 FALSE      3
-#>  9  2020     5 2         1 AGUS   TRUE  144.  TRUE       7
-#> 10  2020     5 2         4 BILL   FALSE 110.  FALSE      2
-#> # … with 54 more rows
+team_roster(scoringPeriodId = 1)[[3]][, -c(1:3, 5, 13:15)]
+#> # A tibble: 16 × 8
+#>    lineupSlot firstName lastName  proTeam position injuryStatus projectedScore actualScore
+#>    <fct>      <chr>     <chr>     <fct>   <fct>    <chr>                 <dbl>       <dbl>
+#>  1 QB         Josh      Allen     Buf     QB       A                     21.6         17.2
+#>  2 RB         Saquon    Barkley   NYG     RB       A                     13.8          3.7
+#>  3 RB         Derrick   Henry     Ten     RB       A                     17.3         10.7
+#>  4 WR         DeAndre   Hopkins   Ari     WR       A                     17.8         26.3
+#>  5 WR         Justin    Jefferson Min     WR       A                     15.4         12.5
+#>  6 TE         Darren    Waller    LV      TE       A                     14.2         26.5
+#>  7 FX         Austin    Ekeler    LAC     RB       A                     15.0         11.7
+#>  8 DS         Ravens    D/ST      Bal     DS       A                      5.86        -1  
+#>  9 PK         Justin    Tucker    Bal     PK       A                      8.14        11  
+#> 10 BE         Joe       Mixon     Cin     RB       Q                     14.6         25  
+#> 11 BE         Keenan    Allen     LAC     WR       A                     14.8         19  
+#> 12 BE         Mike      Evans     TB      WR       A                     15.0          5.4
+#> 13 BE         Josh      Jacobs    LV      RB       A                     13.1         17  
+#> 14 BE         Myles     Gaskin    Mia     RB       A                     10.9         12.6
+#> 15 BE         Ja'Marr   Chase     Cin     WR       A                     10.4         20.9
+#> 16 BE         Brandon   Aiyuk     SF      WR       A                     13.9          0
 ```
 
-This makes scores over the season easy to plot, especially with the
-**experimental** [ffplot](https://github.com/kiernann/ffplot) package.
-
-<img src="man/figures/README-plot_scores-1.png" width="100%" />
-
-Some functions like `roster_moves()` only define players by their unique
-ID.
+There are included objects for NFL teams and players.
 
 ``` r
-waiver_adds <- 
-  roster_moves(week = 5) %>% 
-  filter(
-    type == "WAIVER", 
-    status == "EXECUTED",
-    move == "ADD"
-  )
+nfl_teams
+#> # A tibble: 33 × 6
+#>    proTeamId abbrev location   name    byeWeek conference
+#>        <int> <fct>  <chr>      <chr>     <int> <chr>     
+#>  1         0 FA     <NA>       FA            0 <NA>      
+#>  2         1 Atl    Atlanta    Falcons       6 NFC       
+#>  3         2 Buf    Buffalo    Bills         7 AFC       
+#>  4         3 Chi    Chicago    Bears        10 NFC       
+#>  5         4 Cin    Cincinnati Bengals      10 AFC       
+#>  6         5 Cle    Cleveland  Browns       13 AFC       
+#>  7         6 Dal    Dallas     Cowboys       7 NFC       
+#>  8         7 Den    Denver     Broncos      11 AFC       
+#>  9         8 Det    Detroit    Lions         9 NFC       
+#> 10         9 GB     Green Bay  Packers      13 NFC       
+#> # … with 23 more rows
 ```
 
-The included `nfl_players` tibble identifies all 1062 players (as of
-September 30th, 2020).
-
-    #> # A tibble: 1,062 x 11
-    #>         id first   last    pro   pos   jersey weight height   age birth      debut
-    #>      <int> <chr>   <chr>   <fct> <fct> <chr>   <dbl>  <dbl> <int> <date>     <int>
-    #>  1 3051392 Ezekiel Elliott Dal   RB    21        228     72    25 1995-07-22  2016
-    #>  2 3054850 Alvin   Kamara  NO    RB    41        215     70    25 1995-07-25  2017
-    #>  3 3116593 Dalvin  Cook    Min   RB    33        210     70    25 1995-08-10  2017
-    #>  4   15795 DeAndre Hopkins Ari   WR    10        212     73    28 1992-06-06  2013
-    #>  5   15847 Travis  Kelce   KC    TE    87        260     77    30 1989-10-05  2013
-    #>  6 3116406 Tyreek  Hill    KC    WR    10        185     70    26 1994-03-01  2016
-    #>  7 3139477 Patrick Mahomes KC    QB    15        230     75    25 1995-09-17  2017
-    #>  8 3916387 Lamar   Jackson Bal   QB    8         212     74    23 1997-01-07  2018
-    #>  9   16800 Davante Adams   GB    WR    17        215     73    27 1992-12-24  2014
-    #> 10 3040151 George  Kittle  SF    TE    85        250     76    26 1993-10-09  2017
-    #> # … with 1,052 more rows
-
-This can be joined against other data to identify players.
-
-``` r
-waiver_adds %>% 
-  ffl_merge(nfl_players[, 1:3]) %>% 
-  select(15:16, bid, team = to_team) %>%
-  mutate(across(team, team_abbrev)) %>% 
-  arrange(desc(bid))
-#> # A tibble: 14 x 4
-#>    first    last          bid team 
-#>    <chr>    <chr>       <int> <fct>
-#>  1 Le'Veon  Bell           14 KYLE 
-#>  2 Damien   Harris          7 KYLE 
-#>  3 Steelers D/ST            3 NICK 
-#>  4 Robert   Tonyan          3 PEPE 
-#>  5 Stephen  Gostkowski      2 NICK 
-#>  6 Dalton   Schultz         2 BILL 
-#>  7 Randy    Bullock         1 NICK 
-#>  8 Nyheim   Hines           1 CORE 
-#>  9 Rodrigo  Blankenship     1 KIER 
-#> 10 Justin   Jackson         1 CORE 
-#> 11 Cole     Beasley         1 NICK 
-#> 12 D'Ernest Johnson         1 KYLE 
-#> 13 Chiefs   D/ST            1 BILL 
-#> 14 Matthew  Stafford        1 CART
-```
-
------
+------------------------------------------------------------------------
 
 The fflr project is released with a [Contributor Code of
 Conduct](https://kiernann.com/fflr/CODE_OF_CONDUCT.html). By
 contributing, you agree to abide by its terms.
 
 <!-- refs: start -->
-
 <!-- refs: end -->

@@ -12,24 +12,9 @@
 
 
 
-<title>fantasy-football</title>
+<title>Fantasy Football Data</title>
 
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
-  }
-});
-</script>
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -41,21 +26,28 @@ document.addEventListener('DOMContentLoaded', function() {
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -75,7 +67,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,187 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
-}
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
-}
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
-}
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-#TOC ul ul {
-margin-left: -2em;
-}
-#TOC li {
-line-height: 16px;
-}
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
-}
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
-}
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
-}
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
-}
-pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
-}
-pre:not([class]) {
-background-color: #f7f7f7;
-}
-code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
-}
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
-
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; } 
-code > span.er { color: #a61717; background-color: #e3d2d2; } 
-</style>
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
 
 
 
@@ -325,563 +137,447 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">fantasy-football</h1>
+<h1 class="title toc-ignore">Fantasy Football Data</h1>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(fflr)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt; [1] &#39;0.3.15&#39;</span></span></code></pre></div>
-<p>The fflr package helps easily access data from the ESPN fantasy football v3 API. Both current and historical data can be</p>
-<div id="games" class="section level2">
-<h2>Games</h2>
-<p>Some functions work independently of your specific league. As of now, this package only works with data from fantasy football leagues, but other fantasy sports exist.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">espn_games</span>()</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; # A tibble: 4 x 7</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;   game  active  year pro_league pro_sport  start_date          end_date           </span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt;   &lt;chr&gt; &lt;lgl&gt;  &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;dttm&gt;              &lt;dttm&gt;             </span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; 1 FFL   TRUE    2020 NFL        football   2020-03-09 03:00:00 2022-03-09 02:00:00</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; 2 FLB   TRUE    2020 MLB        baseball   2020-01-22 03:00:00 2022-01-22 03:00:00</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; 3 FBA   TRUE    2021 NBA        basketball 2020-11-13 03:00:00 2022-11-13 03:00:00</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; 4 FHL   TRUE    2021 NHL        hockey     2020-11-13 03:00:00 2022-11-13 03:00:00</span></span></code></pre></div>
-<p>This package is designed to retrieve both current and historical data from the ESPN API. There are 17 years of seasons listed in the API!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">ffl_seasons</span>()</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; # A tibble: 17 x 6</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;    game   year  week pro_league start_date          end_date           </span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt;    &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;dttm&gt;              &lt;dttm&gt;             </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt;  1 FFL    2020    18 NFL        2020-03-09 03:00:00 2022-03-09 02:00:00</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;  2 FFL    2019    18 NFL        2019-02-06 03:00:00 2020-03-09 03:00:00</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;  3 FFL    2018    18 NFL        2018-01-01 03:00:00 2019-02-06 03:00:00</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;  4 FFL    2017    18 NFL        2017-01-01 03:00:00 2019-01-01 03:00:00</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;  5 FFL    2016    18 NFL        2016-01-01 00:00:00 2018-01-01 00:00:00</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;  6 FFL    2015    18 NFL        2015-01-01 00:00:00 2015-12-31 23:59:59</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;  7 FFL    2014    18 NFL        2014-01-01 00:00:00 2014-12-31 23:59:59</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  8 FFL    2013    18 NFL        2013-01-01 00:00:00 2013-12-31 23:59:59</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt;  9 FFL    2012    18 NFL        2012-01-03 00:00:00 2012-12-31 23:59:59</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; 10 FFL    2011    18 NFL        2011-01-01 00:00:00 2012-01-03 00:00:00</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; 11 FFL    2010    18 NFL        2010-01-04 00:00:00 2011-01-01 00:00:00</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; 12 FFL    2009    18 NFL        2009-01-01 00:00:00 2010-01-04 00:00:00</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; 13 FFL    2008    18 NFL        2008-06-06 00:00:00 2009-01-01 00:00:00</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; 14 FFL    2007    18 NFL        2007-01-01 00:00:00 2008-06-06 00:00:00</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; 15 FFL    2006    18 NFL        2006-01-01 00:00:00 2007-01-01 00:00:00</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; 16 FFL    2005    18 NFL        2005-01-01 00:00:00 2006-01-01 00:00:00</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; 17 FFL    2004    18 NFL        2004-06-01 00:00:00 2005-01-01 00:00:00</span></span></code></pre></div>
-<p>The current season and scoring period are pieces of data that can be easily accessed and referenced for data manipulation.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">str</span>(<span class="kw">ffl_info</span>())</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; List of 6</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt;  $ game      : chr &quot;FFL&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt;  $ active    : logi TRUE</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt;  $ year      : int 2020</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt;  $ week      : int 18</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt;  $ start_date: POSIXct[1:1], format: &quot;2020-03-09 03:00:00&quot;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt;  $ end_date  : POSIXct[1:1], format: &quot;2022-03-09 02:00:00&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">ffl_year</span>()</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; [1] 2020</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">ffl_week</span>()</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; [1] 18</span></span></code></pre></div>
-<p>To easily refer to past or future years and weeks, simply add an offset integer.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">ffl_year</span>(<span class="dt">offset =</span> <span class="dv">-2</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; [1] 2018</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">ffl_week</span>(<span class="dt">offset =</span>  <span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; [1] 19</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fflr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &#39;1.9.2&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ffl_id</span>(<span class="at">leagueId =</span> <span class="st">&quot;42654852&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Temporarily set `fflr.leagueId` option to 42654852</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;42654852&quot;</span></span></code></pre></div>
+<p>This vignette will demonstrate the fflr functions used to reach equivalency with the ESPN fantasy football website. The website has eight section headers with various subsections:</p>
+<ol style="list-style-type: decimal">
+<li>My Team
+<ul>
+<li>Overview</li>
+<li>Stats (TBD)</li>
+<li>Schedule (TBD)</li>
+<li>News</li>
+<li>Projections (TBD)</li>
+<li>Ranks (TBD)</li>
+</ul></li>
+<li>League
+<ul>
+<li>League Home</li>
+<li>Settings</li>
+<li>Members</li>
+<li>Rosters</li>
+<li>Schedule</li>
+<li>Message Board</li>
+<li>Transaction Counter</li>
+<li>History</li>
+<li>Draft Recap</li>
+<li>Email League</li>
+<li>Recent Activity</li>
+</ul></li>
+<li>Players
+<ul>
+<li>Add Players</li>
+<li>Watch List</li>
+<li>Scoring Leaders</li>
+<li>Live Draft Trends</li>
+<li>Points Against</li>
+<li>Added / Dropped</li>
+<li>Player News</li>
+<li>Projections</li>
+<li>Budget Summary</li>
+<li>Offers Report</li>
+<li>Stat Corrections</li>
+</ul></li>
+<li>FantasyCast</li>
+<li>Scoreboard</li>
+<li>Standings</li>
+<li>Opposing Teams</li>
+<li>LM Tools
+<ul>
+<li>League Membership Tools</li>
+<li>Draft Tools</li>
+<li>League and Scoring Settings Tools</li>
+<li>Roster Tools</li>
+<li>Schedule and Standings Tools</li>
+<li>Miscellaneous Tools</li>
+</ul></li>
+</ol>
+<div id="my-team" class="section level2">
+<h2>My Team</h2>
+<p>The <em>My Team</em> page presents an overview of, well, your fantasy team. From this page, a team manager can set their lineup and see statistics and news on the players on their roster.</p>
+<p>There are six subsections on the <em>My Team</em> page.</p>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
+<p>The <code>team_roster()</code> function returns <em>all</em> rosters in a league. The output of this function is organized to replicate the layout of the table found on the website. Players are listed in order of their “slot” with name and team information followed by projected and actual scores and ownership statistics.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_team <span class="ot">&lt;-</span> <span class="fu">team_roster</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)[[<span class="dv">1</span>]] <span class="co"># select first roster</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_team[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 12</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    lineupSlot      id firstName  lastName    proTeam position injuryStatus projectedScore</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;        &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;fct&gt;   &lt;fct&gt;    &lt;chr&gt;                 &lt;dbl&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 QB         3139477 Patrick    Mahomes     KC      QB       A                     22.2 </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 RB         3117251 Christian  McCaffrey   Car     RB       O                     21.3 </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 RB         4242335 Jonathan   Taylor      Ind     RB       A                     15.6 </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 WR           16800 Davante    Adams       GB      WR       A                     19.9 </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 WR         3925357 Calvin     Ridley      Atl     WR       A                     16.0 </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 TE         3116365 Mark       Andrews     Bal     TE       A                     12.2 </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 FX         4360294 Antonio    Gibson      Wsh     RB       A                     16.0 </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 DS          -16027 Buccaneers D/ST        TB      DS       A                      4.51</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 PK         2473037 Jason      Myers       Sea     PK       A                      8.04</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 BE         4259545 D&#39;Andre    Swift       Det     RB       A                     13.5 </span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 BE         4045163 Miles      Sanders     Phi     RB       A                     14.3 </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 BE         3919596 Chris      Carson      Sea     RB       A                     12.8 </span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 BE           16799 Allen      Robinson II Chi     WR       A                     14.6 </span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 BE           16460 Adam       Thielen     Min     WR       A                     14.4 </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 BE         3932905 Diontae    Johnson     Pit     WR       A                     13.4 </span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 BE         3128429 Courtland  Sutton      Den     WR       A                     11.9 </span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4 more variables: actualScore &lt;dbl&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;,</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentChange &lt;dbl&gt;</span></span></code></pre></div>
 </div>
-<div id="leagues" class="section level2">
-<h2>Leagues</h2>
-<p>To access data on your league you will need to first use the league manager tools to make your league viewable to the public. This <a href="https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public">ESPN help page</a> explains how this can be done; the option is found in the basic settings section of the fantasy football website.</p>
-<p>Once your league is set to public, you’ll need to find the unique numeric league ID found in the URL of any page. This league ID (LID) is needed to access league specific information like rosters, scores, and transactions.</p>
-<pre>
-https://fantasy.espn.com/football/league?leagueId=<b>252353</b>
-</pre>
-<p>For convenience, the <code>lid</code> argument to most functions defaults to looking for an “lid” global option. Use <code>options()</code> to set your league ID and put the line in your <code>~/.Rprofile</code> file to set at start up.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">options</span>(<span class="dt">lid =</span> <span class="dv">252353</span>)</span></code></pre></div>
-<p>With our league ID option set, we can now easily retrieve league information.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">str</span>(<span class="kw">league_info</span>())</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#&gt; List of 6</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#&gt;  $ year  : int 2020</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt;  $ name  : chr &quot;Gambling Addicts Anonymous&quot;</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt;  $ id    : int 252353</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt;  $ public: logi TRUE</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt;  $ size  : int 8</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt;  $ length: int 16</span></span></code></pre></div>
-<p>As we can see, my league this season has 8 teams and runs for 16 weeks.</p>
-<p>Before we look into fantasy scores and player data, we’ll look a little more into how our league is set up.</p>
-<p>We can identify the league members and the fantasy teams they own. Fantasy teams can have multiple owners, so team owners are identified by a nested list of unique member hashes.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">league_members</span>()</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt; # A tibble: 8 x 4</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;    year user              owners                                 lm   </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;                                  &lt;lgl&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; 1  2020 Angusg396         {12E61406-349A-4DC7-A614-06349AADC797} FALSE</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; 2  2020 k5cents_          {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2} TRUE </span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; 3  2020 NAudet14          {35D9B7DB-E821-453C-99B7-DBE821353C36} FALSE</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; 4  2020 b.pepe            {5FA14794-6573-4189-A147-9465737189B2} FALSE</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; 5  2020 Billy.Slocum      {91F8B424-1689-472E-B8B4-241689172E35} FALSE</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; 6  2020 ESPNfan0199065799 {9A722A48-6E16-42BC-9E0E-AC9E4E6D7ABC} FALSE</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; 7  2020 espnfan1043876390 {C61F403A-F689-4269-879E-145B897F2308} FALSE</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt; 8  2020 MrBruiser12       {F33F0723-2CC3-4A1C-BF07-232CC34A1C15} FALSE</span></span></code></pre></div>
-<p>League teams are occasionally only identified by their team number instead of their nickname or abbreviation. The data frame returned by <code>league_teams()</code> can be used to convert these team numbers.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>(<span class="dt">teams =</span> <span class="kw">league_teams</span>())</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#&gt; # A tibble: 8 x 5</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt;    year  team abbrev owners    name                       </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;list&gt;    &lt;chr&gt;                      </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; 1  2020     1 AGUS   &lt;chr [1]&gt; Obi-Wan Mahomey            </span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 2  2020     3 PEPE   &lt;chr [1]&gt; JuJu&#39;s Bizarre Adventure   </span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 3  2020     4 BILL   &lt;chr [1]&gt; evermoore .                </span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; 4  2020     5 CART   &lt;chr [1]&gt; OG Mudbone’s Yogurt Machine</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; 5  2020     6 KIER   &lt;chr [1]&gt; The Nuklear Option         </span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; 6  2020     8 CORE   &lt;chr [1]&gt; THE Jets 😭                </span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; 7  2020    10 NICK   &lt;chr [1]&gt; The Silence Of The Lamb    </span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; 8  2020    11 KYLE   &lt;chr [1]&gt; Aaron It Out</span></span></code></pre></div>
-<p>The <code>team_abbrev()</code> function makes this conversion simple.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">team_abbrev</span>(<span class="dt">id =</span> <span class="dv">6</span>, teams)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#&gt; [1] KIER</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; Levels: AGUS PEPE BILL CART KIER CORE NICK KYLE</span></span></code></pre></div>
-<p>One caveat about the design of this package: most of the functions were designed and tested using the settings from the author’s own fantasy league. Functions relying on certain scoring or roster settings are particularly vulnerable for the time being. These settings can be referenced with the <code>*_settings()</code> functions and may be integrated in the future.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">roster_settings</span>()</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#&gt; $year</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="co">#&gt; [1] 2020</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#&gt; </span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#&gt; $use_undrop</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#&gt; </span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt; $lineup_lock</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; [1] &quot;INDIVIDUAL_GAME&quot;</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; </span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; $roster_lock</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="co">#&gt; [1] &quot;INDIVIDUAL_GAME&quot;</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="co">#&gt; </span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="co">#&gt; $move_limit</span></span>
-<span id="cb12-15"><a href="#cb12-15"></a><span class="co">#&gt; [1] -1</span></span>
-<span id="cb12-16"><a href="#cb12-16"></a><span class="co">#&gt; </span></span>
-<span id="cb12-17"><a href="#cb12-17"></a><span class="co">#&gt; $slot_count</span></span>
-<span id="cb12-18"><a href="#cb12-18"></a><span class="co">#&gt; QB RB WR TE DS PK BE IR FX </span></span>
-<span id="cb12-19"><a href="#cb12-19"></a><span class="co">#&gt;  1  2  2  1  1  1  7  1  1 </span></span>
-<span id="cb12-20"><a href="#cb12-20"></a><span class="co">#&gt; </span></span>
-<span id="cb12-21"><a href="#cb12-21"></a><span class="co">#&gt; $pos_count</span></span>
-<span id="cb12-22"><a href="#cb12-22"></a><span class="co">#&gt; QB RB WR TE PK DS </span></span>
-<span id="cb12-23"><a href="#cb12-23"></a><span class="co">#&gt;  4  8  8  3  3  3</span></span>
-<span id="cb12-24"><a href="#cb12-24"></a><span class="kw">score_settings</span>()</span>
-<span id="cb12-25"><a href="#cb12-25"></a><span class="co">#&gt; $year</span></span>
-<span id="cb12-26"><a href="#cb12-26"></a><span class="co">#&gt; [1] 2020</span></span>
-<span id="cb12-27"><a href="#cb12-27"></a><span class="co">#&gt; </span></span>
-<span id="cb12-28"><a href="#cb12-28"></a><span class="co">#&gt; $score_type</span></span>
-<span id="cb12-29"><a href="#cb12-29"></a><span class="co">#&gt; [1] &quot;H2H_POINTS&quot;</span></span>
-<span id="cb12-30"><a href="#cb12-30"></a><span class="co">#&gt; </span></span>
-<span id="cb12-31"><a href="#cb12-31"></a><span class="co">#&gt; $rank_type</span></span>
-<span id="cb12-32"><a href="#cb12-32"></a><span class="co">#&gt; [1] &quot;STANDARD&quot;</span></span>
-<span id="cb12-33"><a href="#cb12-33"></a><span class="co">#&gt; </span></span>
-<span id="cb12-34"><a href="#cb12-34"></a><span class="co">#&gt; $home_bonus</span></span>
-<span id="cb12-35"><a href="#cb12-35"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb12-36"><a href="#cb12-36"></a><span class="co">#&gt; </span></span>
-<span id="cb12-37"><a href="#cb12-37"></a><span class="co">#&gt; $playoff_bonus</span></span>
-<span id="cb12-38"><a href="#cb12-38"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb12-39"><a href="#cb12-39"></a><span class="co">#&gt; </span></span>
-<span id="cb12-40"><a href="#cb12-40"></a><span class="co">#&gt; $playoff_tie</span></span>
-<span id="cb12-41"><a href="#cb12-41"></a><span class="co">#&gt; [1] &quot;NONE&quot;</span></span>
-<span id="cb12-42"><a href="#cb12-42"></a><span class="co">#&gt; </span></span>
-<span id="cb12-43"><a href="#cb12-43"></a><span class="co">#&gt; $scoring</span></span>
-<span id="cb12-44"><a href="#cb12-44"></a><span class="co">#&gt; # A tibble: 44 x 3</span></span>
-<span id="cb12-45"><a href="#cb12-45"></a><span class="co">#&gt;     stat points overrides</span></span>
-<span id="cb12-46"><a href="#cb12-46"></a><span class="co">#&gt;    &lt;int&gt;  &lt;dbl&gt;     &lt;dbl&gt;</span></span>
-<span id="cb12-47"><a href="#cb12-47"></a><span class="co">#&gt;  1   132      0        -2</span></span>
-<span id="cb12-48"><a href="#cb12-48"></a><span class="co">#&gt;  2   133      0        -3</span></span>
-<span id="cb12-49"><a href="#cb12-49"></a><span class="co">#&gt;  3    98      0         4</span></span>
-<span id="cb12-50"><a href="#cb12-50"></a><span class="co">#&gt;  4    25      6        NA</span></span>
-<span id="cb12-51"><a href="#cb12-51"></a><span class="co">#&gt;  5   131      0        -1</span></span>
-<span id="cb12-52"><a href="#cb12-52"></a><span class="co">#&gt;  6   134      0        -4</span></span>
-<span id="cb12-53"><a href="#cb12-53"></a><span class="co">#&gt;  7    95      0         3</span></span>
-<span id="cb12-54"><a href="#cb12-54"></a><span class="co">#&gt;  8    72     -2        NA</span></span>
-<span id="cb12-55"><a href="#cb12-55"></a><span class="co">#&gt;  9   135      0        -5</span></span>
-<span id="cb12-56"><a href="#cb12-56"></a><span class="co">#&gt; 10   206      2         4</span></span>
-<span id="cb12-57"><a href="#cb12-57"></a><span class="co">#&gt; # … with 34 more rows</span></span></code></pre></div>
+<div id="news" class="section level3">
+<h3>News</h3>
+<p>The <code>player_outlook()</code> and <code>player_news()</code> functions return news on your roster. The first returns <em>all</em> outlooks by player and week and cannot be refined beyond setting a <code>limit</code> of players to return (in order of rank).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">player_outlook</span>(<span class="at">limit =</span> <span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 6</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId    id firstName lastName outlook                               </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt; &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;                                 </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021               0 16800 Davante   Adams    Adams was the top-scoring fantasy WR …</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2021               1 16800 Davante   Adams    Last season, Adams was on pace for on…</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     2021               2 16800 Davante   Adams    The Packers&#39; offense simply couldn&#39;t …</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2021               3 16800 Davante   Adams    A rare blend of efficiency and volume…</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     2021               4 16800 Davante   Adams    Another elite prime-time performance …</span></span></code></pre></div>
+<p>The second fiction takes a single <code>playerId</code> value and returns all the recent news on that player, including premium stories in HTML format.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">player_news</span>(<span class="at">playerId =</span> <span class="st">&quot;3139477&quot;</span>, <span class="at">parseHTML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 14 × 6</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         id published           type     premium headline               body               </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;    &lt;lgl&gt;   &lt;chr&gt;                  &lt;chr&gt;              </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 3139477 2021-10-03 20:37:42 Rotowire FALSE   Mahomes completed 24 … &quot;Mahomes capped Ka…</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 3139477 2021-09-26 20:22:02 Rotowire FALSE   Mahomes completed 27 … &quot;Kansas City has s…</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 3139477 2021-09-20 04:47:05 Rotowire FALSE   Mahomes completed 24 … &quot;Mahomes carved up…</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 3139477 2021-09-17 23:13:41 Story    FALSE   NFL Week 2 game picks… &quot;&lt;p&gt;&lt;video1&gt;&lt;/vide…</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 3139477 2021-09-13 03:01:33 Rotowire FALSE   Mahomes completed 27 … &quot;The 25-year-old s…</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 3139477 2021-09-10 14:36:05 Story    TRUE    NFL Week 1 prediction… &quot;&lt;p&gt;&lt;video1&gt;&lt;/vide…</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 3139477 2021-09-08 04:56:27 Story    FALSE   &#39;So, you&#39;re Patrick M… &quot;&lt;p&gt;&lt;video1&gt;&lt;br&gt;\n…</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 3139477 2021-08-31 14:15:41 Story    TRUE    Predicting NFL teams … &quot;&lt;p&gt;&lt;video1&gt;&lt;/vide…</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 3139477 2021-08-28 03:31:05 Rotowire FALSE   Mahomes completed eig… &quot;Mahomes was his s…</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 3139477 2021-08-21 03:07:20 Rotowire FALSE   Mahomes completed 10 … &quot;There had been ta…</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 3139477 2021-08-18 16:33:13 Rotowire FALSE   Coach Andy Reid said … &quot;Mahomes played on…</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 3139477 2021-08-15 04:19:01 Rotowire FALSE   Mahomes completed one… &quot;Mahomes connected…</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 3139477 2021-08-12 18:54:27 Rotowire FALSE   Coach Andy Reid sugge… &quot;Reid didn&#39;t actua…</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 3139477 2021-07-23 18:55:35 Rotowire FALSE   Mahomes doesn&#39;t antic… &quot;This was expected…</span></span></code></pre></div>
+</div>
+</div>
+<div id="league" class="section level2">
+<h2>League</h2>
+<p>ESPN fantasy leagues have their own unique settings and structure. This package has been tested for a very narrow subset of those possible settings.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">league_info</span>(<span class="at">leagueId =</span> <span class="st">&quot;42654852&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 6</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         id seasonId name             isPublic  size finalScoringPeriod</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;    &lt;int&gt; &lt;chr&gt;            &lt;lgl&gt;    &lt;int&gt;              &lt;int&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 42654852     2021 FFLR Test League TRUE         4                 17</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">league_name</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;FFLR Test League&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">league_size</span>()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId  size</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021     4</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">league_status</span>())</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [1 × 12] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ year                   : int 2021</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ isActive               : logi TRUE</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ activatedDate          : POSIXct[1:1], format: &quot;2021-08-03 10:40:01&quot;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ scoringPeriodId        : int 4</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ firstScoringPeriod     : int 1</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ finalScoringPeriod     : int 17</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ previousSeasons        :List of 1</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ : list()</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ standingsUpdateDate    : POSIXct[1:1], format: &quot;2021-10-04 03:49:31&quot;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ teamsJoined            : int 4</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ waiverLastExecutionDate: POSIXct[1:1], format: &quot;2021-10-04 03:49:31&quot;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ waiverNextExecutionDate: POSIXct[1:1], format: NA</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ waiverProcessStatus    :List of 1</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ :&#39;data.frame&#39;: 1 obs. of  2 variables:</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .. ..$ date  : POSIXct[1:1], format: &quot;2021-09-29&quot;</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .. ..$ status: int 2</span></span></code></pre></div>
+<div id="settings" class="section level3">
+<h3>Settings</h3>
+<div id="draft" class="section level4">
+<h4>Draft</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draft_settings</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 13</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId auctionBudget availableDate       date                isTradingEnabled</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;chr&gt;         &lt;dttm&gt;              &lt;dttm&gt;              &lt;lgl&gt;           </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021 &lt;NA&gt;          2021-08-03 10:15:00 2021-08-03 11:15:00 FALSE           </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 8 more variables: keeperCount &lt;int&gt;, keeperCountFuture &lt;int&gt;,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   keeperOrderType &lt;chr&gt;, leagueSubType &lt;chr&gt;, orderType &lt;chr&gt;, pickOrder &lt;list&gt;,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   timePerSelection &lt;int&gt;, type &lt;chr&gt;</span></span></code></pre></div>
+</div>
+<div id="rosters" class="section level4">
+<h4>Rosters</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roster_settings</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 8</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId isBenchUnlimited isUsingUndroppabl… lineupLocktimeT… lineupSlotCounts moveLimit</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;lgl&gt;            &lt;lgl&gt;              &lt;chr&gt;            &lt;list&gt;               &lt;int&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021 TRUE             TRUE               INDIVIDUAL_GAME  &lt;df [25 × 2]&gt;           -1</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: positionLimits &lt;list&gt;, rosterLocktimeType &lt;chr&gt;</span></span></code></pre></div>
+</div>
+<div id="scoring" class="section level4">
+<h4>Scoring</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scoring_settings</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 7</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringType playerRankType homeTeamBonus playoffHomeTeamBonus playoffMatchupTi…</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;                  &lt;int&gt;                &lt;int&gt; &lt;chr&gt;            </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021 H2H_POINTS  PPR                        1                    0 NONE             </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1 more variable: scoringItems &lt;list&gt;</span></span></code></pre></div>
+</div>
+<div id="transactions-and-keepers" class="section level4">
+<h4>Transactions and Keepers</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acquisition_settings</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 10</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    year acquisitionBudget acquisitionLimit acquisitionType  isUsingAcquisition… minimumBid</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt;             &lt;int&gt;            &lt;int&gt; &lt;chr&gt;            &lt;lgl&gt;                    &lt;int&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  2021               100               -1 WAIVERS_TRADITI… FALSE                        1</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4 more variables: waiverHours &lt;int&gt;, waiverOrderReset &lt;lgl&gt;,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   waiverProcessDays &lt;list&gt;, waiverProcessHour &lt;int&gt;</span></span></code></pre></div>
+</div>
+<div id="schedule" class="section level4">
+<h4>Schedule</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">schedule_settings</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 10</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId divisions    matchupPeriodCount matchupPeriodLength matchupPeriods periodTypeId</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt; &lt;list&gt;                    &lt;int&gt;               &lt;int&gt; &lt;list&gt;                &lt;int&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021 &lt;df [2 × 3]&gt;                 17                   1 &lt;df [17 × 2]&gt;             1</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4 more variables: playoffMatchupPeriodLength &lt;int&gt;, playoffSeedingRule &lt;chr&gt;,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   playoffSeedingRuleBy &lt;int&gt;, playoffTeamCount &lt;int&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="members" class="section level3">
+<h3>Members</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">league_members</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   displayName id                                     isLeagueManager</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;                                  &lt;lgl&gt;          </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 K5cents     {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2} FALSE</span></span></code></pre></div>
+</div>
+<div id="rosters-1" class="section level3">
+<h3>Rosters</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">team_roster</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 15</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId lineupSlot      id firstName  lastName proTeam position</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;fct&gt;   &lt;fct&gt;   </span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               1      1 QB         3139477 Patrick    Mahomes  KC      QB      </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               1      1 RB         3117251 Christian  McCaffr… Car     RB      </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               1      1 RB         4242335 Jonathan   Taylor   Ind     RB      </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               1      1 WR           16800 Davante    Adams    GB      WR      </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               1      1 WR         3925357 Calvin     Ridley   Atl     WR      </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               1      1 TE         3116365 Mark       Andrews  Bal     TE      </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               1      1 FX         4360294 Antonio    Gibson   Wsh     RB      </span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               1      1 DS          -16027 Buccaneers D/ST     TB      DS      </span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               1      1 PK         2473037 Jason      Myers    Sea     PK      </span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               1      1 BE         4259545 D&#39;Andre    Swift    Det     RB      </span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11     2021               1      1 BE         4045163 Miles      Sanders  Phi     RB      </span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12     2021               1      1 BE         3919596 Chris      Carson   Sea     RB      </span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13     2021               1      1 BE           16799 Allen      Robinso… Chi     WR      </span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14     2021               1      1 BE           16460 Adam       Thielen  Min     WR      </span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15     2021               1      1 BE         3932905 Diontae    Johnson  Pit     WR      </span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16     2021               1      1 BE         3128429 Courtland  Sutton   Den     WR      </span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 6 more variables: injuryStatus &lt;chr&gt;, projectedScore &lt;dbl&gt;, actualScore &lt;dbl&gt;,</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;, percentChange &lt;dbl&gt;</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 15</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId lineupSlot      id firstName lastName  proTeam position</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;fct&gt;   &lt;fct&gt;   </span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               1      2 QB         2577417 Dak       Prescott  Dal     QB      </span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               1      2 RB         3116593 Dalvin    Cook      Min     RB      </span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               1      2 RB         3051392 Ezekiel   Elliott   Dal     RB      </span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               1      2 WR         3116406 Tyreek    Hill      KC      WR      </span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               1      2 WR         4047650 DK        Metcalf   Sea     WR      </span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               1      2 TE         3040151 George    Kittle    SF      TE      </span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               1      2 FX         3128720 Nick      Chubb     Cle     RB      </span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               1      2 DS          -16023 Steelers  D/ST      Pit     DS      </span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               1      2 PK           16339 Brandon   McManus   Den     PK      </span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               1      2 BE         4242214 Clyde     Edwards-… KC      RB      </span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11     2021               1      2 BE         3121422 Terry     McLaurin  Wsh     WR      </span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12     2021               1      2 BE         2976499 Amari     Cooper    Dal     WR      </span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13     2021               1      2 BE         4039359 Darrell   Henderso… LAR     RB      </span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14     2021               1      2 BE           13982 Julio     Jones     Ten     WR      </span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15     2021               1      2 BE         2977187 Cooper    Kupp      LAR     WR      </span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16     2021               1      2 BE         2974858 Kenny     Golladay  NYG     WR      </span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 6 more variables: injuryStatus &lt;chr&gt;, projectedScore &lt;dbl&gt;, actualScore &lt;dbl&gt;,</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;, percentChange &lt;dbl&gt;</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 15</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId lineupSlot      id firstName lastName  proTeam position</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;fct&gt;   &lt;fct&gt;   </span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               1      3 QB         3918298 Josh      Allen     Buf     QB      </span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               1      3 RB         3929630 Saquon    Barkley   NYG     RB      </span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               1      3 RB         3043078 Derrick   Henry     Ten     RB      </span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               1      3 WR           15795 DeAndre   Hopkins   Ari     WR      </span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               1      3 WR         4262921 Justin    Jefferson Min     WR      </span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               1      3 TE         2576925 Darren    Waller    LV      TE      </span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               1      3 FX         3068267 Austin    Ekeler    LAC     RB      </span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               1      0 DS          -16033 Ravens    D/ST      Bal     DS      </span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               1      3 PK           15683 Justin    Tucker    Bal     PK      </span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               1      3 BE         3116385 Joe       Mixon     Cin     RB      </span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11     2021               1      3 BE           15818 Keenan    Allen     LAC     WR      </span></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12     2021               1      3 BE           16737 Mike      Evans     TB      WR      </span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13     2021               1      3 BE         4047365 Josh      Jacobs    LV      RB      </span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14     2021               1      3 BE         3886818 Myles     Gaskin    Mia     RB      </span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15     2021               1      3 BE         4362628 Ja&#39;Marr   Chase     Cin     WR      </span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16     2021               1      3 BE         4360438 Brandon   Aiyuk     SF      WR      </span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 6 more variables: injuryStatus &lt;chr&gt;, projectedScore &lt;dbl&gt;, actualScore &lt;dbl&gt;,</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;, percentChange &lt;dbl&gt;</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 15</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId lineupSlot      id firstName lastName   proTeam position</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;        &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;   &lt;fct&gt;   </span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               1      4 QB         3917315 Kyler     Murray     Ari     QB      </span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               1      4 RB         3054850 Alvin     Kamara     NO      RB      </span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               1      4 RB         3042519 Aaron     Jones      GB      RB      </span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               1      4 WR         2976212 Stefon    Diggs      Buf     WR      </span></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               1      4 WR         4047646 A.J.      Brown      Ten     WR      </span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               1      4 TE           15847 Travis    Kelce      KC      TE      </span></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               1      4 FX         4241457 Najee     Harris     Pit     RB      </span></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               1      0 DS          -16025 49ers     D/ST       SF      DS      </span></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               1      4 PK         3055899 Harrison  Butker     KC      PK      </span></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               1      4 BE         4035538 David     Montgomery Chi     RB      </span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11     2021               1      4 BE         4241985 J.K.      Dobbins    Bal     RB      </span></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12     2021               1      4 BE           15880 Robert    Woods      LAR     WR      </span></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13     2021               1      4 BE         4241389 CeeDee    Lamb       Dal     WR      </span></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14     2021               1      4 BE         3915416 DJ        Moore      Car     WR      </span></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15     2021               1      4 BE         3116165 Chris     Godwin     TB      WR      </span></span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16     2021               1      4 BE         2577327 Tyler     Lockett    Sea     WR      </span></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 6 more variables: injuryStatus &lt;chr&gt;, projectedScore &lt;dbl&gt;, actualScore &lt;dbl&gt;,</span></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;, percentChange &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+<div id="schedule-1" class="section level3">
+<h3>Schedule</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy_matchups</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 68 × 6</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId matchupPeriodId    id teamId opponent home </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;lgl&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               1     1 AUS    CHI      TRUE </span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               1     1 CHI    AUS      FALSE</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               1     2 BOS    DEN      TRUE </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               1     2 DEN    BOS      FALSE</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               2     3 CHI    DEN      TRUE </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               2     3 DEN    CHI      FALSE</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               2     4 AUS    BOS      TRUE </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               2     4 BOS    AUS      FALSE</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               3     5 DEN    AUS      TRUE </span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               3     5 AUS    DEN      FALSE</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 58 more rows</span></span></code></pre></div>
+</div>
+<div id="message-board" class="section level3">
+<h3>Message Board</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">league_messages</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 7</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       type            author    date                content       messages viewableBy</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;     &lt;dttm&gt;              &lt;chr&gt;         &lt;list&gt;   &lt;list&gt;    </span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 a2d0d0b6 MSG_BOARD_GROUP {22DFE7F… 2021-09-13 19:46:29 &quot;This is the… &lt;df [2 … &lt;NULL&gt;    </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1e760139 MSG_BOARD       {22DFE7F… 2021-09-13 19:46:49 &quot;This is the… &lt;df [2 … &lt;NULL&gt;    </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 5af42ec9 </span><span class="al">NOTE</span><span class="co">            {22DFE7F… 2021-09-13 19:46:07 &quot;This [b]not… &lt;NULL&gt;   &lt;NULL&gt;</span></span></code></pre></div>
+</div>
+<div id="transaction-counter" class="section level3">
+<h3>Transaction Counter</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transaction_counter</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 14</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId teamId abbrev waiverRank acquisitionBudgetS… acquisitions drops</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;       &lt;int&gt;               &lt;int&gt;        &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021               4      1 AUS             1                   0            0     0</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2021               4      2 BOS             2                   0            0     0</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     2021               4      3 CHI             4                   0            2     2</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2021               4      4 DEN             3                   0            2     1</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 6 more variables: misc &lt;int&gt;, moveToActive &lt;int&gt;, moveToIR &lt;int&gt;, paid &lt;dbl&gt;,</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   teamCharges &lt;dbl&gt;, trades &lt;int&gt;</span></span></code></pre></div>
+</div>
+<div id="draft-recap" class="section level3">
+<h3>Draft Recap</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">draft_recap</span>()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 64 × 14</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId autoDraftTypeId bidAmount    id keeper lineupSlotId nominatingTeamId</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt; &lt;lgl&gt;               &lt;int&gt; &lt;int&gt; &lt;lgl&gt;         &lt;int&gt; &lt;fct&gt;           </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021 TRUE                   NA     1 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021 TRUE                   NA     2 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021 TRUE                   NA     3 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021 TRUE                   NA     4 FALSE             6 &lt;NA&gt;            </span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021 TRUE                   NA     5 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021 TRUE                   NA     6 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021 TRUE                   NA     7 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021 TRUE                   NA     8 FALSE             2 &lt;NA&gt;            </span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021 TRUE                   NA     9 FALSE             4 &lt;NA&gt;            </span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021 TRUE                   NA    10 FALSE             4 &lt;NA&gt;            </span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 54 more rows, and 7 more variables: overallPickNumber &lt;int&gt;, playerId &lt;int&gt;,</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   reservedForKeeper &lt;lgl&gt;, roundId &lt;int&gt;, roundPickNumber &lt;int&gt;, teamId &lt;fct&gt;,</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   tradeLocked &lt;lgl&gt;</span></span></code></pre></div>
+</div>
+<div id="recent-activity" class="section level3">
+<h3>Recent Activity</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">recent_activity</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 66 × 13</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       seaonId rating bidAmount scoringPeriodId memberId status   fromLineupSlotId</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;     &lt;int&gt;           &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;fct&gt;           </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 062292e8    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 079a96a2    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 08e8044a    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 13b7c29a    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 172b6b5f    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 1b53d425    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 20d2e4a1    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 241ffb13    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2460ef90    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 252e3cc0    2021      0        NA               1 &lt;NA&gt;     EXECUTED &lt;NA&gt;            </span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 56 more rows, and 5 more variables: fromTeamId &lt;int&gt;, playerId &lt;int&gt;,</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   toLineupSlotId &lt;fct&gt;, toTeamId &lt;int&gt;, type &lt;chr&gt;</span></span></code></pre></div>
+</div>
 </div>
 <div id="players" class="section level2">
 <h2>Players</h2>
-<p>There are over a thousand players in the NFL eligible for fantasy football. The full list of current players can be retrieved at any time by setting the limit to <code>NULL</code>, which can take some time.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">all_players</span>(<span class="dt">limit =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p>For your convenience, a table of <em>all</em> active players is saved as a data frame.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>nfl_players</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#&gt; # A tibble: 1,062 x 11</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#&gt;         id first   last    pro   pos   jersey weight height   age birth      debut</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#&gt;      &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;int&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#&gt;  1 3051392 Ezekiel Elliott Dal   RB    21        228     72    25 1995-07-22  2016</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#&gt;  2 3054850 Alvin   Kamara  NO    RB    41        215     70    25 1995-07-25  2017</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="co">#&gt;  3 3116593 Dalvin  Cook    Min   RB    33        210     70    25 1995-08-10  2017</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#&gt;  4   15795 DeAndre Hopkins Ari   WR    10        212     73    28 1992-06-06  2013</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#&gt;  5   15847 Travis  Kelce   KC    TE    87        260     77    30 1989-10-05  2013</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co">#&gt;  6 3116406 Tyreek  Hill    KC    WR    10        185     70    26 1994-03-01  2016</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#&gt;  7 3139477 Patrick Mahomes KC    QB    15        230     75    25 1995-09-17  2017</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co">#&gt;  8 3916387 Lamar   Jackson Bal   QB    8         212     74    23 1997-01-07  2018</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co">#&gt;  9   16800 Davante Adams   GB    WR    17        215     73    27 1992-12-24  2014</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a><span class="co">#&gt; 10 3040151 George  Kittle  SF    TE    85        250     76    26 1993-10-09  2017</span></span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="co">#&gt; # … with 1,052 more rows</span></span></code></pre></div>
-<p>This table also has additional biographical data from the generic (non-fantasy) ESPN API, which uses the same unique player ID.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">player_info</span>(<span class="dt">id =</span> <span class="dv">3054850</span>, <span class="dt">row =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co">#&gt; # A tibble: 1 x 12</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="co">#&gt;        id first last   pos   jersey weight height   age birth_date birth_place debut draft</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;date&gt;     &lt;chr&gt;       &lt;int&gt; &lt;int&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#&gt; 1 3054850 Alvin Kamara RB    41        215     70    25 1995-07-25 Atlanta, GA  2017    67</span></span></code></pre></div>
-<p>News on an individual player can also be helpful.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">player_news</span>(<span class="dt">id =</span> <span class="dv">15847</span>)</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="co">#&gt; # A tibble: 21 x 6</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co">#&gt;       id published           type   premium headline                     body                      </span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;  &lt;lgl&gt;   &lt;chr&gt;                        &lt;chr&gt;                     </span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt;  1 15847 2021-01-04 16:29:14 Story  TRUE    NFL awards 2020: Picks for … &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt;  2 15847 2021-01-03 20:56:55 Rotow… FALSE   Though Kelce is not among K… &quot;In addition to five play…</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt;  3 15847 2021-01-01 18:58:07 Rotow… FALSE   Kelce is a candidate to be … &quot;Kelce isn&#39;t listed on th…</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt;  4 15847 2020-12-31 13:40:37 Story  TRUE    NFL All-Pro Team: Bill Barn… &quot;&lt;p&gt;&lt;video1&gt;&lt;/video1&gt;&lt;/p&gt;…</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#&gt;  5 15847 2020-12-27 21:24:02 Rotow… FALSE   Kelce secured seven of 13 t… &quot;Kelce made NFL history S…</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#&gt;  6 15847 2020-12-21 03:27:48 Rotow… FALSE   Kelce caught eight of 12 ta… &quot;He took a shovel pass fr…</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#&gt;  7 15847 2020-12-13 21:50:09 Rotow… FALSE   Kelce caught eight of 10 ta… &quot;Kelce&#39;s six-yard touchdo…</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="co">#&gt;  8 15847 2020-12-07 05:20:08 Rotow… FALSE   Kelce racked up 138 receivi… &quot;The Chiefs were uncharac…</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co">#&gt;  9 15847 2020-11-30 01:13:27 Rotow… FALSE   Kelce brought in all eight … &quot;The veteran was a distan…</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="co">#&gt; 10 15847 2020-11-23 06:39:33 Rotow… FALSE   Kelce hauled in eight passe… &quot;Kelce feasted between th…</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="co">#&gt; # … with 11 more rows</span></span></code></pre></div>
-<p>ESPN analysts publish weekly and preseason outlooks on most players.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>outlooks &lt;-<span class="st"> </span><span class="kw">player_outlook</span>(<span class="dt">limit =</span> <span class="dv">1</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">nrow</span>(outlooks)</span></code></pre></div>
-<p><a href="https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public">1</a> 17</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&quot;&gt;&quot;</span>, outlooks<span class="op">$</span>outlook[<span class="dv">1</span>]))</span></code></pre></div>
-<blockquote>
-<p>Adams is back as Aaron Rodgers’ unquestioned No. 1 target – a role that has allowed him to post four consecutive seasons as a top-10 WR in fantasy points per game. Adams handled a career-high 31% target share and was fantasy’s No. 2-scoring WR during the 12 weeks in which he was active last season. He finished as a top-five WR in 42% of those outings, which trailed only Michael Thomas. The only concern here is durability as Adams has missed at least one regular-season game due to injury in each of the past three seasons, including four 2019 absences. We’ll need to dock him slightly for that, but the 27-year-old’s massive usage locks him into the top-end WR1 mix.</p>
-</blockquote>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all_players</span>(<span class="at">limit =</span> <span class="dv">10</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 19</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId      id firstName lastName proTeam defaultPositionId</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;dbl&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;fct&gt;   &lt;fct&gt;            </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     2021               4   16800 Davante   Adams    GB      WR               </span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2021               4 3116593 Dalvin    Cook     Min     RB               </span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     2021               4   15847 Travis    Kelce    KC      TE               </span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     2021               4 3043078 Derrick   Henry    Ten     RB               </span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     2021               4 3054850 Alvin     Kamara   NO      RB               </span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     2021               4 3116406 Tyreek    Hill     KC      WR               </span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     2021               4 2976212 Stefon    Diggs    Buf     WR               </span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     2021               4 3139477 Patrick   Mahomes  KC      QB               </span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     2021               4   15795 DeAndre   Hopkins  Ari     WR               </span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     2021               4 4047650 DK        Metcalf  Sea     WR               </span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 12 more variables: injuryStatus &lt;chr&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;,</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentChange &lt;dbl&gt;, positionalRanking &lt;int&gt;, totalRating &lt;dbl&gt;,</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   auctionValueAverage &lt;dbl&gt;, averageDraftPosition &lt;dbl&gt;, next_wk &lt;dbl&gt;, last_wk &lt;dbl&gt;,</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   last_szn &lt;dbl&gt;, this_szn &lt;dbl&gt;</span></span></code></pre></div>
 </div>
-<div id="rosters" class="section level2">
-<h2>Rosters</h2>
-<p>For the team rosters in your league, a list of data frames can be returned.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>rosters &lt;-<span class="st"> </span><span class="kw">team_roster</span>(<span class="dt">week =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p>The elements of this list are named for their team abbreviation.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>rosters<span class="op">$</span>KIER</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#&gt; # A tibble: 16 x 15</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="co">#&gt;     year  week team  slot       id first  last   pro   pos   status  proj score start  rost  change</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="co">#&gt;  1  2020     3 KIER  QB    4038524 Gardn… Minsh… Jax   QB    A      19.9    9.2  1.86  8.93  -1.05 </span></span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="co">#&gt;  2  2020     3 KIER  RB    3054850 Alvin  Kamara NO    RB    O      17.1   31.7 65.8  99.8   -0.18 </span></span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="co">#&gt;  3  2020     3 KIER  RB    4242335 Jonat… Taylor Ind   RB    A      15.3   12.2 82.6  98.6    0.964</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="co">#&gt;  4  2020     3 KIER  WR      15795 DeAnd… Hopki… Ari   WR    A      11.8   13.7 94.2  99.9   -0.019</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="co">#&gt;  5  2020     3 KIER  WR      16733 Odell  Beckh… Cle   WR    I       8.82   5.9 13.8  30.4    3.23 </span></span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="co">#&gt;  6  2020     3 KIER  TE      15847 Travis Kelce  KC    TE    A      10.1    8.7 62.4  97.3   -2.66 </span></span>
-<span id="cb20-11"><a href="#cb20-11"></a><span class="co">#&gt;  7  2020     3 KIER  FX    2508176 David  Johns… Hou   RB    A      11.6   10.6 63.2  92.1    0.226</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="co">#&gt;  8  2020     3 KIER  DS     -16023 Steel… D/ST   Pit   DS    A       7.50   7.5 74.1  93.4   -3.11 </span></span>
-<span id="cb20-13"><a href="#cb20-13"></a><span class="co">#&gt;  9  2020     3 KIER  PK      14993 Greg   Zuerl… Dal   PK    A       7.91   9   33.8  41.0    2.72 </span></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="co">#&gt; 10  2020     3 KIER  BE       2580 Drew   Brees  NO    QB    A      17.9   23.5 14.3  53.0   -1.24 </span></span>
-<span id="cb20-15"><a href="#cb20-15"></a><span class="co">#&gt; 11  2020     3 KIER  BE    2977187 Cooper Kupp   LAR   WR    A       8.37  16.7 50.4  89.1   -7.94 </span></span>
-<span id="cb20-16"><a href="#cb20-16"></a><span class="co">#&gt; 12  2020     3 KIER  BE    4035538 David  Montg… Chi   RB    A       9.32   5.4 79.8  97.9   -0.123</span></span>
-<span id="cb20-17"><a href="#cb20-17"></a><span class="co">#&gt; 13  2020     3 KIER  BE    3912550 Ronald Jones… TB    RB    A       7.69   7.3 31.5  87.8    1.12 </span></span>
-<span id="cb20-18"><a href="#cb20-18"></a><span class="co">#&gt; 14  2020     3 KIER  BE      15072 Marvin Jones… Det   WR    A       8.90   5.1 43.5  83.2   -4.65 </span></span>
-<span id="cb20-19"><a href="#cb20-19"></a><span class="co">#&gt; 15  2020     3 KIER  BE    3025433 Mike   Davis  Car   RB    O       9.32  15.1 32.5  80.0  -11.8  </span></span>
-<span id="cb20-20"><a href="#cb20-20"></a><span class="co">#&gt; 16  2020     3 KIER  IR    3126486 Deebo  Samuel SF    WR    O       0      0    6.29 51.3   -4.73</span></span></code></pre></div>
-<p>We can easily identify the current starting roster, dropping bench players and those on injury reserve.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">start_roster</span>(rosters<span class="op">$</span>KIER)</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#&gt; # A tibble: 9 x 15</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="co">#&gt;    year  week team  slot       id first   last    pro   pos   status  proj score start  rost change</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="co">#&gt; 1  2020     3 KIER  QB    4038524 Gardner Minshe… Jax   QB    A      19.9    9.2  1.86  8.93 -1.05 </span></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="co">#&gt; 2  2020     3 KIER  RB    3054850 Alvin   Kamara  NO    RB    O      17.1   31.7 65.8  99.8  -0.18 </span></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="co">#&gt; 3  2020     3 KIER  RB    4242335 Jonath… Taylor  Ind   RB    A      15.3   12.2 82.6  98.6   0.964</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="co">#&gt; 4  2020     3 KIER  WR      15795 DeAndre Hopkins Ari   WR    A      11.8   13.7 94.2  99.9  -0.019</span></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="co">#&gt; 5  2020     3 KIER  WR      16733 Odell   Beckha… Cle   WR    I       8.82   5.9 13.8  30.4   3.23 </span></span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="co">#&gt; 6  2020     3 KIER  TE      15847 Travis  Kelce   KC    TE    A      10.1    8.7 62.4  97.3  -2.66 </span></span>
-<span id="cb21-11"><a href="#cb21-11"></a><span class="co">#&gt; 7  2020     3 KIER  FX    2508176 David   Johnson Hou   RB    A      11.6   10.6 63.2  92.1   0.226</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a><span class="co">#&gt; 8  2020     3 KIER  DS     -16023 Steele… D/ST    Pit   DS    A       7.50   7.5 74.1  93.4  -3.11 </span></span>
-<span id="cb21-13"><a href="#cb21-13"></a><span class="co">#&gt; 9  2020     3 KIER  PK      14993 Greg    Zuerle… Dal   PK    A       7.91   9   33.8  41.0   2.72</span></span></code></pre></div>
-<p>We can also easily filter for the starting roster that has the highest projected or past score. The score total for that roster can also be easily summed.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>(best &lt;-<span class="st"> </span><span class="kw">best_roster</span>(rosters<span class="op">$</span>KIER))</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="co">#&gt; # A tibble: 9 x 15</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#&gt;    year  week team  slot       id first   last   pro   pos   status  proj score start  rost  change</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="co">#&gt; 1  2020     3 KIER  QB       2580 Drew    Brees  NO    QB    A      17.9   23.5  14.3  53.0  -1.24 </span></span>
-<span id="cb22-6"><a href="#cb22-6"></a><span class="co">#&gt; 2  2020     3 KIER  RB    3054850 Alvin   Kamara NO    RB    O      17.1   31.7  65.8  99.8  -0.18 </span></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="co">#&gt; 3  2020     3 KIER  RB    3025433 Mike    Davis  Car   RB    O       9.32  15.1  32.5  80.0 -11.8  </span></span>
-<span id="cb22-8"><a href="#cb22-8"></a><span class="co">#&gt; 4  2020     3 KIER  WR    2977187 Cooper  Kupp   LAR   WR    A       8.37  16.7  50.4  89.1  -7.94 </span></span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="co">#&gt; 5  2020     3 KIER  WR      15795 DeAndre Hopki… Ari   WR    A      11.8   13.7  94.2  99.9  -0.019</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#&gt; 6  2020     3 KIER  TE      15847 Travis  Kelce  KC    TE    A      10.1    8.7  62.4  97.3  -2.66 </span></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="co">#&gt; 7  2020     3 KIER  FX    4242335 Jonath… Taylor Ind   RB    A      15.3   12.2  82.6  98.6   0.964</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a><span class="co">#&gt; 8  2020     3 KIER  DS     -16023 Steele… D/ST   Pit   DS    A       7.50   7.5  74.1  93.4  -3.11 </span></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="co">#&gt; 9  2020     3 KIER  PK      14993 Greg    Zuerl… Dal   PK    A       7.91   9    33.8  41.0   2.72</span></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="kw">roster_score</span>(best)</span>
-<span id="cb22-15"><a href="#cb22-15"></a><span class="co">#&gt; [1] 138.12</span></span></code></pre></div>
-<p>Players on a roster can also be compared against their professional schedule.</p>
-<p>The 2020 NFL schedule is saved as the <code>nfl_schedule</code> table. This table might be out of date due to rescheduled games. The current schedule can be returned by <code>pro_schedule()</code>. The table also indicates if the games have started yet.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>(sched &lt;-<span class="st"> </span><span class="kw">ffl_merge</span>(</span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="dt">x =</span> rosters<span class="op">$</span>KIER[, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>], </span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="dt">y =</span> <span class="kw">pro_schedule</span>()</span>
-<span id="cb23-4"><a href="#cb23-4"></a>))</span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="co">#&gt; # A tibble: 16 x 13</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="co">#&gt;     year  week team  slot       id first  last   pro   pos   opp   home  kickoff             future</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; &lt;lgl&gt; &lt;dttm&gt;              &lt;lgl&gt; </span></span>
-<span id="cb23-8"><a href="#cb23-8"></a><span class="co">#&gt;  1  2020     3 KIER  QB    4038524 Gardn… Minsh… Jax   QB    Mia   TRUE  2020-09-24 20:20:00 FALSE </span></span>
-<span id="cb23-9"><a href="#cb23-9"></a><span class="co">#&gt;  2  2020     3 KIER  RB    3054850 Alvin  Kamara NO    RB    GB    TRUE  2020-09-27 20:20:00 FALSE </span></span>
-<span id="cb23-10"><a href="#cb23-10"></a><span class="co">#&gt;  3  2020     3 KIER  BE       2580 Drew   Brees  NO    QB    GB    TRUE  2020-09-27 20:20:00 FALSE </span></span>
-<span id="cb23-11"><a href="#cb23-11"></a><span class="co">#&gt;  4  2020     3 KIER  RB    4242335 Jonat… Taylor Ind   RB    NYJ   TRUE  2020-09-27 16:05:00 FALSE </span></span>
-<span id="cb23-12"><a href="#cb23-12"></a><span class="co">#&gt;  5  2020     3 KIER  WR      15795 DeAnd… Hopki… Ari   WR    Det   TRUE  2020-09-27 16:25:00 FALSE </span></span>
-<span id="cb23-13"><a href="#cb23-13"></a><span class="co">#&gt;  6  2020     3 KIER  WR      16733 Odell  Beckh… Cle   WR    Wsh   TRUE  2020-09-27 13:00:00 FALSE </span></span>
-<span id="cb23-14"><a href="#cb23-14"></a><span class="co">#&gt;  7  2020     3 KIER  TE      15847 Travis Kelce  KC    TE    Bal   FALSE 2020-09-28 20:15:00 FALSE </span></span>
-<span id="cb23-15"><a href="#cb23-15"></a><span class="co">#&gt;  8  2020     3 KIER  FX    2508176 David  Johns… Hou   RB    Pit   FALSE 2020-09-27 13:00:00 FALSE </span></span>
-<span id="cb23-16"><a href="#cb23-16"></a><span class="co">#&gt;  9  2020     3 KIER  DS     -16023 Steel… D/ST   Pit   DS    Hou   TRUE  2020-09-27 13:00:00 FALSE </span></span>
-<span id="cb23-17"><a href="#cb23-17"></a><span class="co">#&gt; 10  2020     3 KIER  PK      14993 Greg   Zuerl… Dal   PK    Sea   FALSE 2020-09-27 16:25:00 FALSE </span></span>
-<span id="cb23-18"><a href="#cb23-18"></a><span class="co">#&gt; 11  2020     3 KIER  BE    2977187 Cooper Kupp   LAR   WR    Buf   FALSE 2020-09-27 13:00:00 FALSE </span></span>
-<span id="cb23-19"><a href="#cb23-19"></a><span class="co">#&gt; 12  2020     3 KIER  BE    4035538 David  Montg… Chi   RB    Atl   FALSE 2020-09-27 13:00:00 FALSE </span></span>
-<span id="cb23-20"><a href="#cb23-20"></a><span class="co">#&gt; 13  2020     3 KIER  BE    3912550 Ronald Jones… TB    RB    Den   FALSE 2020-09-27 16:25:00 FALSE </span></span>
-<span id="cb23-21"><a href="#cb23-21"></a><span class="co">#&gt; 14  2020     3 KIER  BE      15072 Marvin Jones… Det   WR    Ari   FALSE 2020-09-27 16:25:00 FALSE </span></span>
-<span id="cb23-22"><a href="#cb23-22"></a><span class="co">#&gt; 15  2020     3 KIER  BE    3025433 Mike   Davis  Car   RB    LAC   FALSE 2020-09-27 16:05:00 FALSE </span></span>
-<span id="cb23-23"><a href="#cb23-23"></a><span class="co">#&gt; 16  2020     3 KIER  IR    3126486 Deebo  Samuel SF    WR    NYG   FALSE 2020-09-27 13:00:00 FALSE</span></span></code></pre></div>
-<p>The opponent teams for each player are ranked by the average points scored against them by each position. The lower the rank, the more points that position scores against the opponent team.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">ffl_merge</span>(</span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="dt">x =</span> sched[, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>], </span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="dt">y =</span> <span class="kw">opponent_ranks</span>(), </span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;pos&quot;</span>, <span class="st">&quot;opp&quot;</span> =<span class="st"> &quot;pro&quot;</span>)</span>
-<span id="cb24-5"><a href="#cb24-5"></a>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a><span class="co">#&gt; # A tibble: 15 x 7</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="co">#&gt;    first    last        pro   pos   opp    rank    avg</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; &lt;int&gt;  &lt;dbl&gt;</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a><span class="co">#&gt;  1 Gardner  Minshew II  Jax   QB    Mia       4 21.6  </span></span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="co">#&gt;  2 Alvin    Kamara      NO    RB    GB       32 14.0  </span></span>
-<span id="cb24-11"><a href="#cb24-11"></a><span class="co">#&gt;  3 Drew     Brees       NO    QB    GB       30 15.7  </span></span>
-<span id="cb24-12"><a href="#cb24-12"></a><span class="co">#&gt;  4 Jonathan Taylor      Ind   RB    NYJ      24 16.4  </span></span>
-<span id="cb24-13"><a href="#cb24-13"></a><span class="co">#&gt;  5 DeAndre  Hopkins     Ari   WR    Det      22 21.9  </span></span>
-<span id="cb24-14"><a href="#cb24-14"></a><span class="co">#&gt;  6 Odell    Beckham Jr. Cle   WR    Wsh       7 26.3  </span></span>
-<span id="cb24-15"><a href="#cb24-15"></a><span class="co">#&gt;  7 Travis   Kelce       KC    TE    Bal       7  9.21 </span></span>
-<span id="cb24-16"><a href="#cb24-16"></a><span class="co">#&gt;  8 David    Johnson     Hou   RB    Pit       2 26.8  </span></span>
-<span id="cb24-17"><a href="#cb24-17"></a><span class="co">#&gt;  9 Steelers D/ST        Pit   DS    Hou      25  0.594</span></span>
-<span id="cb24-18"><a href="#cb24-18"></a><span class="co">#&gt; 10 Cooper   Kupp        LAR   WR    Buf      32 16.0  </span></span>
-<span id="cb24-19"><a href="#cb24-19"></a><span class="co">#&gt; 11 David    Montgomery  Chi   RB    Atl      23 16.5  </span></span>
-<span id="cb24-20"><a href="#cb24-20"></a><span class="co">#&gt; 12 Ronald   Jones II    TB    RB    Den      31 14.1  </span></span>
-<span id="cb24-21"><a href="#cb24-21"></a><span class="co">#&gt; 13 Marvin   Jones Jr.   Det   WR    Ari       3 29.1  </span></span>
-<span id="cb24-22"><a href="#cb24-22"></a><span class="co">#&gt; 14 Mike     Davis       Car   RB    LAC      11 19.2  </span></span>
-<span id="cb24-23"><a href="#cb24-23"></a><span class="co">#&gt; 15 Deebo    Samuel      SF    WR    NYG      18 22.5</span></span></code></pre></div>
+<div id="scoreboard" class="section level2">
+<h2>Scoreboard</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">live_scoring</span>()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 5</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   currentMatchupPeriod    id teamId totalPointsLive totalProjectedPointsLive</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  &lt;int&gt; &lt;int&gt; &lt;fct&gt;            &lt;dbl&gt;                    &lt;dbl&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                    4     7 CHI               147.                     151.</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                    4     7 AUS               139.                     139.</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                    4     8 DEN               105.                     105.</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4                    4     8 BOS               133.                     133.</span></span></code></pre></div>
 </div>
-<div id="transactions" class="section level2">
-<h2>Transactions</h2>
-<p>If you’re interested in how the players on a roster were acquired you look at either the acquisition history, draft picks, or league roster moves.</p>
-<p>Every roster identifies players by acquisition method.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">player_acquire</span>()[[<span class="dv">5</span>]]</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#&gt; # A tibble: 16 x 11</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#&gt;     year  week team  slot       id first    last       pro   pos   method date               </span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;fct&gt; &lt;fct&gt; &lt;chr&gt;  &lt;dttm&gt;             </span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#&gt;  1  2020    18 KIER  QB      14876 Ryan     Tannehill  Ten   QB    ADD    2020-10-21 12:00:34</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="co">#&gt;  2  2020    18 KIER  RB    3054850 Alvin    Kamara     NO    RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#&gt;  3  2020    18 KIER  RB    4242335 Jonathan Taylor     Ind   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="co">#&gt;  4  2020    18 KIER  WR      15795 DeAndre  Hopkins    Ari   WR    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#&gt;  5  2020    18 KIER  WR    2977187 Cooper   Kupp       LAR   WR    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="co">#&gt;  6  2020    18 KIER  TE      15847 Travis   Kelce      KC    TE    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="co">#&gt;  7  2020    18 KIER  FX    4035538 David    Montgomery Chi   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="co">#&gt;  8  2020    18 KIER  DS     -16002 Bills    D/ST       Buf   DS    ADD    2020-12-24 12:00:08</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="co">#&gt;  9  2020    18 KIER  PK      15683 Justin   Tucker     Bal   PK    ADD    2020-12-05 12:00:07</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="co">#&gt; 10  2020    18 KIER  BE    2508176 David    Johnson    Hou   RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="co">#&gt; 11  2020    18 KIER  BE    3912550 Ronald   Jones II   TB    RB    DRAFT  2020-09-06 22:17:42</span></span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="co">#&gt; 12  2020    18 KIER  BE    3025433 Mike     Davis      Car   RB    ADD    2020-09-23 11:00:09</span></span>
-<span id="cb25-17"><a href="#cb25-17"></a><span class="co">#&gt; 13  2020    18 KIER  BE    3886818 Myles    Gaskin     Mia   RB    ADD    2020-09-30 11:01:14</span></span>
-<span id="cb25-18"><a href="#cb25-18"></a><span class="co">#&gt; 14  2020    18 KIER  BE    3139522 Travis   Fulgham    Phi   WR    ADD    2020-10-21 12:00:34</span></span>
-<span id="cb25-19"><a href="#cb25-19"></a><span class="co">#&gt; 15  2020    18 KIER  BE    3128774 Kalen    Ballage    LAC   RB    ADD    2020-11-18 12:00:03</span></span>
-<span id="cb25-20"><a href="#cb25-20"></a><span class="co">#&gt; 16  2020    18 KIER  BE      11237 Matt     Ryan       Atl   QB    ADD    2020-11-25 12:04:26</span></span></code></pre></div>
-<p>Roster moves are any waiver add, lineup change, or trade. Roster moves only identify players by their ID, so we will merge with the players table. The <code>ffl_merge()</code> function uses <code>merge()</code> to return a tibble of combined columns and rows in their same order.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">ffl_merge</span>(</span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="dt">x =</span> <span class="kw">roster_moves</span>(<span class="dt">week =</span> <span class="dv">5</span>)[, <span class="dv">7</span><span class="op">:</span><span class="dv">14</span>], </span>
-<span id="cb26-3"><a href="#cb26-3"></a>  <span class="dt">y =</span> nfl_players[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb26-4"><a href="#cb26-4"></a>)</span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="co">#&gt; # A tibble: 129 x 10</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#&gt;    date                 team from_slot from_team      id to_slot to_team move   first   last       </span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="co">#&gt;    &lt;dttm&gt;              &lt;int&gt; &lt;fct&gt;         &lt;int&gt;   &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;      </span></span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="co">#&gt;  1 2020-10-07 11:44:30     6 BE               NA 3915165 PK           NA LINEUP Rodrigo Blankenship</span></span>
-<span id="cb26-9"><a href="#cb26-9"></a><span class="co">#&gt;  2 2020-10-07 11:01:36     5 &lt;NA&gt;             NA 3915165 &lt;NA&gt;          5 ADD    Rodrigo Blankenship</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a><span class="co">#&gt;  3 2020-10-07 11:01:36     6 &lt;NA&gt;             NA 3915165 &lt;NA&gt;          6 ADD    Rodrigo Blankenship</span></span>
-<span id="cb26-11"><a href="#cb26-11"></a><span class="co">#&gt;  4 2020-10-11 11:00:47    10 &lt;NA&gt;             NA   15091 &lt;NA&gt;         10 ADD    Randy   Bullock    </span></span>
-<span id="cb26-12"><a href="#cb26-12"></a><span class="co">#&gt;  5 2020-10-07 11:01:36     8 &lt;NA&gt;              8   15091 &lt;NA&gt;         NA DROP   Randy   Bullock    </span></span>
-<span id="cb26-13"><a href="#cb26-13"></a><span class="co">#&gt;  6 2020-10-11 11:00:47    10 &lt;NA&gt;             10   13981 &lt;NA&gt;         NA DROP   Mark    Ingram II  </span></span>
-<span id="cb26-14"><a href="#cb26-14"></a><span class="co">#&gt;  7 2020-10-08 11:00:26     8 &lt;NA&gt;             NA 3916430 &lt;NA&gt;          8 ADD    Nyheim  Hines      </span></span>
-<span id="cb26-15"><a href="#cb26-15"></a><span class="co">#&gt;  8 2020-10-09 13:28:34     8 RB               NA 3916430 BE           NA LINEUP Nyheim  Hines      </span></span>
-<span id="cb26-16"><a href="#cb26-16"></a><span class="co">#&gt;  9 2020-10-09 13:27:27     8 BE               NA 3916430 RB           NA LINEUP Nyheim  Hines      </span></span>
-<span id="cb26-17"><a href="#cb26-17"></a><span class="co">#&gt; 10 2020-10-13 11:45:00     8 BE               NA 3916430 RB           NA LINEUP Nyheim  Hines      </span></span>
-<span id="cb26-18"><a href="#cb26-18"></a><span class="co">#&gt; # … with 119 more rows</span></span></code></pre></div>
-<p>We can also get the entire history of the draft, either snake or auction.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">ffl_merge</span>(</span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="dt">x =</span> <span class="kw">draft_picks</span>(), </span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="dt">y =</span> nfl_players[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb27-4"><a href="#cb27-4"></a>)</span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#&gt; # A tibble: 128 x 9</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="co">#&gt;     year type     pick nominator  team   bid      id first     last          </span></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;   &lt;int&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;         </span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="co">#&gt;  1  2020 AUCTION     1         8     4    57 3929630 Saquon    Barkley       </span></span>
-<span id="cb27-9"><a href="#cb27-9"></a><span class="co">#&gt;  2  2020 AUCTION     2         3     8    33 3916387 Lamar     Jackson       </span></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="co">#&gt;  3  2020 AUCTION     3        10     3    23 3120348 JuJu      Smith-Schuster</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a><span class="co">#&gt;  4  2020 AUCTION     4        11     1     3    2330 Tom       Brady         </span></span>
-<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#&gt;  5  2020 AUCTION     5         5     1    32 4045163 Miles     Sanders       </span></span>
-<span id="cb27-13"><a href="#cb27-13"></a><span class="co">#&gt;  6  2020 AUCTION     6         4     8    81 3117251 Christian McCaffrey     </span></span>
-<span id="cb27-14"><a href="#cb27-14"></a><span class="co">#&gt;  7  2020 AUCTION     7         1     5    45 4047365 Josh      Jacobs        </span></span>
-<span id="cb27-15"><a href="#cb27-15"></a><span class="co">#&gt;  8  2020 AUCTION     8         6    10     7   13229 Rob       Gronkowski    </span></span>
-<span id="cb27-16"><a href="#cb27-16"></a><span class="co">#&gt;  9  2020 AUCTION     9         8    10    52 3043078 Derrick   Henry         </span></span>
-<span id="cb27-17"><a href="#cb27-17"></a><span class="co">#&gt; 10  2020 AUCTION    10         3    11    32   16737 Mike      Evans         </span></span>
-<span id="cb27-18"><a href="#cb27-18"></a><span class="co">#&gt; # … with 118 more rows</span></span></code></pre></div>
-<p>A summary of transactions and moves is also available.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">moves_summary</span>()</span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="co">#&gt; # A tibble: 8 x 11</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="co">#&gt;    year  week  team abbrev waiver spent acquisitions drops activated reserved trades</span></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;int&gt;     &lt;int&gt;    &lt;int&gt;  &lt;int&gt;</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="co">#&gt; 1  2020    18     1 AGUS        4    54           15    15        59        0      0</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="co">#&gt; 2  2020    18     3 PEPE        3    63           17    17        73        2      0</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="co">#&gt; 3  2020    18     4 BILL        8   100           19    19        84        4      0</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="co">#&gt; 4  2020    18     5 CART        6   100           23    23        61        1      0</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="co">#&gt; 5  2020    18     6 KIER        2    98           28    28        64        2      0</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a><span class="co">#&gt; 6  2020    18     8 CORE        1    52           24    24        72        1      0</span></span>
-<span id="cb28-11"><a href="#cb28-11"></a><span class="co">#&gt; 7  2020    18    10 NICK        5    94           28    27        63        3      0</span></span>
-<span id="cb28-12"><a href="#cb28-12"></a><span class="co">#&gt; 8  2020    18    11 KYLE        7   100           21    22        83        1      0</span></span></code></pre></div>
-</div>
-<div id="scores" class="section level2">
-<h2>Scores</h2>
-<p>Past team scores are found in the tidy tibble by matchup period.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">match_scores</span>()</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="co">#&gt; # A tibble: 112 x 9</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="co">#&gt;     year match week   team abbrev home  score winner power</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;int&gt; &lt;fct&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="co">#&gt;  1  2020     1 1         3 PEPE   TRUE  103.  TRUE       4</span></span>
-<span id="cb29-6"><a href="#cb29-6"></a><span class="co">#&gt;  2  2020     1 1         1 AGUS   FALSE  68.5 FALSE      0</span></span>
-<span id="cb29-7"><a href="#cb29-7"></a><span class="co">#&gt;  3  2020     2 1        10 NICK   TRUE   86.0 FALSE      1</span></span>
-<span id="cb29-8"><a href="#cb29-8"></a><span class="co">#&gt;  4  2020     2 1         4 BILL   FALSE 134.  TRUE       6</span></span>
-<span id="cb29-9"><a href="#cb29-9"></a><span class="co">#&gt;  5  2020     3 1         5 CART   TRUE  149.  TRUE       7</span></span>
-<span id="cb29-10"><a href="#cb29-10"></a><span class="co">#&gt;  6  2020     3 1        11 KYLE   FALSE  94.7 FALSE      2</span></span>
-<span id="cb29-11"><a href="#cb29-11"></a><span class="co">#&gt;  7  2020     4 1         8 CORE   TRUE  119.  TRUE       5</span></span>
-<span id="cb29-12"><a href="#cb29-12"></a><span class="co">#&gt;  8  2020     4 1         6 KIER   FALSE  99.7 FALSE      3</span></span>
-<span id="cb29-13"><a href="#cb29-13"></a><span class="co">#&gt;  9  2020     5 2         1 AGUS   TRUE  144.  TRUE       7</span></span>
-<span id="cb29-14"><a href="#cb29-14"></a><span class="co">#&gt; 10  2020     5 2         4 BILL   FALSE 110.  FALSE      2</span></span>
-<span id="cb29-15"><a href="#cb29-15"></a><span class="co">#&gt; # … with 102 more rows</span></span></code></pre></div>
-<p>These scores are only for matches played. We can also determine future matches.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">match_schedule</span>()</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="co">#&gt; # A tibble: 112 x 6</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="co">#&gt;     year  week match team  opp   home </span></span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;fct&gt; &lt;lgl&gt;</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a><span class="co">#&gt;  1  2020     1     1 PEPE  AGUS  TRUE </span></span>
-<span id="cb30-6"><a href="#cb30-6"></a><span class="co">#&gt;  2  2020     1     1 AGUS  PEPE  FALSE</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a><span class="co">#&gt;  3  2020     1     2 NICK  BILL  TRUE </span></span>
-<span id="cb30-8"><a href="#cb30-8"></a><span class="co">#&gt;  4  2020     1     2 BILL  NICK  FALSE</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a><span class="co">#&gt;  5  2020     1     3 CART  KYLE  TRUE </span></span>
-<span id="cb30-10"><a href="#cb30-10"></a><span class="co">#&gt;  6  2020     1     3 KYLE  CART  FALSE</span></span>
-<span id="cb30-11"><a href="#cb30-11"></a><span class="co">#&gt;  7  2020     1     4 CORE  KIER  TRUE </span></span>
-<span id="cb30-12"><a href="#cb30-12"></a><span class="co">#&gt;  8  2020     1     4 KIER  CORE  FALSE</span></span>
-<span id="cb30-13"><a href="#cb30-13"></a><span class="co">#&gt;  9  2020     2     5 AGUS  BILL  TRUE </span></span>
-<span id="cb30-14"><a href="#cb30-14"></a><span class="co">#&gt; 10  2020     2     5 BILL  AGUS  FALSE</span></span>
-<span id="cb30-15"><a href="#cb30-15"></a><span class="co">#&gt; # … with 102 more rows</span></span></code></pre></div>
-<p>If a matchup period is currently ongoing, the live score and projection can also be found.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">live_scoring</span>()</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="co">#&gt; # A tibble: 8 x 6</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="co">#&gt;    week match team  score  proj  line</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="co">#&gt; * &lt;int&gt; &lt;int&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="co">#&gt; 1    14    53 BILL   162.  162. -92.7</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a><span class="co">#&gt; 2    14    53 KYLE   255.  255.  92.7</span></span>
-<span id="cb31-7"><a href="#cb31-7"></a><span class="co">#&gt; 3    14    54 CART   224.  224.  46.7</span></span>
-<span id="cb31-8"><a href="#cb31-8"></a><span class="co">#&gt; 4    14    54 NICK   177.  177. -46.7</span></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="co">#&gt; 5    14    55 PEPE   200.  200. -65.4</span></span>
-<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#&gt; 6    14    55 KIER   265.  265.  65.4</span></span>
-<span id="cb31-11"><a href="#cb31-11"></a><span class="co">#&gt; 7    14    56 AGUS   190.  190.  24.1</span></span>
-<span id="cb31-12"><a href="#cb31-12"></a><span class="co">#&gt; 8    14    56 CORE   166.  166. -24.1</span></span></code></pre></div>
-<p>It’s worth noting that matchups and weeks are different units of time. For this league, for example, regular season matchups last one week and playoff matches last two.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">schedule_settings</span>()</span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="co">#&gt; $year</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="co">#&gt; [1] 2020</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#&gt; </span></span>
-<span id="cb32-5"><a href="#cb32-5"></a><span class="co">#&gt; $divisions</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a><span class="co">#&gt; # A tibble: 1 x 3</span></span>
-<span id="cb32-7"><a href="#cb32-7"></a><span class="co">#&gt;      id name   size</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt; &lt;int&gt;</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="co">#&gt; 1     0 East      8</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a><span class="co">#&gt; </span></span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="co">#&gt; $match_count</span></span>
-<span id="cb32-12"><a href="#cb32-12"></a><span class="co">#&gt; [1] 12</span></span>
-<span id="cb32-13"><a href="#cb32-13"></a><span class="co">#&gt; </span></span>
-<span id="cb32-14"><a href="#cb32-14"></a><span class="co">#&gt; $match_length</span></span>
-<span id="cb32-15"><a href="#cb32-15"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb32-16"><a href="#cb32-16"></a><span class="co">#&gt; </span></span>
-<span id="cb32-17"><a href="#cb32-17"></a><span class="co">#&gt; $match_sched</span></span>
-<span id="cb32-18"><a href="#cb32-18"></a><span class="co">#&gt; # A tibble: 16 x 2</span></span>
-<span id="cb32-19"><a href="#cb32-19"></a><span class="co">#&gt;     week period</span></span>
-<span id="cb32-20"><a href="#cb32-20"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt; </span></span>
-<span id="cb32-21"><a href="#cb32-21"></a><span class="co">#&gt;  1     1 1     </span></span>
-<span id="cb32-22"><a href="#cb32-22"></a><span class="co">#&gt;  2     2 2     </span></span>
-<span id="cb32-23"><a href="#cb32-23"></a><span class="co">#&gt;  3     3 3     </span></span>
-<span id="cb32-24"><a href="#cb32-24"></a><span class="co">#&gt;  4     4 4     </span></span>
-<span id="cb32-25"><a href="#cb32-25"></a><span class="co">#&gt;  5     5 5     </span></span>
-<span id="cb32-26"><a href="#cb32-26"></a><span class="co">#&gt;  6     6 6     </span></span>
-<span id="cb32-27"><a href="#cb32-27"></a><span class="co">#&gt;  7     7 7     </span></span>
-<span id="cb32-28"><a href="#cb32-28"></a><span class="co">#&gt;  8     8 8     </span></span>
-<span id="cb32-29"><a href="#cb32-29"></a><span class="co">#&gt;  9     9 9     </span></span>
-<span id="cb32-30"><a href="#cb32-30"></a><span class="co">#&gt; 10    10 10    </span></span>
-<span id="cb32-31"><a href="#cb32-31"></a><span class="co">#&gt; 11    11 11    </span></span>
-<span id="cb32-32"><a href="#cb32-32"></a><span class="co">#&gt; 12    12 12    </span></span>
-<span id="cb32-33"><a href="#cb32-33"></a><span class="co">#&gt; 13    13 13    </span></span>
-<span id="cb32-34"><a href="#cb32-34"></a><span class="co">#&gt; 14    14 13    </span></span>
-<span id="cb32-35"><a href="#cb32-35"></a><span class="co">#&gt; 15    16 14    </span></span>
-<span id="cb32-36"><a href="#cb32-36"></a><span class="co">#&gt; 16    15 14    </span></span>
-<span id="cb32-37"><a href="#cb32-37"></a><span class="co">#&gt; </span></span>
-<span id="cb32-38"><a href="#cb32-38"></a><span class="co">#&gt; $period_type</span></span>
-<span id="cb32-39"><a href="#cb32-39"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb32-40"><a href="#cb32-40"></a><span class="co">#&gt; </span></span>
-<span id="cb32-41"><a href="#cb32-41"></a><span class="co">#&gt; $playoff_length</span></span>
-<span id="cb32-42"><a href="#cb32-42"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb32-43"><a href="#cb32-43"></a><span class="co">#&gt; </span></span>
-<span id="cb32-44"><a href="#cb32-44"></a><span class="co">#&gt; $seed_rule</span></span>
-<span id="cb32-45"><a href="#cb32-45"></a><span class="co">#&gt; [1] &quot;TOTAL_POINTS_SCORED&quot;</span></span>
-<span id="cb32-46"><a href="#cb32-46"></a><span class="co">#&gt; </span></span>
-<span id="cb32-47"><a href="#cb32-47"></a><span class="co">#&gt; $playoff_size</span></span>
-<span id="cb32-48"><a href="#cb32-48"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
-<p>If you want to return scores by <em>week</em>, use a different function. These functions also return “power wins” which are the total number of wins a team would get if they played every other team in the league; the lowest score gets zero power wins and the highest gets one less than the number of teams.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">week_scores</span>()</span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="co">#&gt; # A tibble: 128 x 8</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#&gt;     year match  week  team abbrev home  score power</span></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#&gt;  1  2020     1     1     3 PEPE   TRUE  103.      4</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="co">#&gt;  2  2020     1     1     1 AGUS   FALSE  68.5     0</span></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="co">#&gt;  3  2020     2     1    10 NICK   TRUE   86.0     1</span></span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="co">#&gt;  4  2020     2     1     4 BILL   FALSE 134.      6</span></span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="co">#&gt;  5  2020     3     1     5 CART   TRUE  149.      7</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a><span class="co">#&gt;  6  2020     3     1    11 KYLE   FALSE  94.7     2</span></span>
-<span id="cb33-11"><a href="#cb33-11"></a><span class="co">#&gt;  7  2020     4     1     8 CORE   TRUE  119.      5</span></span>
-<span id="cb33-12"><a href="#cb33-12"></a><span class="co">#&gt;  8  2020     4     1     6 KIER   FALSE  99.7     3</span></span>
-<span id="cb33-13"><a href="#cb33-13"></a><span class="co">#&gt;  9  2020     5     2     1 AGUS   TRUE  144.      7</span></span>
-<span id="cb33-14"><a href="#cb33-14"></a><span class="co">#&gt; 10  2020     5     2     4 BILL   FALSE 110.      2</span></span>
-<span id="cb33-15"><a href="#cb33-15"></a><span class="co">#&gt; # … with 118 more rows</span></span></code></pre></div>
-<p>A summary of scores and wins is also available.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">score_summary</span>()</span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="co">#&gt; # A tibble: 8 x 16</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a><span class="co">#&gt;    year  week  team abbrev draft current  seed final  back losses  ties  wins percentage against</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="co">#&gt; 1  2020    18     1 AGUS       1       5     5     7     2      6     0     6      0.5     1198.</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a><span class="co">#&gt; 2  2020    18     3 PEPE       7       6     6     6     2      6     0     6      0.5     1151.</span></span>
-<span id="cb34-7"><a href="#cb34-7"></a><span class="co">#&gt; 3  2020    18     4 BILL       8       1     1     2     0      4     0     8      0.667   1149.</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a><span class="co">#&gt; 4  2020    18     5 CART       5       3     3     3     2      6     0     6      0.5     1141.</span></span>
-<span id="cb34-9"><a href="#cb34-9"></a><span class="co">#&gt; 5  2020    18     6 KIER       4       7     7     5     3      7     0     5      0.417   1194.</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a><span class="co">#&gt; 6  2020    18     8 CORE       6       8     8     8     4      8     0     4      0.333   1319.</span></span>
-<span id="cb34-11"><a href="#cb34-11"></a><span class="co">#&gt; 7  2020    18    10 NICK       3       4     4     4     2      6     0     6      0.5     1219.</span></span>
-<span id="cb34-12"><a href="#cb34-12"></a><span class="co">#&gt; 8  2020    18    11 KYLE       2       2     2     1     1      5     0     7      0.583   1274.</span></span>
-<span id="cb34-13"><a href="#cb34-13"></a><span class="co">#&gt; # … with 2 more variables: points &lt;dbl&gt;, streak &lt;dbl&gt;</span></span></code></pre></div>
-</div>
-<div id="historical" class="section level2">
-<h2>Historical</h2>
-<p>Most functions have an <code>old</code> argument that can be used to specify access to the historical endpoint of the API. If the recent data is usually returned as a dataframe, like rosters, then a <em>list</em> of dataframes is returned instead; if the recent data is a list, then a single dataframe is returned instead.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>past &lt;-<span class="st"> </span><span class="kw">week_scores</span>(<span class="dt">old =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="kw">names</span>(past) &lt;-<span class="st"> </span><span class="dv">2015</span><span class="op">:</span><span class="dv">2019</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="kw">str</span>(past, <span class="dt">max.level =</span> <span class="dv">1</span>)</span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co">#&gt; List of 5</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="co">#&gt;  $ 2015: tibble [136 × 8] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="co">#&gt;  $ 2016: tibble [170 × 8] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="co">#&gt;  $ 2017: tibble [160 × 8] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="co">#&gt;  $ 2018: tibble [160 × 8] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb35-9"><a href="#cb35-9"></a><span class="co">#&gt;  $ 2019: tibble [128 × 8] (S3: tbl_df/tbl/data.frame)</span></span></code></pre></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">str</span>(<span class="kw">league_info</span>())</span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="co">#&gt; List of 6</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="co">#&gt;  $ year  : int 2020</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="co">#&gt;  $ name  : chr &quot;Gambling Addicts Anonymous&quot;</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="co">#&gt;  $ id    : int 252353</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a><span class="co">#&gt;  $ public: logi TRUE</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a><span class="co">#&gt;  $ size  : int 8</span></span>
-<span id="cb36-8"><a href="#cb36-8"></a><span class="co">#&gt;  $ length: int 16</span></span>
-<span id="cb36-9"><a href="#cb36-9"></a><span class="kw">league_info</span>(<span class="dt">old =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb36-10"><a href="#cb36-10"></a><span class="co">#&gt; # A tibble: 5 x 6</span></span>
-<span id="cb36-11"><a href="#cb36-11"></a><span class="co">#&gt;    year name                           id public  size length</span></span>
-<span id="cb36-12"><a href="#cb36-12"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;                       &lt;int&gt; &lt;lgl&gt;  &lt;int&gt;  &lt;int&gt;</span></span>
-<span id="cb36-13"><a href="#cb36-13"></a><span class="co">#&gt; 1  2015 Gambling Addicts Anonymous 252353 FALSE      8     17</span></span>
-<span id="cb36-14"><a href="#cb36-14"></a><span class="co">#&gt; 2  2016 Gambling Addicts Anonymous 252353 FALSE     10     17</span></span>
-<span id="cb36-15"><a href="#cb36-15"></a><span class="co">#&gt; 3  2017 Gambling Addicts Anonymous 252353 FALSE     10     16</span></span>
-<span id="cb36-16"><a href="#cb36-16"></a><span class="co">#&gt; 4  2018 Gambling Addicts Anonymous 252353 FALSE     10     16</span></span>
-<span id="cb36-17"><a href="#cb36-17"></a><span class="co">#&gt; 5  2019 Gambling Addicts Anonymous 252353 TRUE       8     16</span></span></code></pre></div>
+<div id="standings" class="section level2">
+<h2>Standings</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">league_standings</span>()</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 19</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId teamId abbrev draftDayProjectedR… currentProjected… playoffSeed</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;                &lt;int&gt;             &lt;int&gt;       &lt;int&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     2021               4      1 AUS                      2                 4           4</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2021               4      2 BOS                      4                 2           3</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     2021               4      3 CHI                      3                 3           1</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2021               4      4 DEN                      1                 1           2</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 12 more variables: rankCalculatedFinal &lt;int&gt;, gamesBack &lt;dbl&gt;, losses &lt;int&gt;,</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   percentage &lt;dbl&gt;, pointsAgainst &lt;dbl&gt;, pointsFor &lt;dbl&gt;, streakLength &lt;int&gt;,</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   streakType &lt;chr&gt;, ties &lt;int&gt;, wins &lt;int&gt;, playoffPct &lt;dbl&gt;, divisionWinPct &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 
 

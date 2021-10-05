@@ -3,31 +3,31 @@
 \docType{data}
 \name{nfl_players}
 \alias{nfl_players}
-\title{2020 NFL Players}
+\title{2021 NFL Players}
 \format{
-A data frame with 1,059 rows and 5 variables:
+A data frame with 1,063 rows and 11 variables:
 \describe{
-\item{id}{Unique ESPN player ID}
-\item{first}{First name}
-\item{last}{Last name}
-\item{pro}{Professional NFL team}
-\item{pos}{Position: QB, RB, WR, TE, D/ST}
+\item{playerId}{Unique ESPN player ID}
+\item{firstName}{First name}
+\item{lastName}{Last name}
+\item{proTeam}{Professional NFL team}
+\item{defaultPositionId}{Position: QB, RB, WR, TE, D/ST}
 \item{jersey}{Jersey number}
-\item{weight}{Weight in even pounds}
-\item{height}{Weight in even inches}
-\item{age}{Current age in year}
-\item{birth}{Date of birth}
-\item{debut}{Season debuted in league}
+\item{weight}{Weight in integer pounds}
+\item{height}{Height in integer inches}
+\item{age}{Current age in integer year}
+\item{dateOfBirth}{Date of birth}
+\item{debutYear}{Season debuted in league}
 ...
 }
 }
 \source{
-\url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2020/athletes/}
+\url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2021/athletes/}
 }
 \usage{
 nfl_players
 }
 \description{
-All available ESPN fantasy football players as of the 2020 season, week 4.
+All available ESPN fantasy football players as of the 2021 season, week 1.
 }
 \keyword{datasets}

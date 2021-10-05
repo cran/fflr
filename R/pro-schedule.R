@@ -1,42 +1,37 @@
-#' Professional NFL schedule
+#' Professional schedule
 #'
-#' The opponents each team faces every week in an NFL regular season.
+#' The opponents each team faces every week in a regular season.
 #'
-#' @param year Season schedule (2004-present), defaults to [ffl_year()].
-#' @return Tibble of NFL team opponents by week.
+#' @param seasonId Season schedule (2004-present), defaults to [ffl_year()].
+#' @return Data frame of team opponents by week.
 #' @examples
-#' pro_schedule(year = ffl_year(-2))
+#' pro_schedule(seasonId = ffl_year(-2))
 #' @importFrom tibble tibble
 #' @export
-pro_schedule <- function(year = ffl_year()) {
-  d <- try_api(
-    txt = paste0(
-      "https://fantasy.espn.com/apis/v3/games/ffl/seasons/", year,
-      "?view=proTeamSchedules_wl"
-    )
+pro_schedule <- function(seasonId = ffl_year()) {
+  dat <- try_json(
+    url = sprintf("https://fantasy.espn.com/apis/v3/games/ffl/seasons/%i", seasonId),
+    query = list(view = "proTeamSchedules_wl")
   )
-  p <- d$settings$proTeams$proGamesByScoringPeriod
-  t <- data.frame(
+  p <- dat$settings$proTeams$proGamesByScoringPeriod
+  tm <- data.frame(
     stringsAsFactors = FALSE,
-    team = d$settings$proTeams$id,
-    abbrev = d$settings$proTeams$abbrev
+    team = dat$settings$proTeams$id,
+    abbrev = dat$settings$proTeams$abbrev
   )
   sched <- rep(list(NA), length(p))
   for (i in seq_along(p)) {
     x <- unique(do.call("rbind", p[[i]]))
-    x <- tibble::tibble(
-      year = as.integer(year),
-      week = unique(x$scoringPeriodId),
-      pro = c(x$homeProTeamId, x$awayProTeamId),
-      opp = c(x$awayProTeamId, x$homeProTeamId),
-      home = c(rep(TRUE, nrow(x)), rep(FALSE, nrow(x))),
-      kickoff = ffl_date(rep(x$date, 2))
+    x <- data.frame(
+      seasonId = as.integer(seasonId),
+      scoringPeriodId = unique(x$scoringPeriodId),
+      proTeam = pro_abbrev(c(x$homeProTeamId, x$awayProTeamId)),
+      opponent = pro_abbrev(c(x$awayProTeamId, x$homeProTeamId)),
+      isHome = c(rep(TRUE, nrow(x)), rep(FALSE, nrow(x))),
+      date = ffl_date(rep(x$date, 2))
     )
-    sched[[i]] <- x[order(x$pro), ]
+    sched[[i]] <- x[order(x$proTeam), ]
   }
   sched <- do.call("rbind", sched)
-  sched$pro <- team_abbrev(sched$pro, fflr::nfl_teams)
-  sched$opp <- team_abbrev(sched$opp, fflr::nfl_teams)
-  sched$future <- sched$kickoff > Sys.time()
-  return(sched)
+  as_tibble(sched)
 }

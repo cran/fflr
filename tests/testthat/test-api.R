@@ -1,6 +1,5 @@
-library(testthat)
-library(fflr)
-
-test_that("API errors without league ID", {
-  expect_error(ffl_api(lid = NULL))
+test_that("empty API call returns fantasy league info", {
+  x <- ffl_api()
+  expect_type(x, "list")
+  expect_length(x, 9)
 })

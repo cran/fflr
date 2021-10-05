@@ -3,26 +3,26 @@
 \docType{data}
 \name{nfl_teams}
 \alias{nfl_teams}
-\title{2020 NFL Teams}
+\title{2021 NFL Teams}
 \format{
-A data frame with 1,056 rows and 5 variables:
+A data frame with 33 rows and 6 columns:
 \describe{
-\item{team}{Unique team ID}
+\item{proTeamId}{Unique team ID}
 \item{abbrev}{Team abbreviation}
 \item{location}{Team geographic location}
 \item{name}{Team full nickname}
-\item{bye}{Bye week, no game played}
-\item{conf}{NFL conference}
+\item{byeWeek}{Bye week, no game played}
+\item{conference}{NFL conference}
 ...
 }
 }
 \source{
-\url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020?view=proTeamSchedules_wl}
+\url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2021?view=proTeamSchedules_wl}
 }
 \usage{
 nfl_teams
 }
 \description{
-The 32 professional NFL teams as of the 2020 season.
+The 32 professional NFL teams as of the 2021 season.
 }
 \keyword{datasets}

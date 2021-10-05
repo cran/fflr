@@ -1,164 +1,98 @@
-library(testthat)
-library(fflr)
-
 # draft settings ----------------------------------------------------------
 
 test_that("draft settings for a single season", {
-  d <- draft_settings(252353, old = FALSE)
-  expect_type(d, "list")
-  expect_length(d, 8)
-  expect_s3_class(d$date, "POSIXt")
-  expect_type(d$order, "integer")
-})
-
-test_that("draft settings for past seasons", {
-  d <- draft_settings(252353, old = TRUE)
-  expect_s3_class(d, "tbl")
-  expect_length(d, 8)
-  expect_s3_class(d$date, "POSIXt")
-  expect_type(d$order, "list")
+  d <- draft_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(d, "data.frame")
+  expect_length(d, 13)
+  expect_s3_class(d$availableDate, "POSIXt")
+  expect_type(d$pickOrder, "list")
 })
 
 # league info -------------------------------------------------------------
+Sys.sleep(runif(1, 1, 2))
 
 test_that("league info for a single season", {
-  d <- league_info(252353, old = FALSE)
-  expect_type(d, "list")
+  d <- league_info("42654852", leagueHistory = FALSE)
+  expect_s3_class(d, "data.frame")
   expect_length(d, 6)
-  expect_true(d$public)
-  expect_type(d$year, "integer")
+  expect_true(d$isPublic)
+  expect_type(d$seasonId, "integer")
 })
 
-test_that("league info for past seasons", {
-  d <- league_info(252353, old = TRUE)
-  expect_s3_class(d, "tbl")
-  expect_length(d, 6)
-  expect_equal(nrow(d), 5)
+# league size -------------------------------------------------------------
+
+test_that("named vector of past seasons for league", {
+  d <- league_size("252353", leagueHistory = TRUE)
+  expect_s3_class(d, "data.frame")
+  expect_length(d, 2)
+  expect_type(d$size, "integer")
 })
 
 # league name -------------------------------------------------------------
 
-test_that("named vector of past seasons for league", {
-  d <- league_size(252353, old = TRUE)
-  expect_length(d, 5)
-  expect_type(d, "integer")
-  expect_named(d)
-})
-
-test_that("league name returns as single character element", {
-  d <- league_name(252353)
+test_that("league name returns as a data frame", {
+  d <- league_name("42654852")
   expect_length(d, 1)
   expect_type(d, "character")
 })
 
 # waiver setting ----------------------------------------------------------
+Sys.sleep(runif(1, 1, 2))
 
-test_that("waiver settings for a single season", {
-  w <- waiver_settings(252353, old = FALSE)
-  expect_type(w, "list")
+test_that("acquisition settings for a single season", {
+  w <- acquisition_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(w, "data.frame")
   expect_length(w, 10)
-  expect_type(w$budget, "integer")
-  expect_type(w$process_days, "character")
-  expect_type(w$order_reset, "logical")
-  expect_true(w$order_reset)
-})
-
-test_that("waiver settings for past seasons", {
-  w <- waiver_settings(252353, old = TRUE)
-  expect_s3_class(w, "tbl")
-  expect_length(w, 10)
-  expect_equal(nrow(w), 5)
-  expect_type(w$process_days, "list")
-  expect_type(w$process_days[[1]], "character")
+  expect_type(w$acquisitionBudget, "integer")
+  expect_type(w$waiverProcessDays, "list")
+  expect_type(w$waiverOrderReset, "logical")
+  expect_true(w$waiverOrderReset)
 })
 
 # fee settings ------------------------------------------------------------
 
 test_that("fee settings for a single season", {
-  f <- fee_settings(252353, old = FALSE)
-  expect_type(f, "list")
+  f <- finance_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(f, "data.frame")
   expect_length(f, 9)
-  expect_type(f$entry, "double")
-})
-
-test_that("fee settings for past seasons", {
-  f <- fee_settings(252353, old = TRUE)
-  expect_s3_class(f, "tbl")
-  expect_length(f, 9)
-  expect_equal(nrow(f), 5)
-  expect_type(f$entry, "double")
+  expect_type(f$entryFee, "double")
 })
 
 # roster settings ---------------------------------------------------------
 
 test_that("roster settings for a single season", {
-  r <- roster_settings(252353, old = FALSE)
-  expect_type(r, "list")
-  expect_length(r, 7)
-  expect_named(r$slot_count)
-})
-
-test_that("roster settings for past seasons", {
-  r <- roster_settings(252353, old = TRUE)
-  expect_s3_class(r, "tbl")
-  expect_length(r, 7)
-  expect_equal(nrow(r), 5)
-  expect_type(r$slot_count, "list")
-  expect_s3_class(r$slot_count[[1]], "tbl")
+  r <- roster_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(r, "data.frame")
+  expect_length(r, 8)
+  expect_s3_class(r$lineupSlotCounts[[1]], "data.frame")
 })
 
 # schedule settings -------------------------------------------------------
+Sys.sleep(runif(1, 1, 2))
 
 test_that("schedule settings for a single season", {
-  s <- schedule_settings(252353, old = FALSE)
-  expect_type(s, "list")
-  expect_length(s, 9)
-  expect_s3_class(s$match_sched, "tbl")
-  expect_s3_class(s$divisions, "tbl")
-})
-
-test_that("schedule settings for past seasons", {
-  s <- schedule_settings(252353, old = TRUE)
-  expect_s3_class(s, "tbl")
-  expect_length(s, 9)
-  expect_equal(nrow(s), 5)
-  expect_type(s$divisions, "list")
-  expect_s3_class(s$divisions[[1]], "tbl")
-  expect_type(s$match_sched, "list")
-  expect_s3_class(s$match_sched[[1]], "tbl")
+  s <- schedule_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(s, "data.frame")
+  expect_length(s, 10)
+  expect_s3_class(s$matchupPeriods[[1]], "data.frame")
+  expect_s3_class(s$divisions[[1]], "data.frame")
 })
 
 # scoring settings --------------------------------------------------------
 
 test_that("scoring settings for a single season", {
-  s <- score_settings(252353, old = FALSE)
-  expect_type(s, "list")
+  s <- scoring_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(s, "data.frame")
   expect_length(s, 7)
-  expect_s3_class(s$scoring, "tbl")
-})
-
-test_that("scoring settings for past seasons", {
-  s <- score_settings(252353, old = TRUE)
-  expect_s3_class(s, "tbl")
-  expect_length(s, 7)
-  expect_equal(nrow(s), 5)
-  expect_type(s$scoring, "list")
-  expect_s3_class(s$scoring[[1]], "tbl")
 })
 
 # trade settings ----------------------------------------------------------
 
 test_that("trade settings for a single season", {
-  t <- trade_settings(252353, old = FALSE)
-  expect_type(t, "list")
+  t <- trade_settings("42654852", leagueHistory = FALSE)
+  expect_s3_class(t, "data.frame")
   expect_length(t, 6)
-  expect_s3_class(t$deadline, "POSIXt")
-})
-
-test_that("trade settings for past seasons", {
-  t <- trade_settings(252353, old = TRUE)
-  expect_s3_class(t, "tbl")
-  expect_length(t, 6)
-  expect_equal(nrow(t), 5)
-  expect_s3_class(t$deadline, "POSIXt")
+  expect_s3_class(t$deadlineDate, "POSIXt")
+  expect_type(t$allowOutOfUniverse, "logical")
+  expect_false(t$allowOutOfUniverse)
 })

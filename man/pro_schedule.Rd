@@ -2,19 +2,19 @@
 % Please edit documentation in R/pro-schedule.R
 \name{pro_schedule}
 \alias{pro_schedule}
-\title{Professional NFL schedule}
+\title{Professional schedule}
 \usage{
-pro_schedule(year = ffl_year())
+pro_schedule(seasonId = ffl_year())
 }
 \arguments{
-\item{year}{Season schedule (2004-present), defaults to \code{\link[=ffl_year]{ffl_year()}}.}
+\item{seasonId}{Season schedule (2004-present), defaults to \code{\link[=ffl_year]{ffl_year()}}.}
 }
 \value{
-Tibble of NFL team opponents by week.
+Data frame of team opponents by week.
 }
 \description{
-The opponents each team faces every week in an NFL regular season.
+The opponents each team faces every week in a regular season.
 }
 \examples{
-pro_schedule(year = ffl_year(-2))
+pro_schedule(seasonId = ffl_year(-2))
 }

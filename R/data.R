@@ -1,71 +1,55 @@
-#' 2020 NFL Players
+#' 2021 NFL Players
 #'
-#' All available ESPN fantasy football players as of the 2020 season, week 4.
+#' All available ESPN fantasy football players as of the 2021 season, week 1.
 #'
-#' @format A data frame with 1,059 rows and 5 variables:
+#' @format A data frame with 1,063 rows and 11 variables:
 #' \describe{
-#'   \item{id}{Unique ESPN player ID}
-#'   \item{first}{First name}
-#'   \item{last}{Last name}
-#'   \item{pro}{Professional NFL team}
-#'   \item{pos}{Position: QB, RB, WR, TE, D/ST}
+#'   \item{playerId}{Unique ESPN player ID}
+#'   \item{firstName}{First name}
+#'   \item{lastName}{Last name}
+#'   \item{proTeam}{Professional NFL team}
+#'   \item{defaultPositionId}{Position: QB, RB, WR, TE, D/ST}
 #'   \item{jersey}{Jersey number}
-#'   \item{weight}{Weight in even pounds}
-#'   \item{height}{Weight in even inches}
-#'   \item{age}{Current age in year}
-#'   \item{birth}{Date of birth}
-#'   \item{debut}{Season debuted in league}
+#'   \item{weight}{Weight in integer pounds}
+#'   \item{height}{Height in integer inches}
+#'   \item{age}{Current age in integer year}
+#'   \item{dateOfBirth}{Date of birth}
+#'   \item{debutYear}{Season debuted in league}
 #'   ...
 #' }
-#' @source \url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2020/athletes/}
+#' @source \url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2021/athletes/}
 "nfl_players"
 
-#' 2020 NFL Schedule
+#' 2021 NFL Teams
 #'
-#' The 2020 NFL season schedule by team, as of October 5th. Due to COVID-19 game
-#' delays, the schedule is more in flux than usual. See [pro_schedule()] for the
-#' most current version.
+#' The 32 professional NFL teams as of the 2021 season.
 #'
-#' @format A data frame with 1,059 rows and 5 variables:
+#' @format A data frame with 33 rows and 6 columns:
 #' \describe{
-#'   \item{year}{Season year}
-#'   \item{week}{Matchup period}
-#'   \item{pro}{Team abbreviation}
-#'   \item{opp}{Team opponent}
-#'   \item{home}{Team the home?}
-#'   \item{kickoff}{Match date and time}
-#'   ...
-#' }
-#' @source \url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020?view=proTeamSchedules_wl}
-"nfl_schedule"
-
-#' 2020 NFL Teams
-#'
-#' The 32 professional NFL teams as of the 2020 season.
-#'
-#' @format A data frame with 1,056 rows and 5 variables:
-#' \describe{
-#'   \item{team}{Unique team ID}
+#'   \item{proTeamId}{Unique team ID}
 #'   \item{abbrev}{Team abbreviation}
 #'   \item{location}{Team geographic location}
 #'   \item{name}{Team full nickname}
-#'   \item{bye}{Bye week, no game played}
-#'   \item{conf}{NFL conference}
+#'   \item{byeWeek}{Bye week, no game played}
+#'   \item{conference}{NFL conference}
 #'   ...
 #' }
-#' @source \url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020?view=proTeamSchedules_wl}
+#' @source \url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2021?view=proTeamSchedules_wl}
 "nfl_teams"
 
-#' 2015-2020 GAA Teams
+#' 2021 NFL Schedule
 #'
-#' The GAA is the fantasy league of this package's author.
+#' The 2021 NFL season schedule by team, as of September 10th.
 #'
-#' @format A data frame with 13 rows and 3 variables:
+#' @format A data frame with 544 rows and 6 variables:
 #' \describe{
-#'   \item{team}{Unique yearly team ID}
-#'   \item{abbrev}{Team abbreviation}
-#'   \item{years}{Nested list of active years}
+#'   \item{seasonId}{Season year}
+#'   \item{scoringPeriodId}{Matchup period}
+#'   \item{proTeam}{Team abbreviation}
+#'   \item{opponent}{Team opponent}
+#'   \item{isHome}{Team the home?}
+#'   \item{date}{Match date and time}
 #'   ...
 #' }
-#' @source \url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2020/segments/0/leagues/252353}
-"gaa_teams"
+#' @source \url{https://fantasy.espn.com/apis/v3/games/ffl/seasons/2021?view=proTeamSchedules_wl}
+"nfl_schedule"

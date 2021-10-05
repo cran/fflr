@@ -1,4 +1,36 @@
-# fflr 0.3.15
+# fflr 1.9.2
+
+* Fix `tidy_scores()` for settings that award home team points.
+* Remove bad variables argument from `pro_scores()`.
+* Add vignette and update the README and logo.
+* Unnest the `currentScoringPeriod` in `ffl_seasons()`.
+* Remove `seasonId` argument in sub-functions.
+* Use `proTeamId` and `playerId` column names in data.
+* Clarify which columns are simulated in `league_simulation()`.
+* Add `overwrite` argument to `ffl_id()` to set `options()` regardless.
+* Rename `state_correct()` to `stat_corrections()` and update for new back-end.
+
+# fflr 1.9.1
+
+* Rename some functions to match the website section headers (e.g., 
+`roster_moves()` to `recent_activity()`).
+* Add `pro_events()` and `pro_scores()` for live NFL data.
+* Add vignette listing the package functions as they relate to the sections of
+the ESPN website.
+* Add spell checking.
+* Rename some columns to match conversion (#31).
+
+# fflr 1.9.0
+
+* The package has largely been re-written from the ground-up (#24).
+* All functions use the new `try_json()` back-end, which uses `httr::RETRY()`
+instead of `jsonlite::fromJSON()`. This allows all functions to fail more
+elegantly.
+* Use the same argument and column names as the API (e.g., `leagueId` instead of
+`lid`).
+* Return single-row data frames instead of lists for a single season.
+* Add `tidy_*` prefix to function names that manipulate data structure (#26).
+* Pass the `...` arguments to `GET()` instead of `fromJSON()` (#25).
 
 # fflr 0.3.14
 
