@@ -13,9 +13,8 @@ live_scoring(leagueId = ffl_id(), yetToPlay = FALSE, ...)
 \item{yetToPlay}{If \code{TRUE}, \code{\link[=pro_schedule]{pro_schedule()}} and the "mRoster" view are
 called to determine how many starting players have \emph{yet} started playing.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
 A data frame of scores by period.
@@ -26,3 +25,8 @@ The current and projected score for each ongoing match.
 \examples{
 live_scoring(leagueId = "42654852", yetToPlay = FALSE)
 }
+\seealso{
+Other scoring functions: 
+\code{\link{tidy_scores}()}
+}
+\concept{scoring functions}

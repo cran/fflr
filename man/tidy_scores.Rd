@@ -4,7 +4,7 @@
 \alias{tidy_scores}
 \title{Fantasy matchup scores}
 \usage{
-tidy_scores(leagueId = ffl_id(), leagueHistory = FALSE, ...)
+tidy_scores(leagueId = ffl_id(), leagueHistory = FALSE, useMatchup = TRUE, ...)
 }
 \arguments{
 \item{leagueId}{Numeric league ID or ESPN fantasy page URL. Defaults to
@@ -14,22 +14,31 @@ tidy_scores(leagueId = ffl_id(), leagueHistory = FALSE, ...)
 be called? If \code{TRUE}, a list of results is returned, with one element for
 each historical year of the league.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{useMatchup}{logical; Whether scoring should be summarized by
+\code{matchupPeriodId} (default) or \code{scoringPeriodId}. The later always relates
+to a single week of the NFL season, while fantasy matchups might span
+several scoring periods, especially in the playoffs.}
+
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
-A tidy data frame of scores by team and matchup period.
+A tidy data frame of scores by team and matchup/scoring period.
 }
 \description{
-The score of each team in a matchup period and the match outcome.
+The score of each team in a matchup or scoring period and the match outcome.
 }
 \details{
-\code{powerWins} are added by comparing a team score versus every other team
-during that matchup period; the highest score would have won against all
-teams and the lowest score would have zero wins.
+\code{expectedWins} are calculated by comparing a team score against all \emph{other}
+scores for a given matchup period. This statistic expresses how a team would
+fair if the schedule was random The highest scoring team is thus expected to
+earn 1 win and the lowest scoring team would expect to win 0 matchups.
 }
 \examples{
-tidy_scores(leagueId = "42654852")
-tidy_scores(leagueId = "252353", leagueHistory = TRUE)
+tidy_scores(leagueId = "42654852", useMatchup = FALSE)
 }
+\seealso{
+Other scoring functions: 
+\code{\link{live_scoring}()}
+}
+\concept{scoring functions}

@@ -4,7 +4,12 @@
 \alias{recent_activity}
 \title{Roster moves}
 \usage{
-recent_activity(leagueId = ffl_id(), leagueHistory = FALSE, ...)
+recent_activity(
+  leagueId = ffl_id(),
+  leagueHistory = FALSE,
+  scoringPeriodId = NULL,
+  ...
+)
 }
 \arguments{
 \item{leagueId}{Numeric league ID or ESPN fantasy page URL. Defaults to
@@ -14,9 +19,12 @@ recent_activity(leagueId = ffl_id(), leagueHistory = FALSE, ...)
 be called? If \code{TRUE}, a list of results is returned, with one element for
 each historical year of the league.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{scoringPeriodId}{Integer week of NFL season. By default, \code{NULL} will
+use the current week (see \code{\link[=ffl_week]{ffl_week()}}). Scoring periods are always one
+week in length, whereas matchups might be longer.}
+
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
 A data frame of transactions and roster moves.
@@ -24,6 +32,24 @@ A data frame of transactions and roster moves.
 \description{
 The individual proposed and executed transactions, trades, and waiver moves.
 }
-\examples{
-recent_activity(leagueId = "42654852", scoringPeriodId = 1)
+\details{
+As of November 2021, activity data related to trades coming from the API is
+flawed. The \code{items} list column containing the players involved in a trade
+will only contain data for \emph{rejected} trades (with an \code{executionType} of
+"CANCEL"). For accepted and upheld trades, that \code{items} element is \code{NULL} or
+an empty list. This flaw comes from the API itself, not processing done by
+this package.
 }
+\examples{
+recent_activity(leagueId = "42654852", scoringPeriodId = 2)
+}
+\seealso{
+Other player functions: 
+\code{\link{all_players}()},
+\code{\link{list_players}()},
+\code{\link{player_info}()},
+\code{\link{player_news}()},
+\code{\link{player_outlook}()},
+\code{\link{transaction_counter}()}
+}
+\concept{player functions}

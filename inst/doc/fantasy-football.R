@@ -65,7 +65,7 @@ draft_recap()
 recent_activity(scoringPeriodId = 1)
 
 ## ----all-players------------------------------------------------------------------------
-all_players(limit = 10)
+list_players(limit = 10)
 
 ## ----live-scoring-----------------------------------------------------------------------
 live_scoring()

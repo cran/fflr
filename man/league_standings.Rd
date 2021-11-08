@@ -14,9 +14,8 @@ league_standings(leagueId = ffl_id(), leagueHistory = FALSE, ...)
 be called? If \code{TRUE}, a list of results is returned, with one element for
 each historical year of the league.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
 A data frame of team standings.
@@ -28,3 +27,14 @@ and points scored for and against each team.
 \examples{
 league_standings(leagueId = "42654852")
 }
+\seealso{
+Other league functions: 
+\code{\link{draft_recap}()},
+\code{\link{league_members}()},
+\code{\link{league_messages}()},
+\code{\link{league_status}()},
+\code{\link{league_teams}()},
+\code{\link{tidy_schedule}()},
+\code{\link{transaction_counter}()}
+}
+\concept{league functions}

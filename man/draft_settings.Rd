@@ -14,9 +14,8 @@ draft_settings(leagueId = ffl_id(), leagueHistory = FALSE, ...)
 be called? If \code{TRUE}, a list of results is returned, with one element for
 each historical year of the league.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
 A data frame of league draft settings by season.
@@ -26,10 +25,9 @@ The type, date, and pick order of a league draft.
 }
 \examples{
 draft_settings(leagueId = "42654852")
-draft_settings(leagueId = "252353", leagueHistory = TRUE)
 }
 \seealso{
-Other League settings: 
+Other league settings functions: 
 \code{\link{acquisition_settings}()},
 \code{\link{finance_settings}()},
 \code{\link{league_info}()},
@@ -40,4 +38,4 @@ Other League settings:
 \code{\link{scoring_settings}()},
 \code{\link{trade_settings}()}
 }
-\concept{League settings}
+\concept{league settings functions}

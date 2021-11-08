@@ -9,6 +9,7 @@
 #' @examples
 #' live_scoring(leagueId = "42654852", yetToPlay = FALSE)
 #' @importFrom tibble tibble
+#' @family scoring functions
 #' @export
 live_scoring <- function(leagueId = ffl_id(), yetToPlay = FALSE, ...) {
   dat <- ffl_api(
@@ -16,9 +17,12 @@ live_scoring <- function(leagueId = ffl_id(), yetToPlay = FALSE, ...) {
     view = c("mScoreboard", "mRoster"),
     ...
   )
+  if (is_predraft(dat)) {
+    return(data.frame())
+  }
   s <- tibble::tibble(
     currentMatchupPeriod = dat$status$currentMatchupPeriod,
-    id = c(
+    matchupId = c(
       dat$schedule$id,
       dat$schedule$id
     ),
@@ -36,11 +40,24 @@ live_scoring <- function(leagueId = ffl_id(), yetToPlay = FALSE, ...) {
     )
   )
   s <- s[!is.na(s$totalProjectedPointsLive), ]
-  s <- s[order(s$id), ]
-  tm <- out_team(dat$teams)
-  s$teamId <- team_abbrev(s$teamId, teams = tm)
+  s <- s[order(s$matchupId), ]
+  tm <- out_team(dat$teams, trim = TRUE)
+  s$abbrev <- team_abbrev(s$teamId, teams = tm)
+  s <- move_col(s, "abbrev", 4)
   if (yetToPlay) {
-    r <- do.call("rbind", lapply(dat$teams$roster$entries, out_roster))
+    r <- do.call(
+      "rbind",
+      lapply(
+        X = seq_along(dat$teams$roster$entries),
+        FUN = function(i) {
+          out_roster(
+            entry = dat$teams$roster$entries[[i]],
+            tid = dat$teams$id[i],
+            tm = tm
+          )
+        }
+      )
+    )
     r <- start_roster(r)
     r <- merge(r, pro_schedule())
     r$team <- team_abbrev(r$team, teams = tm)
@@ -52,12 +69,10 @@ live_scoring <- function(leagueId = ffl_id(), yetToPlay = FALSE, ...) {
     y <- data.frame(
       stringsAsFactors = FALSE,
       team = names(y),
-      yet = as.vector(y)
+      toPlay = as.vector(y)
     )
-    s <- ffl_merge(y, s)[, c(3:4, 1:2, 5:7)]
-    s <- s[order(s$id), ]
+    s <- ffl_merge(y, s)
+    s <- s[order(s$matchupId), ]
   }
   return(s)
 }
-
-

@@ -7,10 +7,13 @@
 #' @examples
 #' pro_schedule(seasonId = ffl_year(-2))
 #' @importFrom tibble tibble
+#' @family professional football functions
 #' @export
 pro_schedule <- function(seasonId = ffl_year()) {
   dat <- try_json(
-    url = sprintf("https://fantasy.espn.com/apis/v3/games/ffl/seasons/%i", seasonId),
+    url = sprintf(
+      fmt = "https://fantasy.espn.com/apis/v3/games/ffl/seasons/%i", seasonId
+    ),
     query = list(view = "proTeamSchedules_wl")
   )
   p <- dat$settings$proTeams$proGamesByScoringPeriod
@@ -25,6 +28,7 @@ pro_schedule <- function(seasonId = ffl_year()) {
     x <- data.frame(
       seasonId = as.integer(seasonId),
       scoringPeriodId = unique(x$scoringPeriodId),
+      matchupId = x$id,
       proTeam = pro_abbrev(c(x$homeProTeamId, x$awayProTeamId)),
       opponent = pro_abbrev(c(x$awayProTeamId, x$homeProTeamId)),
       isHome = c(rep(TRUE, nrow(x)), rep(FALSE, nrow(x))),
@@ -33,5 +37,5 @@ pro_schedule <- function(seasonId = ffl_year()) {
     sched[[i]] <- x[order(x$proTeam), ]
   }
   sched <- do.call("rbind", sched)
-  as_tibble(sched)
+  as_tibble(sched[order(sched$date, sched$matchupId), ])
 }

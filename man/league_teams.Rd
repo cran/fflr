@@ -14,9 +14,8 @@ league_teams(leagueId = ffl_id(), leagueHistory = FALSE, ...)
 be called? If \code{TRUE}, a list of results is returned, with one element for
 each historical year of the league.}
 
-\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}
-(e.g., \code{scoringPeriodId}). Arguments are converted to a named list to be
-passed alongside \code{view}.}
+\item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
+converted to a named list and passed to \code{query} alongside \code{view}.}
 }
 \value{
 A dataframe (or list) with league teams.
@@ -24,11 +23,21 @@ A dataframe (or list) with league teams.
 \description{
 The teams in a league and their owners.
 }
+\details{
+If any team has multiple owners, the \code{memberId} column will be a list of
+unique owner member ID strings per team (see \code{\link[=league_members]{league_members()}}).
+}
 \examples{
 league_teams(leagueId = "42654852")
 }
 \seealso{
-Other League information: 
-\code{\link{league_members}()}
+Other league functions: 
+\code{\link{draft_recap}()},
+\code{\link{league_members}()},
+\code{\link{league_messages}()},
+\code{\link{league_standings}()},
+\code{\link{league_status}()},
+\code{\link{tidy_schedule}()},
+\code{\link{transaction_counter}()}
 }
-\concept{League information}
+\concept{league functions}

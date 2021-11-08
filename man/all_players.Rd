@@ -2,28 +2,28 @@
 % Please edit documentation in R/players.R
 \name{all_players}
 \alias{all_players}
-\title{All fantasy players}
+\title{All fantasy players (deprecated)}
 \usage{
-all_players(leagueId = ffl_id(), scoringPeriodId = ffl_week(), limit = 50)
+all_players(...)
 }
 \arguments{
-\item{leagueId}{Numeric league ID or ESPN fantasy page URL. Defaults to
-\code{getOption("fflr.leagueId")}. Function fails if no ID is found.}
-
-\item{scoringPeriodId}{A scoring period to return, defaults to \code{\link[=ffl_week]{ffl_week()}}.}
-
-\item{limit}{The limit of players to return. Use \code{""} or \code{NULL} to return
-all. Defaults to 50, which is the default limit used by ESPN. Removing the
-limit can make the request take a long time.}
-}
-\value{
-A data frame of players.
+\item{...}{Arguments passed to the new \code{\link[=list_players]{list_players()}} function.}
 }
 \description{
-List all available players.
+See \code{\link[=list_players]{list_players()}}.
 }
 \examples{
 \dontrun{
 all_players()
 }
 }
+\seealso{
+Other player functions: 
+\code{\link{list_players}()},
+\code{\link{player_info}()},
+\code{\link{player_news}()},
+\code{\link{player_outlook}()},
+\code{\link{recent_activity}()},
+\code{\link{transaction_counter}()}
+}
+\concept{player functions}

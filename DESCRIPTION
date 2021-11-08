@@ -1,6 +1,6 @@
 Package: fflr
 Title: Retrieve ESPN Fantasy Football Data
-Version: 1.9.2
+Version: 2.0.0
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -21,8 +21,8 @@ Language: en-US
 LazyData: true
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-10-05 03:31:52 UTC; kiernan
+Packaged: 2021-11-08 15:30:20 UTC; kiernan
 Author: Kiernan Nicholls [aut, cre, cph]
 Maintainer: Kiernan Nicholls <kiernann@protonmail.com>
 Repository: CRAN
-Date/Publication: 2021-10-05 07:30:05 UTC
+Date/Publication: 2021-11-08 16:00:02 UTC

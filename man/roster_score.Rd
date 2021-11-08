@@ -4,10 +4,12 @@
 \alias{roster_score}
 \title{Sum of starting scores in a roster}
 \usage{
-roster_score(roster)
+roster_score(roster, useScore = c("actualScore", "projectedScore"))
 }
 \arguments{
 \item{roster}{A roster data frame from \code{\link[=team_roster]{team_roster()}}.}
+
+\item{useScore}{One of "projectedScore" or "actualScore" (default).}
 }
 \value{
 A starting score as double.
@@ -18,3 +20,10 @@ For a given roster tibble, sum the starting scores.
 \examples{
 roster_score(team_roster(leagueId = "42654852")[[1]])
 }
+\seealso{
+Other roster functions: 
+\code{\link{best_roster}()},
+\code{\link{start_roster}()},
+\code{\link{team_roster}()}
+}
+\concept{roster functions}

@@ -8,6 +8,7 @@
 #' @examples
 #' league_standings(leagueId = "42654852")
 #' @importFrom tibble tibble
+#' @family league functions
 #' @export
 league_standings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -45,9 +46,7 @@ parse_ranks <- function(teams, y = NULL, w = NULL) {
     currentProjectedRank = teams$currentProjectedRank,
     playoffSeed = teams$playoffSeed,
     rankCalculatedFinal = teams$rankCalculatedFinal,
-    teams$record$overall,
-    playoffPct = teams$currentSimulationResults$playoffPct,
-    divisionWinPct = teams$currentSimulationResults$divisionWinPct
+    teams$record$overall
   )
 }
 

@@ -12,6 +12,7 @@
 #' @importFrom tibble tibble
 #' @importFrom jsonlite toJSON fromJSON
 #' @importFrom httr RETRY add_headers accept_json content
+#' @family player functions
 #' @export
 player_outlook <- function(leagueId = ffl_id(), limit = 50) {
   if (is.null(leagueId)) leagueId <- "42654852"
@@ -46,11 +47,11 @@ player_outlook <- function(leagueId = ffl_id(), limit = 50) {
   w <- length(pl$player$outlooks$outlooksByWeek)
   x <- pl$player$outlooks$outlooksByWeek
   x$`0` <- pl$player$seasonOutlook
-  x <- x[c(length(x), 1:length(x) - 1)]
+  x <- x[c(length(x), seq(length(x) - 1))]
   outlooks <- as.vector(t(as.data.frame(x)))
   out <- tibble::tibble(
     seasonId = y,
-    scoringPeriodId = rep(seq(0, w), length(outlooks)/(w + 1)),
+    scoringPeriodId = rep(seq(0, w), length(outlooks) / (w + 1)),
     id = rep(pl$player$id, each = w + 1),
     firstName = rep(pl$player$firstName, each = w + 1),
     lastName = rep(pl$player$lastName, each = w + 1),

@@ -7,7 +7,7 @@
 #' @return A data frame of league information by season.
 #' @examples
 #' league_info(leagueId = "42654852")
-#' @family League settings
+#' @family league settings functions
 #' @export
 league_info <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -33,8 +33,7 @@ league_info <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of league size by season.
 #' @examples
 #' league_size(leagueId = "42654852")
-#' league_size(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 league_size <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -57,7 +56,7 @@ league_size <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A character vector.
 #' @examples
 #' league_name(leagueId = "42654852")
-#' @family League settings
+#' @family league settings functions
 #' @export
 league_name <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -76,10 +75,10 @@ league_name <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of waiver settings by season.
 #' @examples
 #' acquisition_settings(leagueId = "42654852")
-#' acquisition_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
-acquisition_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
+acquisition_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE,
+                                 ...) {
   dat <- ffl_api(
     leagueId = leagueId,
     view = "mSettings",
@@ -105,8 +104,7 @@ acquisition_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...
 #' @return A data frame of league draft settings by season.
 #' @examples
 #' draft_settings(leagueId = "42654852")
-#' draft_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 draft_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -142,8 +140,7 @@ draft_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of finance settings by season.
 #' @examples
 #' finance_settings(leagueId = "42654852")
-#' finance_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 finance_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -168,8 +165,7 @@ finance_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of league roster settings by season.
 #' @examples
 #' roster_settings(leagueId = "42654852")
-#' roster_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 roster_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -247,8 +243,7 @@ out_pos <- function(l, leagueHistory) {
 #' @return A data frame of league schedule settings by season.
 #' @examples
 #' schedule_settings(leagueId = "42654852")
-#' schedule_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 schedule_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -290,8 +285,7 @@ schedule_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of league scoring settings by season.
 #' @examples
 #' scoring_settings(leagueId = "42654852")
-#' scoring_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 scoring_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(
@@ -321,8 +315,7 @@ scoring_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
 #' @return A data frame of league trade settings by season.
 #' @examples
 #' trade_settings(leagueId = "42654852")
-#' trade_settings(leagueId = "252353", leagueHistory = TRUE)
-#' @family League settings
+#' @family league settings functions
 #' @export
 trade_settings <- function(leagueId = ffl_id(), leagueHistory = FALSE, ...) {
   dat <- ffl_api(

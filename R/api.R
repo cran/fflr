@@ -13,9 +13,11 @@
 #' @param seasonId Integer year of NFL season. By default, the season is
 #'   currently set to 2021. Use a recent year or set `leagueHistory` to `TRUE`
 #'   to obtain all past data.
-#' @param ... Additional queries passed to [httr::GET()]
-#'   (e.g., `scoringPeriodId`). Arguments are converted to a named list to be
-#'   passed alongside `view`.
+#' @param scoringPeriodId Integer week of NFL season. By default, `NULL` will
+#'   use the current week (see [ffl_week()]). Scoring periods are always one
+#'   week in length, whereas matchups might be longer.
+#' @param ... Additional queries passed to [httr::GET()]. Arguments are
+#'   converted to a named list and passed to `query` alongside `view`.
 #' @examples
 #' \dontrun{
 #' ffl_api()
@@ -27,8 +29,8 @@
 #' @keywords internal
 #' @export
 ffl_api <- function(leagueId = ffl_id(), view = NULL, leagueHistory = FALSE,
-                    seasonId = 2021, ...) {
-  dots <- list(...)
+                    seasonId = 2021, scoringPeriodId = NULL, ...) {
+  dots <- list(..., scoringPeriodId = scoringPeriodId)
   age_path <- ifelse(
     test = isTRUE(leagueHistory),
     yes = "leagueHistory",
@@ -36,18 +38,18 @@ ffl_api <- function(leagueId = ffl_id(), view = NULL, leagueHistory = FALSE,
   )
   view <- as.list(view)
   names(view) <- rep("view", length(view))
+  if (!is.null(names(dots))) {
+    view <- c(view, dots)
+  }
   try_json(
     url = "https://fantasy.espn.com",
     path = paste("apis/v3/games/ffl", age_path, leagueId, sep = "/"),
-    query = if (!is.null(names(dots))) {
-      c(view, dots)
-    } else {
-      view
-    }
+    query = view,
+    leagueHistory = leagueHistory
   )
 }
 
-try_json <- function(url, path = "", query = NULL) {
+try_json <- function(url, path = "", query = NULL, leagueHistory = NULL) {
   resp <- httr::RETRY(
     verb = "GET",
     url = ifelse(
@@ -65,7 +67,10 @@ try_json <- function(url, path = "", query = NULL) {
   }
   raw <- httr::content(resp, as = "text", encoding = "UTF-8")
   parsed <- jsonlite::fromJSON(raw)
-  if (httr::http_error(resp) && "message" %in% names(parsed)) {
+  if (httr::http_error(resp) && any(grepl("message", names(parsed)))) {
+    if (!is.null(leagueHistory) && isTRUE(leagueHistory)) {
+      parsed$message <- paste(parsed$message, "(No League History?)")
+    }
     stop(
       sprintf(
         "ESPN Fantasy API request failed [%s]\n%s",

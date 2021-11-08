@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 status](https://www.r-pkg.org/badges/version/fflr)](https://CRAN.R-project.org/package=fflr)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/fflr)
 [![Codecov test
-coverage](https://codecov.io/gh/kiernann/fflr/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/fflr?branch=master)
+coverage](https://codecov.io/gh/kiernann/fflr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/kiernann/fflr?branch=master)
 [![R build
 status](https://github.com/kiernann/fflr/workflows/R-CMD-check/badge.svg)](https://github.com/kiernann/fflr/actions)
 <!-- badges: end -->
@@ -26,7 +26,14 @@ on GitHub](https://github.com/kiernann/fflr/issues).
 
 ## Installation
 
-You can install the development version of fflr from
+You can install the release version of fflr from
+[CRAN](https://cran.r-project.org/package=fflr):
+
+``` r
+install.packages("fflr")
+```
+
+The most recent development version can be installed from
 [GitHub](https://github.com/kiernann/fflr):
 
 ``` r
@@ -39,11 +46,11 @@ remotes::install_github("kiernann/fflr")
 ``` r
 library(fflr)
 packageVersion("fflr")
-#> [1] '1.9.2'
+#> [1] '1.9.2.9015'
 ```
 
 Data is only available for public leagues. See [this help
-page](https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public)
+page](https://web.archive.org/web/20211105212446/https://support.espn.com/hc/en-us/articles/360000064451-Making-a-Private-League-Viewable-to-the-Public)
 on how to make a private league public
 
 Functions require a unique `leagueId`, which can be found in any ESPN
@@ -53,7 +60,7 @@ page URL.
 
 Use `ffl_id()` to set a default `fflr.leagueId` option. Your `.Rprofile`
 file can [set this option on
-startup](https://support.rstudio.com/hc/en-us/articles/360047157094-Managing-R-with-Rprofile-Renviron-Rprofile-site-Renviron-site-rsession-conf-and-repos-conf).
+startup](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html).
 
 ``` r
 ffl_id(leagueId = "42654852")
@@ -72,37 +79,38 @@ league_info()
 #> 1 42654852     2021 FFLR Test League TRUE         4                 17
 league_teams()
 #> # A tibble: 4 × 5
-#>   abbrev    id location nickname   owners   
-#>   <fct>  <int> <chr>    <chr>      <list>   
-#> 1 AUS        1 Austin   Astronauts <chr [1]>
-#> 2 BOS        2 Boston   Buzzards   <chr [1]>
-#> 3 CHI        3 Chicago  Crowns     <chr [1]>
-#> 4 DEN        4 Denver   Devils     <chr [1]>
+#>   abbrev teamId location nickname   memberId                              
+#>   <fct>   <int> <chr>    <chr>      <chr>                                 
+#> 1 AUS         1 Austin   Astronauts {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2}
+#> 2 BOS         2 Boston   Buzzards   {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2}
+#> 3 CHI         3 Chicago  Crowns     {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2}
+#> 4 DEN         4 Denver   Devils     {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2}
 ```
 
 The `scoringPeriodId` argument can be used to get data from past weeks.
 
 ``` r
-team_roster(scoringPeriodId = 1)[[3]][, -c(1:3, 5, 13:15)]
+all_rost <- team_roster(scoringPeriodId = 1)
+all_rost$CHI[, 5:13][-7]
 #> # A tibble: 16 × 8
-#>    lineupSlot firstName lastName  proTeam position injuryStatus projectedScore actualScore
-#>    <fct>      <chr>     <chr>     <fct>   <fct>    <chr>                 <dbl>       <dbl>
-#>  1 QB         Josh      Allen     Buf     QB       A                     21.6         17.2
-#>  2 RB         Saquon    Barkley   NYG     RB       A                     13.8          3.7
-#>  3 RB         Derrick   Henry     Ten     RB       A                     17.3         10.7
-#>  4 WR         DeAndre   Hopkins   Ari     WR       A                     17.8         26.3
-#>  5 WR         Justin    Jefferson Min     WR       A                     15.4         12.5
-#>  6 TE         Darren    Waller    LV      TE       A                     14.2         26.5
-#>  7 FX         Austin    Ekeler    LAC     RB       A                     15.0         11.7
-#>  8 DS         Ravens    D/ST      Bal     DS       A                      5.86        -1  
-#>  9 PK         Justin    Tucker    Bal     PK       A                      8.14        11  
-#> 10 BE         Joe       Mixon     Cin     RB       Q                     14.6         25  
-#> 11 BE         Keenan    Allen     LAC     WR       A                     14.8         19  
-#> 12 BE         Mike      Evans     TB      WR       A                     15.0          5.4
-#> 13 BE         Josh      Jacobs    LV      RB       A                     13.1         17  
-#> 14 BE         Myles     Gaskin    Mia     RB       A                     10.9         12.6
-#> 15 BE         Ja'Marr   Chase     Cin     WR       A                     10.4         20.9
-#> 16 BE         Brandon   Aiyuk     SF      WR       A                     13.9          0
+#>    lineupSlot playerId firstName lastName  proTeam position projectedScore actualScore
+#>    <fct>         <int> <chr>     <chr>     <fct>   <fct>             <dbl>       <dbl>
+#>  1 QB          3918298 Josh      Allen     Buf     QB                21.6         17.2
+#>  2 RB          3929630 Saquon    Barkley   NYG     RB                13.8          3.7
+#>  3 RB          3043078 Derrick   Henry     Ten     RB                17.3         10.7
+#>  4 WR            15795 DeAndre   Hopkins   Ari     WR                17.8         26.3
+#>  5 WR          4262921 Justin    Jefferson Min     WR                15.4         12.5
+#>  6 TE          2576925 Darren    Waller    LV      TE                14.2         26.5
+#>  7 FLEX        3068267 Austin    Ekeler    LAC     RB                15.0         11.7
+#>  8 D/ST         -16033 Ravens    D/ST      Bal     D/ST               5.86        -1  
+#>  9 K             15683 Justin    Tucker    Bal     K                  8.14        11  
+#> 10 BE          3116385 Joe       Mixon     Cin     RB                14.6         25  
+#> 11 BE            15818 Keenan    Allen     LAC     WR                14.8         19  
+#> 12 BE            16737 Mike      Evans     TB      WR                15.0          5.4
+#> 13 BE          4047365 Josh      Jacobs    LV      RB                13.1         17  
+#> 14 BE          3886818 Myles     Gaskin    Mia     RB                10.9         12.6
+#> 15 BE          4362628 Ja'Marr   Chase     Cin     WR                10.4         20.9
+#> 16 BE          4360438 Brandon   Aiyuk     SF      WR                13.9          0
 ```
 
 There are included objects for NFL teams and players.
