@@ -1,9 +1,9 @@
-0618fce4ae85022346cfab355a71b3e1 *DESCRIPTION
+bc52019dfe97bdd89431dbad12aab5b3 *DESCRIPTION
 837175cb0f91fb7784032b5309ed2137 *LICENSE
 9a635c31b2537ecb8e585feb0d53851a *NAMESPACE
-6d476d5e47f15236ad91201857fa18e0 *NEWS.md
+b46c10bd733240517b5593ab8ba792ab *NEWS.md
 b65b57ceebbffec710b7affdf66a43cd *R/abbrev.R
-1c143de946e544433d8fa8888c08f7ad *R/acquire.R
+1f19b29ee800d3d14c1d8f99fcc0af3d *R/acquire.R
 2776f213c4c3781ee7c7d4805be51ca4 *R/activity.R
 c9d0841d870b7e7d076b880b5c7eb266 *R/api.R
 9ce4f4c86929920fd6875c1996639242 *R/best.R
@@ -42,7 +42,7 @@ e933a9d258936e98514236367843df72 *data/nfl_teams.rda
 05264345d254274fb16c94f9b54c92a9 *inst/WORDLIST
 1d30d70895a0aef2580d9eaf7b1720d1 *inst/doc/fantasy-football.R
 0925983f3e86458e7916fcf6d8dce1d6 *inst/doc/fantasy-football.Rmd
-0083ae1f978b40a391f66f8a064310bd *inst/doc/fantasy-football.html
+f25a5740a6b907fbd3d6332ccba17cce *inst/doc/fantasy-football.html
 ac8c34f4be9c1682de9ba39c59ba67e9 *man/acquisition_settings.Rd
 d0c889e312008cc2f76d23c58065e307 *man/all_players.Rd
 d6593a6646fdb9e24902a815b7d4bb26 *man/best_roster.Rd
@@ -97,7 +97,7 @@ baf63a8ec1735acef1ee58c08e327e9b *man/tidy_schedule.Rd
 bb6bead3dbc8d5a58efe791139740679 *tests/testthat/test-abbrev.R
 fe1febee5556590909e9541a972ab8e8 *tests/testthat/test-api.R
 afbc0ae8525493e89892f49569cfad82 *tests/testthat/test-id.R
-4a65696d7e9f743db21daf9d01c6d554 *tests/testthat/test-players.R
+8f3953fb6dfaf528e266ab8767281cb5 *tests/testthat/test-players.R
 66e81326a6fa9fd9d8d8b213b35d1e7a *tests/testthat/test-roster.R
 16c27e095353278d31c7d02001c4fae3 *tests/testthat/test-scores.R
 6cb80d8c0929e18a9764c07a565e1f63 *tests/testthat/test-settings.R
