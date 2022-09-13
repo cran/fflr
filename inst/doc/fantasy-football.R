@@ -50,7 +50,7 @@ league_members()
 team_roster(scoringPeriodId = 1)
 
 ## ----tidy-matchups----------------------------------------------------------------------
-tidy_matchups(scoringPeriodId = 1)
+tidy_schedule(scoringPeriodId = 1)
 
 ## ----league-messages--------------------------------------------------------------------
 league_messages(scoringPeriodId = 1)
@@ -65,7 +65,7 @@ draft_recap()
 recent_activity(scoringPeriodId = 1)
 
 ## ----all-players------------------------------------------------------------------------
-list_players(limit = 10)
+list_players(limit = 10, proTeam = "Mia", status = "ALL")
 
 ## ----live-scoring-----------------------------------------------------------------------
 live_scoring()

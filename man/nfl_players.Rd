@@ -3,7 +3,7 @@
 \docType{data}
 \name{nfl_players}
 \alias{nfl_players}
-\title{2021 NFL Players}
+\title{2022 NFL Players}
 \format{
 A data frame with 1,063 rows and 11 variables:
 \describe{
@@ -11,7 +11,7 @@ A data frame with 1,063 rows and 11 variables:
 \item{firstName}{First name}
 \item{lastName}{Last name}
 \item{proTeam}{Professional NFL team}
-\item{defaultPositionId}{Position: QB, RB, WR, TE, D/ST}
+\item{defaultPosition}{Position: QB, RB, WR, TE, D/ST}
 \item{jersey}{Jersey number}
 \item{weight}{Weight in integer pounds}
 \item{height}{Height in integer inches}
@@ -22,12 +22,12 @@ A data frame with 1,063 rows and 11 variables:
 }
 }
 \source{
-\url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2021/athletes/}
+\url{http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2022/athletes/}
 }
 \usage{
 nfl_players
 }
 \description{
-All available ESPN fantasy football players as of the 2021 season, week 1.
+All available ESPN fantasy football players as of the 2022 season, week 1.
 }
 \keyword{datasets}
