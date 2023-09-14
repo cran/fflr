@@ -4,14 +4,19 @@
 \alias{live_scoring}
 \title{Live matchup scoreboard}
 \usage{
-live_scoring(leagueId = ffl_id(), yetToPlay = FALSE, ...)
+live_scoring(leagueId = ffl_id(), yetToPlay = FALSE, bonusWin = FALSE, ...)
 }
 \arguments{
 \item{leagueId}{Numeric league ID or ESPN fantasy page URL. Defaults to
 \code{getOption("fflr.leagueId")}. Function fails if no ID is found.}
 
 \item{yetToPlay}{If \code{TRUE}, \code{\link[=pro_schedule]{pro_schedule()}} and the "mRoster" view are
-called to determine how many starting players have \emph{yet} started playing.}
+called to determine how many starting players have \emph{yet} to start playing.}
+
+\item{bonusWin}{If \code{TRUE}, a logical column \code{bonusWin} will be added
+containing \code{TRUE} values for teams who are projected to score in the top
+half of points this week. This is a way to project the "bonus win" optional
+setting added in 2022.}
 
 \item{...}{Additional queries passed to \code{\link[httr:GET]{httr::GET()}}. Arguments are
 converted to a named list and passed to \code{query} alongside \code{view}.}

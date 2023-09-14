@@ -1,7 +1,16 @@
+# fflr 2.2.0
+
+* **Package has been updated for the 2023 season!**
+  * Functions now use `seasonId = 2023` by default in `ffl_api()`.
+* Update objects with latest data from 2023 season.
+* Fix `nfl_players` to include actually all of the players.
+* Adjust the free agent information in `nfl_teams`.
+* Add more function tests.
+* Add `bonusWin` column to `live_scoring()`.
+
 # fflr 2.1.0
 
-* **Package has been updated for the 2022 season!**
-  * Functions now use `seasonId = 2022` by default in `ffl_api()`.
+* Functions now use `seasonId = 2022` by default in `ffl_api()`.
 
 # fflr 2.0.2
 
