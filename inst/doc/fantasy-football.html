@@ -342,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(fflr)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.0&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.1&#39;</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">ffl_id</span>(<span class="at">leagueId =</span> <span class="st">&quot;42654852&quot;</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; Temporarily set `fflr.leagueId` option to 42654852</span></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;42654852&quot;</span></span></code></pre></div>
@@ -420,10 +420,10 @@ actual scores and ownership statistics.</p>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;    abbrev lineupSlot playerId firstName lastName   proTeam position injuryStatus</span></span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;   &lt;fct&gt;    &lt;chr&gt;       </span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt;  1 AUS    QB          3139477 Patrick   Mahomes    KC      QB       A           </span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;  2 AUS    RB          3117251 Christian McCaffrey  SF      RB       A           </span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;  2 AUS    RB          3117251 Christian McCaffrey  SF      RB       Q           </span></span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;  3 AUS    RB          4430807 Bijan     Robinson   Atl     RB       A           </span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  4 AUS    WR          2977187 Cooper    Kupp       LAR     WR       I           </span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  5 AUS    WR          4372016 Jaylen    Waddle     Mia     WR       A           </span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  4 AUS    WR          2977187 Cooper    Kupp       LAR     WR       A           </span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  5 AUS    WR          4372016 Jaylen    Waddle     Mia     WR       Q           </span></span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  6 AUS    TE          2576925 Darren    Waller     NYG     TE       A           </span></span>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  7 AUS    FLEX        3916148 Tony      Pollard    Dal     RB       A           </span></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  8 AUS    D/ST         -16018 Saints    D/ST       NO      D/ST     A           </span></span>
@@ -445,26 +445,43 @@ functions return news on your roster. The first returns <em>all</em>
 outlooks by player and week and cannot be refined beyond setting a
 <code>limit</code> of players to return (in order of rank).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">player_outlook</span>(<span class="at">limit =</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 6</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId      id firstName lastName  outlook                            </span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;                              </span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; 1     2023               0 4262921 Justin    Jefferson No wide receiver has scored more f…</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 2     2023               1 4262921 Justin    Jefferson Fresh from posting an epic seven g…</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 3     2023               2 4262921 Justin    Jefferson The Eagles are likely to be down a…</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 18 × 6</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId      id firstName lastName outlook                            </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;                              </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;  1     2023               0 3116406 Tyreek    Hill     &quot;Hill&#39;s first season with the Dolp…</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;  2     2023               1 3116406 Tyreek    Hill     &quot;Hill is coming off a career seaso…</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;  3     2023               2 3116406 Tyreek    Hill     &quot;Hill might just be the top fantas…</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;  4     2023               3 3116406 Tyreek    Hill     &quot;Hill was shadowed by Patriots roo…</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  5     2023               4 3116406 Tyreek    Hill     &quot;Hill registered nine catches for …</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  6     2023               5 3116406 Tyreek    Hill     &quot;It&#39;s unique when 72 scrimmage yar…</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  7     2023               6 3116406 Tyreek    Hill     &quot;Hill had his way with the Giants …</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  8     2023               7 3116406 Tyreek    Hill     &quot;Rare speed and awesome usage equa…</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  9     2023               8 3116406 Tyreek    Hill     &quot;Now just the fourth player to ecl…</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; 10     2023               9 3116406 Tyreek    Hill     &quot;Hill vowed he’d eclipse 2000 rece…</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 11     2023              10 3116406 Tyreek    Hill     &quot;The Chiefs managed to keep Hill o…</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 12     2023              11 3116406 Tyreek    Hill     &quot;A rare speedster worthy of top bi…</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; 13     2023              12 3116406 Tyreek    Hill     &quot;Against the Jets last week, Hill …</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 14     2023              13 3116406 Tyreek    Hill     &quot;If Hill averages \&quot;just\&quot; 104 yar…</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 15     2023              14 3116406 Tyreek    Hill     &quot;Hill caught four out of five targ…</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; 16     2023              15 3116406 Tyreek    Hill     &quot;Hill’s Week 15 availability was a…</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; 17     2023              16 3116406 Tyreek    Hill     &quot;Hill returned from a one-game abs…</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; 18     2023              17 3116406 Tyreek    Hill     &quot;Hill’s chance for a 2000-yard rec…</span></span></code></pre></div>
 <p>The second fiction takes a single <code>playerId</code> value and
 returns all the recent news on that player, including premium stories in
 HTML format.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">player_news</span>(<span class="at">playerId =</span> <span class="st">&quot;3139477&quot;</span>, <span class="at">parseHTML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 × 6</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 9 × 6</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;        id published           type     premium headline                              body </span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;    &lt;lgl&gt;   &lt;chr&gt;                                 &lt;chr&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 1 3139477 2023-09-08 03:41:25 Rotowire FALSE   Mahomes completed 21 of 39 passes fo… &quot;Mah…</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 2 3139477 2023-09-07 12:21:56 Story    FALSE   Erin Dolan&#39;s top betting storylines … &quot;&lt;p&gt;…</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 3 3139477 2023-08-26 15:22:45 Rotowire FALSE   Mahomes isn&#39;t in line to see action … &quot;Per…</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 4 3139477 2023-08-20 03:49:42 Rotowire FALSE   Mahomes completed 10 of 15 passes fo… &quot;Mah…</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 5 3139477 2023-08-17 15:01:00 Rotowire FALSE   Coach Andy Reid said Thursday that M… &quot;Mah…</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 6 3139477 2023-08-14 17:23:30 Story    FALSE   2023 NFL betting: Preseason props on… &quot;&lt;p&gt;…</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 7 3139477 2023-08-13 20:45:55 Rotowire FALSE   Mahomes played only the opening driv… &quot;Mah…</span></span></code></pre></div>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 1 3139477 2024-01-07 18:09:01 Rotowire FALSE   Mahomes (ankle) has been downgraded … &quot;The…</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 2 3139477 2024-01-05 21:50:26 Rotowire FALSE   Mahomes (ankle) is listed as doubtfu… &quot;Per…</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 3 3139477 2024-01-03 21:32:06 Story    FALSE   Best sports plays that didn&#39;t count … &quot;&lt;p&gt;…</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 4 3139477 2024-01-03 18:00:25 Rotowire FALSE   Head coach Andy Reid said Wednesday … &quot;The…</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 5 3139477 2024-01-01 02:32:26 Rotowire FALSE   Mahomes completed 21 of 29 passes fo… &quot;Mah…</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 6 3139477 2023-12-30 13:45:25 Story    FALSE   2023 NFL betting: Loza&#39;s and Dopp&#39;s … &quot;&lt;p&gt;…</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 7 3139477 2023-12-25 21:44:00 Rotowire FALSE   Mahomes completed 27 of 44 passes fo… &quot;Kan…</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 8 3139477 2023-12-18 01:19:53 Rotowire FALSE   Mahomes completed 27 of 37 passes fo… &quot;Kan…</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 9 3139477 2023-12-11 04:28:23 Rotowire FALSE   Mahomes completed 25 of 43 passes fo… &quot;He …</span></span></code></pre></div>
 </div>
 </div>
 <div id="league" class="section level2">
@@ -489,14 +506,14 @@ settings.</p>
 <span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt;  $ year                   : int 2023</span></span>
 <span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt;  $ isActive               : logi TRUE</span></span>
 <span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt;  $ activatedDate          : POSIXct[1:1], format: &quot;2023-09-04 22:42:21&quot;</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt;  $ scoringPeriodId        : int 2</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt;  $ scoringPeriodId        : int 19</span></span>
 <span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt;  $ firstScoringPeriod     : int 1</span></span>
 <span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt;  $ finalScoringPeriod     : int 17</span></span>
 <span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt;  $ previousSeasons        :List of 1</span></span>
 <span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt;   ..$ : int [1:2] 2021 2022</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;  $ standingsUpdateDate    : POSIXct[1:1], format: &quot;2023-09-13 04:31:33&quot;</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;  $ standingsUpdateDate    : POSIXct[1:1], format: &quot;2024-01-08 03:59:37&quot;</span></span>
 <span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co">#&gt;  $ teamsJoined            : int 4</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt;  $ waiverLastExecutionDate: POSIXct[1:1], format: &quot;2023-09-13 04:31:33&quot;</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt;  $ waiverLastExecutionDate: POSIXct[1:1], format: &quot;2024-01-10 03:31:13&quot;</span></span>
 <span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt;  $ waiverNextExecutionDate: POSIXct[1:1], format: NA</span></span>
 <span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt;  $ waiverProcessStatus    :List of 1</span></span>
 <span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt;   ..$ :&#39;data.frame&#39;: 0 obs. of  1 variable:</span></span>
@@ -557,10 +574,10 @@ settings.</p>
 <div id="members" class="section level3">
 <h3>Members</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">league_members</span>()</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt;   displayName memberId                               isLeagueManager</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;                                  &lt;lgl&gt;          </span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; 1 K5cents     {22DFE7FF-9DF2-4F3B-9FE7-FF9DF2AF3BD2} FALSE</span></span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 6</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt;   memberId                  displayName firstName lastName isLeagueCreator isLeagueManager</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                     &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;    &lt;lgl&gt;           &lt;lgl&gt;          </span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; 1 {22DFE7FF-9DF2-4F3B-9FE7… K5cents     Kiernan   Nicholls TRUE            FALSE</span></span></code></pre></div>
 </div>
 <div id="rosters-1" class="section level3">
 <h3>Rosters</h3>
@@ -678,14 +695,20 @@ settings.</p>
 <div id="message-board" class="section level3">
 <h3>Message Board</h3>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">league_messages</span>(<span class="at">scoringPeriodId =</span> <span class="dv">1</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 7</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt;   id       type             author         date                content messages viewableBy</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;          &lt;dttm&gt;              &lt;chr&gt;   &lt;list&gt;   &lt;list&gt;    </span></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; 1 13ce5960 CHAT_ALL_MEMBERS LM             2023-09-12 11:09:23 &lt;NA&gt;    &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt; 2 6b33926f CHAT_ALL_MEMBERS LM             2023-09-12 11:09:23 &lt;NA&gt;    &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt; 3 a605cb51 CHAT_ALL_MEMBERS LM             2023-09-12 11:09:23 &lt;NA&gt;    &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="co">#&gt; 4 d02a84db CHAT_ALL_MEMBERS LM             2023-09-12 11:09:23 Here&#39;s… &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="co">#&gt; 5 5af42ec9 </span><span class="al">NOTE</span><span class="co">             {22DFE7FF-9DF… 2021-09-13 19:46:07 This [… &lt;NULL&gt;   &lt;NULL&gt;</span></span></code></pre></div>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 69 × 7</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt;    id       type             author date                content        messages viewableBy</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;  &lt;dttm&gt;              &lt;chr&gt;          &lt;list&gt;   &lt;list&gt;    </span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt;  1 91e87108 CHAT_ALL_MEMBERS LM     2024-01-02 11:22:28 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt;  2 5e79e24b CHAT_ALL_MEMBERS LM     2024-01-02 11:22:28 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt;  3 20f209d5 CHAT_ALL_MEMBERS LM     2024-01-02 11:22:28 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="co">#&gt;  4 0d84172e CHAT_ALL_MEMBERS LM     2024-01-02 11:22:28 Here&#39;s your w… &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="co">#&gt;  5 f8cd46d7 CHAT_ALL_MEMBERS LM     2023-12-26 11:18:09 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a><span class="co">#&gt;  6 23d9ca74 CHAT_ALL_MEMBERS LM     2023-12-26 11:18:09 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a><span class="co">#&gt;  7 c5d3adf5 CHAT_ALL_MEMBERS LM     2023-12-26 11:18:09 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a><span class="co">#&gt;  8 e7033339 CHAT_ALL_MEMBERS LM     2023-12-26 11:18:09 Here&#39;s your w… &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="co">#&gt;  9 21dd2654 CHAT_ALL_MEMBERS LM     2023-12-19 11:22:14 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a><span class="co">#&gt; 10 fa05dbf2 CHAT_ALL_MEMBERS LM     2023-12-19 11:22:14 &lt;NA&gt;           &lt;NULL&gt;   &lt;NULL&gt;    </span></span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 59 more rows</span></span></code></pre></div>
 </div>
 <div id="transaction-counter" class="section level3">
 <h3>Transaction Counter</h3>
@@ -693,10 +716,10 @@ settings.</p>
 <span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 14</span></span>
 <span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId teamId abbrev waiverRank acquisitionBudgetSpent acquisitions</span></span>
 <span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;       &lt;int&gt;                  &lt;int&gt;        &lt;int&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; 1     2023               2      1 AUS             3                      0            0</span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; 2     2023               2      2 BOS             1                      0            0</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; 3     2023               2      3 CHI             2                      0            0</span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; 4     2023               2      4 DEN             4                      0            0</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; 1     2023              19      1 AUS             2                      0            0</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; 2     2023              19      2 BOS             4                      0            0</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; 3     2023              19      3 CHI             3                      0            0</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; 4     2023              19      4 DEN             1                      0            0</span></span>
 <span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: drops &lt;int&gt;, misc &lt;int&gt;, moveToActive &lt;int&gt;, moveToIR &lt;int&gt;,</span></span>
 <span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt; #   paid &lt;dbl&gt;, teamCharges &lt;dbl&gt;, trades &lt;int&gt;</span></span></code></pre></div>
 </div>
@@ -748,16 +771,16 @@ settings.</p>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 19</span></span>
 <span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId      id firstName lastName   proTeam defaultPosition</span></span>
 <span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;dbl&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;   &lt;fct&gt;          </span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt;  1     2023               2 3116406 Tyreek    Hill       Mia     WR             </span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt;  2     2023               2 4372016 Jaylen    Waddle     Mia     WR             </span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt;  3     2023               2 4241479 Tua       Tagovailoa Mia     QB             </span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt;  4     2023               2 2576414 Raheem    Mostert    Mia     RB             </span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt;  5     2023               2  -16015 Dolphins  D/ST       Mia     D/ST           </span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt;  6     2023               2 3122976 Jeff      Wilson Jr. Mia     RB             </span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt;  7     2023               2 4429160 De&#39;Von    Achane     Mia     RB             </span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt;  8     2023               2 3124679 Jason     Sanders    Mia     K              </span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023               2 3052897 Durham    Smythe     Mia     TE             </span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023               2 4243315 Salvon    Ahmed      Mia     RB             </span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt;  1     2023              19 3116406 Tyreek    Hill       Mia     WR             </span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt;  2     2023              19 2576414 Raheem    Mostert    Mia     RB             </span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt;  3     2023              19 4372016 Jaylen    Waddle     Mia     WR             </span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt;  4     2023              19 4429160 De&#39;Von    Achane     Mia     RB             </span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt;  5     2023              19 4241479 Tua       Tagovailoa Mia     QB             </span></span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt;  6     2023              19  -16015 Dolphins  D/ST       Mia     D/ST           </span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt;  7     2023              19 3124679 Jason     Sanders    Mia     K              </span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt;  8     2023              19 3122976 Jeff      Wilson Jr. Mia     RB             </span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023              19 4046692 Chase     Claypool   Mia     WR             </span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023              19 4036335 Cedrick   Wilson Jr. Mia     WR             </span></span>
 <span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: injuryStatus &lt;chr&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;,</span></span>
 <span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="co">#&gt; #   percentChange &lt;dbl&gt;, positionalRanking &lt;int&gt;, totalRating &lt;dbl&gt;,</span></span>
 <span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="co">#&gt; #   auctionValueAverage &lt;dbl&gt;, averageDraftPosition &lt;dbl&gt;, projectedScore &lt;dbl&gt;,</span></span>
@@ -769,10 +792,10 @@ settings.</p>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 6</span></span>
 <span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="co">#&gt;   currentMatchupPeriod matchupId teamId abbrev totalPointsLive totalProjectedPointsLive</span></span>
 <span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a><span class="co">#&gt;                  &lt;int&gt;     &lt;int&gt;  &lt;int&gt; &lt;fct&gt;            &lt;dbl&gt;                    &lt;dbl&gt;</span></span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="co">#&gt; 1                    2         3      3 CHI                  1                     145.</span></span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="co">#&gt; 2                    2         3      4 DEN                  0                     140.</span></span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="co">#&gt; 3                    2         4      1 AUS                  1                     122.</span></span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="co">#&gt; 4                    2         4      2 BOS                  0                     139.</span></span></code></pre></div>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="co">#&gt; 1                   17        33      1 AUS               87.4                     86.4</span></span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="co">#&gt; 2                   17        33      2 BOS              108.                     108. </span></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a><span class="co">#&gt; 3                   17        34      3 CHI              136.                     135. </span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a><span class="co">#&gt; 4                   17        34      4 DEN              107.                     107.</span></span></code></pre></div>
 </div>
 <div id="standings" class="section level2">
 <h2>Standings</h2>
@@ -780,10 +803,10 @@ settings.</p>
 <span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 17</span></span>
 <span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="co">#&gt;   seasonId scoringPeriodId teamId abbrev draftDayProjectedRank currentProjectedRank</span></span>
 <span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;                  &lt;int&gt;                &lt;int&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="co">#&gt; 1     2023               2      1 AUS                        3                    2</span></span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="co">#&gt; 2     2023               2      2 BOS                        1                    3</span></span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="co">#&gt; 3     2023               2      3 CHI                        2                    4</span></span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="co">#&gt; 4     2023               2      4 DEN                        4                    1</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="co">#&gt; 1     2023              19      1 AUS                        3                    3</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="co">#&gt; 2     2023              19      2 BOS                        1                    1</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="co">#&gt; 3     2023              19      3 CHI                        2                    2</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="co">#&gt; 4     2023              19      4 DEN                        4                    4</span></span>
 <span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="co">#&gt; # ℹ 11 more variables: playoffSeed &lt;int&gt;, rankCalculatedFinal &lt;int&gt;, gamesBack &lt;dbl&gt;,</span></span>
 <span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="co">#&gt; #   losses &lt;int&gt;, percentage &lt;dbl&gt;, pointsAgainst &lt;dbl&gt;, pointsFor &lt;dbl&gt;,</span></span>
 <span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="co">#&gt; #   streakLength &lt;int&gt;, streakType &lt;chr&gt;, ties &lt;int&gt;, wins &lt;int&gt;</span></span></code></pre></div>

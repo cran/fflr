@@ -1,3 +1,14 @@
+# fflr 2.2.1
+
+* Adjust tests for end of NFL season.
+* The functions `league_members()` and `league_teams()` have been adjusted to
+  add new columns. The order of columns has also been rearranged to focus on
+  the output of each function (all teams or all members), since some teams can
+  have multiple owners or multiple teams can have the same owner.
+    * Add `firstName` and `lastName` to `league_members()`
+    * Add `logo` and `logoType` to `league_teams()`
+* Use latest package dependencies.
+
 # fflr 2.2.0
 
 * **Package has been updated for the 2023 season!**
