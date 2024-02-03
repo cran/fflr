@@ -1,6 +1,6 @@
 Package: fflr
 Title: Retrieve ESPN Fantasy Football Data
-Version: 2.2.1
+Version: 2.2.2
 Authors@R: 
     person("Kiernan", "Nicholls", , "kiernann@protonmail.com", role = c("aut", "cre", "cph"))
 Description: Format the raw data from the ESPN fantasy football API
@@ -18,8 +18,8 @@ Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2024-01-12 20:11:30 UTC; knicholls
+Packaged: 2024-02-03 02:39:57 UTC; kiernan
 Author: Kiernan Nicholls [aut, cre, cph]
 Maintainer: Kiernan Nicholls <kiernann@protonmail.com>
 Repository: CRAN
-Date/Publication: 2024-01-12 20:30:02 UTC
+Date/Publication: 2024-02-03 05:00:02 UTC

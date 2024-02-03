@@ -1,7 +1,7 @@
-7aaff50588c3cb9a40dc7bc5162e42cd *DESCRIPTION
+584d5c566b2c4dfd9ee46125ab834060 *DESCRIPTION
 837175cb0f91fb7784032b5309ed2137 *LICENSE
 55625a19610bbe0573c2697c2635c88a *NAMESPACE
-905ef61767f67f07dd9cef513476cc8f *NEWS.md
+430ec8eaade8191044614413721c4084 *NEWS.md
 b65b57ceebbffec710b7affdf66a43cd *R/abbrev.R
 1f19b29ee800d3d14c1d8f99fcc0af3d *R/acquire.R
 2776f213c4c3781ee7c7d4805be51ca4 *R/activity.R
@@ -35,14 +35,14 @@ ad8fb51005533e3dfc4ac9d90c209fa1 *R/status.R
 0ab51e38bf1c3456ef65df37d82574f1 *R/transactions.R
 9150520aed9646326e70f7a1ee489ae7 *R/utils.R
 2d1cff4841a21227e8811b687a9d1c30 *README.md
-028bd9b48536d85033048d5c7a826982 *build/vignette.rds
+8aee81f4df8d4f85bf36aca808a3318b *build/vignette.rds
 c4033af1201a8642816c7664f9def0fa *data/nfl_players.rda
 909a339862eede1ff53bccdcd9c0931a *data/nfl_schedule.rda
 bfd1de4558df06c683f5f9c8968ba62d *data/nfl_teams.rda
 05264345d254274fb16c94f9b54c92a9 *inst/WORDLIST
-cc4dbaea0f9f152e62376a462cfdba5e *inst/doc/fantasy-football.R
+8f4d5b6718cf3cf3dd2e809a7b937238 *inst/doc/fantasy-football.R
 6a51ae17324a23f2ba866a0800fc2733 *inst/doc/fantasy-football.Rmd
-173198d835f46b477a40e0615aefaf46 *inst/doc/fantasy-football.html
+07295fe4fd39195014ab8304d2e4245f *inst/doc/fantasy-football.html
 ac8c34f4be9c1682de9ba39c59ba67e9 *man/acquisition_settings.Rd
 d0c889e312008cc2f76d23c58065e307 *man/all_players.Rd
 d6593a6646fdb9e24902a815b7d4bb26 *man/best_roster.Rd
@@ -115,7 +115,7 @@ afedde7bb1ecca53477277c242fca31b *tests/testthat/test-outlook.R
 66e81326a6fa9fd9d8d8b213b35d1e7a *tests/testthat/test-roster.R
 cbe1b90d1baf98bdff87da37311977ef *tests/testthat/test-schedule.R
 3be862a8378a19501091fde0272e6594 *tests/testthat/test-scores.R
-79e527dbca9e1e01e5afee1dddb78457 *tests/testthat/test-settings.R
+3ff4288ca35715ac18be0ded409376de *tests/testthat/test-settings.R
 a54b14641fe8f78850e048766d3f3a4d *tests/testthat/test-simulation.R
 57a12c4367a352f94732d5dc415c677c *tests/testthat/test-standings.R
 c4fd2d324940a54bb11a623efe3abb0d *tests/testthat/test-status.R
