@@ -1,12 +1,15 @@
 Package: fflr
 Title: Retrieve ESPN Fantasy Football Data
-Version: 2.2.2
+Version: 2.2.3
 Authors@R: 
-    person("Kiernan", "Nicholls", , "kiernann@protonmail.com", role = c("aut", "cre", "cph"))
+    person("Kiernan", "Nicholls", email = "k5cents@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-9229-7897"))
 Description: Format the raw data from the ESPN fantasy football API
     <https://fantasy.espn.com/apis/v3/games/ffl/> as data frames.
     Retrieve data on public leagues, rosters, athletes, and matches.
-License: MIT + file LICENSE
+License: GPL (>= 3)
+URL: https://k5cents.github.io/fflr/, https://github.com/k5cents/fflr
+BugReports: https://github.com/k5cents/fflr/issues
 Depends: R (>= 2.10)
 Imports: httr (>= 1.4.7), jsonlite (>= 1.8.7), stats, tibble (>= 3.2.1)
 Suggests: knitr (>= 1.34), rmarkdown (>= 2.11), spelling (>= 2.2),
@@ -18,8 +21,9 @@ Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2024-02-03 02:39:57 UTC; kiernan
+Packaged: 2024-03-11 02:59:47 UTC; kiernan
 Author: Kiernan Nicholls [aut, cre, cph]
-Maintainer: Kiernan Nicholls <kiernann@protonmail.com>
+    (<https://orcid.org/0000-0002-9229-7897>)
+Maintainer: Kiernan Nicholls <k5cents@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-02-03 05:00:02 UTC
+Date/Publication: 2024-03-11 07:50:10 UTC

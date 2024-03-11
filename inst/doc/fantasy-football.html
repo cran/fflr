@@ -342,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(fflr)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.2&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.3&#39;</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">ffl_id</span>(<span class="at">leagueId =</span> <span class="st">&quot;42654852&quot;</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; Temporarily set `fflr.leagueId` option to 42654852</span></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;42654852&quot;</span></span></code></pre></div>
@@ -470,13 +470,10 @@ outlooks by player and week and cannot be refined beyond setting a
 returns all the recent news on that player, including premium stories in
 HTML format.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">player_news</span>(<span class="at">playerId =</span> <span class="st">&quot;3139477&quot;</span>, <span class="at">parseHTML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 6</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;        id published           type         premium headline                          body </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;        &lt;lgl&gt;   &lt;chr&gt;                             &lt;chr&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 1 3139477 2024-01-30 23:02:11 HeadlineNews FALSE   Ravens&#39; Justin Tucker downplays … &quot;&lt;p&gt;…</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 2 3139477 2024-01-29 03:28:31 Story        FALSE   Kelce, defense lead Chiefs past … &quot;\n&lt;…</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 3 3139477 2024-01-28 23:53:11 Rotowire     FALSE   Mahomes completed 30 of 39 pass … &quot;Mah…</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 4 3139477 2024-01-27 18:08:33 Story        FALSE   NFL conference championship bett… &quot;&lt;p&gt;…</span></span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 6</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;        id published           type  premium headline                                 body </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;lgl&gt;   &lt;chr&gt;                                    &lt;chr&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 1 3139477 2024-02-28 04:35:17 Story FALSE   Max Strus&#39; buzzer-beater shocks Travis … &quot;&lt;p&gt;…</span></span></code></pre></div>
 </div>
 </div>
 <div id="league" class="section level2">
@@ -777,8 +774,8 @@ settings.</p>
 <span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt;  6     2023              19  -16015 Dolphins  D/ST       Mia     D/ST           </span></span>
 <span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt;  7     2023              19 3124679 Jason     Sanders    Mia     K              </span></span>
 <span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt;  8     2023              19 3122976 Jeff      Wilson Jr. Mia     RB             </span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023              19 4046692 Chase     Claypool   Mia     WR             </span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023              19 4036335 Cedrick   Wilson Jr. Mia     WR             </span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023              19 3054212 Jonnu     Smith      Mia     TE             </span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023              19 4046692 Chase     Claypool   Mia     WR             </span></span>
 <span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: injuryStatus &lt;chr&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;,</span></span>
 <span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="co">#&gt; #   percentChange &lt;dbl&gt;, positionalRanking &lt;int&gt;, totalRating &lt;dbl&gt;,</span></span>
 <span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="co">#&gt; #   auctionValueAverage &lt;dbl&gt;, averageDraftPosition &lt;dbl&gt;, projectedScore &lt;dbl&gt;,</span></span>
