@@ -342,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(fflr)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">packageVersion</span>(<span class="st">&quot;fflr&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.3&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; [1] &#39;2.2.4&#39;</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">ffl_id</span>(<span class="at">leagueId =</span> <span class="st">&quot;42654852&quot;</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; Temporarily set `fflr.leagueId` option to 42654852</span></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;42654852&quot;</span></span></code></pre></div>
@@ -425,7 +425,7 @@ actual scores and ownership statistics.</p>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  4 AUS    WR          2977187 Cooper    Kupp       LAR     WR       A           </span></span>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  5 AUS    WR          4372016 Jaylen    Waddle     Mia     WR       A           </span></span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  6 AUS    TE          2576925 Darren    Waller     NYG     TE       A           </span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  7 AUS    FLEX        3916148 Tony      Pollard    Dal     RB       A           </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  7 AUS    FLEX        3916148 Tony      Pollard    Ten     RB       A           </span></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  8 AUS    D/ST         -16018 Saints    D/ST       NO      D/ST     A           </span></span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  9 AUS    K             15683 Justin    Tucker     Bal     K        A           </span></span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 10 AUS    BE          4361370 Chris     Olave      NO      WR       A           </span></span>
@@ -445,27 +445,10 @@ functions return news on your roster. The first returns <em>all</em>
 outlooks by player and week and cannot be refined beyond setting a
 <code>limit</code> of players to return (in order of rank).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">player_outlook</span>(<span class="at">limit =</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 18 × 6</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId      id firstName lastName outlook                            </span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;                              </span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;  1     2023               0 3116406 Tyreek    Hill     &quot;Hill&#39;s first season with the Dolp…</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;  2     2023               1 3116406 Tyreek    Hill     &quot;Hill is coming off a career seaso…</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;  3     2023               2 3116406 Tyreek    Hill     &quot;Hill might just be the top fantas…</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;  4     2023               3 3116406 Tyreek    Hill     &quot;Hill was shadowed by Patriots roo…</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  5     2023               4 3116406 Tyreek    Hill     &quot;Hill registered nine catches for …</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  6     2023               5 3116406 Tyreek    Hill     &quot;It&#39;s unique when 72 scrimmage yar…</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  7     2023               6 3116406 Tyreek    Hill     &quot;Hill had his way with the Giants …</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  8     2023               7 3116406 Tyreek    Hill     &quot;Rare speed and awesome usage equa…</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  9     2023               8 3116406 Tyreek    Hill     &quot;Now just the fourth player to ecl…</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; 10     2023               9 3116406 Tyreek    Hill     &quot;Hill vowed he’d eclipse 2000 rece…</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 11     2023              10 3116406 Tyreek    Hill     &quot;The Chiefs managed to keep Hill o…</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 12     2023              11 3116406 Tyreek    Hill     &quot;A rare speedster worthy of top bi…</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; 13     2023              12 3116406 Tyreek    Hill     &quot;Against the Jets last week, Hill …</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 14     2023              13 3116406 Tyreek    Hill     &quot;If Hill averages \&quot;just\&quot; 104 yar…</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 15     2023              14 3116406 Tyreek    Hill     &quot;Hill caught four out of five targ…</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; 16     2023              15 3116406 Tyreek    Hill     &quot;Hill’s Week 15 availability was a…</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; 17     2023              16 3116406 Tyreek    Hill     &quot;Hill returned from a one-game abs…</span></span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; 18     2023              17 3116406 Tyreek    Hill     &quot;Hill’s chance for a 2000-yard rec…</span></span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 5</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;   seasonId      id firstName lastName outlook</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;      &lt;int&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; 1     2023 3116406 Tyreek    Hill     &lt;NA&gt;</span></span></code></pre></div>
 <p>The second fiction takes a single <code>playerId</code> value and
 returns all the recent news on that player, including premium stories in
 HTML format.</p>
@@ -587,7 +570,7 @@ settings.</p>
 <span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co">#&gt;  4     2023               1      1 AUS    WR          2977187 Cooper    Kupp       LAR    </span></span>
 <span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="co">#&gt;  5     2023               1      1 AUS    WR          4372016 Jaylen    Waddle     Mia    </span></span>
 <span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="co">#&gt;  6     2023               1      1 AUS    TE          2576925 Darren    Waller     NYG    </span></span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co">#&gt;  7     2023               1      1 AUS    FLEX        3916148 Tony      Pollard    Dal    </span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co">#&gt;  7     2023               1      1 AUS    FLEX        3916148 Tony      Pollard    Ten    </span></span>
 <span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="co">#&gt;  8     2023               1      1 AUS    D/ST         -16018 Saints    D/ST       NO     </span></span>
 <span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a><span class="co">#&gt;  9     2023               1      1 AUS    K             15683 Justin    Tucker     Bal    </span></span>
 <span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a><span class="co">#&gt; 10     2023               1      1 AUS    BE          4361370 Chris     Olave      NO     </span></span>
@@ -605,17 +588,17 @@ settings.</p>
 <span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId abbrev lineupSlot playerId firstName lastName  proTeam</span></span>
 <span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;fct&gt;  </span></span>
 <span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a><span class="co">#&gt;  1     2023               1      2 BOS    QB          3916387 Lamar     Jackson   Bal    </span></span>
-<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      2 BOS    RB          3043078 Derrick   Henry     Ten    </span></span>
-<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a><span class="co">#&gt;  3     2023               1      2 BOS    RB          4047365 Josh      Jacobs    LV     </span></span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      2 BOS    RB          3043078 Derrick   Henry     Bal    </span></span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a><span class="co">#&gt;  3     2023               1      2 BOS    RB          4047365 Josh      Jacobs    GB     </span></span>
 <span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a><span class="co">#&gt;  4     2023               1      2 BOS    WR          4362628 Ja&#39;Marr   Chase     Cin    </span></span>
 <span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a><span class="co">#&gt;  5     2023               1      2 BOS    WR          3116406 Tyreek    Hill      Mia    </span></span>
 <span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a><span class="co">#&gt;  6     2023               1      2 BOS    TE          3116365 Mark      Andrews   Bal    </span></span>
 <span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a><span class="co">#&gt;  7     2023               1      2 BOS    FLEX        4241389 CeeDee    Lamb      Dal    </span></span>
 <span id="cb12-36"><a href="#cb12-36" tabindex="-1"></a><span class="co">#&gt;  8     2023               1      2 BOS    D/ST         -16023 Steelers  D/ST      Pit    </span></span>
 <span id="cb12-37"><a href="#cb12-37" tabindex="-1"></a><span class="co">#&gt;  9     2023               1      2 BOS    K           4360234 Evan      McPherson Cin    </span></span>
-<span id="cb12-38"><a href="#cb12-38" tabindex="-1"></a><span class="co">#&gt; 10     2023               1      2 BOS    BE          3116385 Joe       Mixon     Cin    </span></span>
+<span id="cb12-38"><a href="#cb12-38" tabindex="-1"></a><span class="co">#&gt; 10     2023               1      2 BOS    BE          3116385 Joe       Mixon     Hou    </span></span>
 <span id="cb12-39"><a href="#cb12-39" tabindex="-1"></a><span class="co">#&gt; 11     2023               1      2 BOS    BE          4047650 DK        Metcalf   Sea    </span></span>
-<span id="cb12-40"><a href="#cb12-40" tabindex="-1"></a><span class="co">#&gt; 12     2023               1      2 BOS    BE            15818 Keenan    Allen     LAC    </span></span>
+<span id="cb12-40"><a href="#cb12-40" tabindex="-1"></a><span class="co">#&gt; 12     2023               1      2 BOS    BE            15818 Keenan    Allen     Chi    </span></span>
 <span id="cb12-41"><a href="#cb12-41" tabindex="-1"></a><span class="co">#&gt; 13     2023               1      2 BOS    BE          4248528 Christian Watson    GB     </span></span>
 <span id="cb12-42"><a href="#cb12-42" tabindex="-1"></a><span class="co">#&gt; 14     2023               1      2 BOS    BE          4427366 Breece    Hall      NYJ    </span></span>
 <span id="cb12-43"><a href="#cb12-43" tabindex="-1"></a><span class="co">#&gt; 15     2023               1      2 BOS    BE          4045163 Miles     Sanders   Car    </span></span>
@@ -628,7 +611,7 @@ settings.</p>
 <span id="cb12-50"><a href="#cb12-50" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId abbrev lineupSlot playerId firstName lastName   proTeam</span></span>
 <span id="cb12-51"><a href="#cb12-51" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;  </span></span>
 <span id="cb12-52"><a href="#cb12-52" tabindex="-1"></a><span class="co">#&gt;  1     2023               1      3 CHI    QB          4040715 Jalen     Hurts      Phi    </span></span>
-<span id="cb12-53"><a href="#cb12-53" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      3 CHI    RB          3929630 Saquon    Barkley    NYG    </span></span>
+<span id="cb12-53"><a href="#cb12-53" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      3 CHI    RB          3929630 Saquon    Barkley    Phi    </span></span>
 <span id="cb12-54"><a href="#cb12-54" tabindex="-1"></a><span class="co">#&gt;  3     2023               1      3 CHI    RB          4239996 Travis    Etienne J… Jax    </span></span>
 <span id="cb12-55"><a href="#cb12-55" tabindex="-1"></a><span class="co">#&gt;  4     2023               1      3 CHI    WR          4262921 Justin    Jefferson  Min    </span></span>
 <span id="cb12-56"><a href="#cb12-56" tabindex="-1"></a><span class="co">#&gt;  5     2023               1      3 CHI    WR          4569618 Garrett   Wilson     NYJ    </span></span>
@@ -637,7 +620,7 @@ settings.</p>
 <span id="cb12-59"><a href="#cb12-59" tabindex="-1"></a><span class="co">#&gt;  8     2023               1      3 CHI    D/ST         -16025 49ers     D/ST       SF     </span></span>
 <span id="cb12-60"><a href="#cb12-60" tabindex="-1"></a><span class="co">#&gt;  9     2023               1      3 CHI    K           3055899 Harrison  Butker     KC     </span></span>
 <span id="cb12-61"><a href="#cb12-61" tabindex="-1"></a><span class="co">#&gt; 10     2023               1      3 CHI    BE          4429795 Jahmyr    Gibbs      Det    </span></span>
-<span id="cb12-62"><a href="#cb12-62" tabindex="-1"></a><span class="co">#&gt; 11     2023               1      3 CHI    BE          3042519 Aaron     Jones      GB     </span></span>
+<span id="cb12-62"><a href="#cb12-62" tabindex="-1"></a><span class="co">#&gt; 11     2023               1      3 CHI    BE          3042519 Aaron     Jones      Min    </span></span>
 <span id="cb12-63"><a href="#cb12-63" tabindex="-1"></a><span class="co">#&gt; 12     2023               1      3 CHI    BE          3915511 Joe       Burrow     Cin    </span></span>
 <span id="cb12-64"><a href="#cb12-64" tabindex="-1"></a><span class="co">#&gt; 13     2023               1      3 CHI    BE          2976499 Amari     Cooper     Cle    </span></span>
 <span id="cb12-65"><a href="#cb12-65" tabindex="-1"></a><span class="co">#&gt; 14     2023               1      3 CHI    BE          4697815 Rachaad   White      TB     </span></span>
@@ -651,7 +634,7 @@ settings.</p>
 <span id="cb12-73"><a href="#cb12-73" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId teamId abbrev lineupSlot playerId firstName lastName  proTeam</span></span>
 <span id="cb12-74"><a href="#cb12-74" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;int&gt;  &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;fct&gt;  </span></span>
 <span id="cb12-75"><a href="#cb12-75" tabindex="-1"></a><span class="co">#&gt;  1     2023               1      4 DEN    QB          3918298 Josh      Allen     Buf    </span></span>
-<span id="cb12-76"><a href="#cb12-76" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      4 DEN    RB          3068267 Austin    Ekeler    LAC    </span></span>
+<span id="cb12-76"><a href="#cb12-76" tabindex="-1"></a><span class="co">#&gt;  2     2023               1      4 DEN    RB          3068267 Austin    Ekeler    Wsh    </span></span>
 <span id="cb12-77"><a href="#cb12-77" tabindex="-1"></a><span class="co">#&gt;  3     2023               1      4 DEN    RB          3128720 Nick      Chubb     Cle    </span></span>
 <span id="cb12-78"><a href="#cb12-78" tabindex="-1"></a><span class="co">#&gt;  4     2023               1      4 DEN    WR            16800 Davante   Adams     LV     </span></span>
 <span id="cb12-79"><a href="#cb12-79" tabindex="-1"></a><span class="co">#&gt;  5     2023               1      4 DEN    WR          2976212 Stefon    Diggs     Buf    </span></span>
@@ -662,10 +645,10 @@ settings.</p>
 <span id="cb12-84"><a href="#cb12-84" tabindex="-1"></a><span class="co">#&gt; 10     2023               1      4 DEN    BE          4239993 Tee       Higgins   Cin    </span></span>
 <span id="cb12-85"><a href="#cb12-85" tabindex="-1"></a><span class="co">#&gt; 11     2023               1      4 DEN    BE          4241457 Najee     Harris    Pit    </span></span>
 <span id="cb12-86"><a href="#cb12-86" tabindex="-1"></a><span class="co">#&gt; 12     2023               1      4 DEN    BE          4569173 Rhamondre Stevenson NE     </span></span>
-<span id="cb12-87"><a href="#cb12-87" tabindex="-1"></a><span class="co">#&gt; 13     2023               1      4 DEN    BE          3925357 Calvin    Ridley    Jax    </span></span>
-<span id="cb12-88"><a href="#cb12-88" tabindex="-1"></a><span class="co">#&gt; 14     2023               1      4 DEN    BE          3932905 Diontae   Johnson   Pit    </span></span>
+<span id="cb12-87"><a href="#cb12-87" tabindex="-1"></a><span class="co">#&gt; 13     2023               1      4 DEN    BE          3925357 Calvin    Ridley    Ten    </span></span>
+<span id="cb12-88"><a href="#cb12-88" tabindex="-1"></a><span class="co">#&gt; 14     2023               1      4 DEN    BE          3932905 Diontae   Johnson   Car    </span></span>
 <span id="cb12-89"><a href="#cb12-89" tabindex="-1"></a><span class="co">#&gt; 15     2023               1      4 DEN    BE          3045147 James     Conner    Ari    </span></span>
-<span id="cb12-90"><a href="#cb12-90" tabindex="-1"></a><span class="co">#&gt; 16     2023               1      4 DEN    BE          4048244 Alexander Mattison  Min    </span></span>
+<span id="cb12-90"><a href="#cb12-90" tabindex="-1"></a><span class="co">#&gt; 16     2023               1      4 DEN    BE          4048244 Alexander Mattison  LV     </span></span>
 <span id="cb12-91"><a href="#cb12-91" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: position &lt;fct&gt;, injuryStatus &lt;chr&gt;, projectedScore &lt;dbl&gt;,</span></span>
 <span id="cb12-92"><a href="#cb12-92" tabindex="-1"></a><span class="co">#&gt; #   actualScore &lt;dbl&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;, percentChange &lt;dbl&gt;</span></span></code></pre></div>
 </div>
@@ -766,16 +749,16 @@ settings.</p>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 19</span></span>
 <span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="co">#&gt;    seasonId scoringPeriodId      id firstName lastName   proTeam defaultPosition</span></span>
 <span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="co">#&gt;       &lt;int&gt;           &lt;dbl&gt;   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;   &lt;fct&gt;          </span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt;  1     2023              19 3116406 Tyreek    Hill       Mia     WR             </span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt;  2     2023              19 2576414 Raheem    Mostert    Mia     RB             </span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt;  3     2023              19 4372016 Jaylen    Waddle     Mia     WR             </span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt;  4     2023              19 4429160 De&#39;Von    Achane     Mia     RB             </span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt;  5     2023              19 4241479 Tua       Tagovailoa Mia     QB             </span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt;  6     2023              19  -16015 Dolphins  D/ST       Mia     D/ST           </span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt;  7     2023              19 3124679 Jason     Sanders    Mia     K              </span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt;  8     2023              19 3122976 Jeff      Wilson Jr. Mia     RB             </span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023              19 3054212 Jonnu     Smith      Mia     TE             </span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023              19 4046692 Chase     Claypool   Mia     WR             </span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="co">#&gt;  1     2023               1 3116406 Tyreek    Hill       Mia     WR             </span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="co">#&gt;  2     2023               1 2576414 Raheem    Mostert    Mia     RB             </span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="co">#&gt;  3     2023               1 4372016 Jaylen    Waddle     Mia     WR             </span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="co">#&gt;  4     2023               1 4429160 De&#39;Von    Achane     Mia     RB             </span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="co">#&gt;  5     2023               1 4241479 Tua       Tagovailoa Mia     QB             </span></span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="co">#&gt;  6     2023               1  -16015 Dolphins  D/ST       Mia     D/ST           </span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="co">#&gt;  7     2023               1 3124679 Jason     Sanders    Mia     K              </span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="co">#&gt;  8     2023               1 3122976 Jeff      Wilson Jr. Mia     RB             </span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="co">#&gt;  9     2023               1 3054212 Jonnu     Smith      Mia     TE             </span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="co">#&gt; 10     2023               1 4046692 Chase     Claypool   Mia     WR             </span></span>
 <span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: injuryStatus &lt;chr&gt;, percentStarted &lt;dbl&gt;, percentOwned &lt;dbl&gt;,</span></span>
 <span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="co">#&gt; #   percentChange &lt;dbl&gt;, positionalRanking &lt;int&gt;, totalRating &lt;dbl&gt;,</span></span>
 <span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="co">#&gt; #   auctionValueAverage &lt;dbl&gt;, averageDraftPosition &lt;dbl&gt;, projectedScore &lt;dbl&gt;,</span></span>

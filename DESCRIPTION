@@ -1,6 +1,6 @@
 Package: fflr
 Title: Retrieve ESPN Fantasy Football Data
-Version: 2.2.3
+Version: 2.2.4
 Authors@R: 
     person("Kiernan", "Nicholls", email = "k5cents@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9229-7897"))
@@ -21,9 +21,9 @@ Language: en-US
 LazyData: true
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2024-03-11 02:59:47 UTC; kiernan
+Packaged: 2024-03-28 13:49:16 UTC; knicholls
 Author: Kiernan Nicholls [aut, cre, cph]
     (<https://orcid.org/0000-0002-9229-7897>)
 Maintainer: Kiernan Nicholls <k5cents@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-03-11 07:50:10 UTC
+Date/Publication: 2024-03-28 16:20:10 UTC
