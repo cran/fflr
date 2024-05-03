@@ -103,3 +103,4 @@ test_that("trade settings for a single season", {
   expect_type(t$allowOutOfUniverse, "logical")
   expect_false(t$allowOutOfUniverse)
 })
+

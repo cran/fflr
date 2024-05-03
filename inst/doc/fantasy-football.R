@@ -1,4 +1,4 @@
-## ---- include = FALSE-------------------------------------------------------------------
+## ----include = FALSE--------------------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -13,8 +13,8 @@ packageVersion("fflr")
 ffl_id(leagueId = "42654852")
 
 ## ----team-roster------------------------------------------------------------------------
-my_team <- team_roster(scoringPeriodId = 1)[[1]] # select first roster
-my_team[, -(1:3)]
+my_team <- team_roster(scoringPeriodId = 1, leagueHistory = TRUE)[[1]] # select first roster
+my_team[[1]][, -(1:3)]
 
 ## ----player-outlook---------------------------------------------------------------------
 player_outlook(limit = 1)
